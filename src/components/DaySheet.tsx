@@ -47,8 +47,9 @@ function DayForm({ day }: { day: TripDay }) {
 
   return (
     <div className="space-y-5">
-      <Field label="Base city">
+      <Field label="Base city" group>
         <input
+          aria-label="Base city"
           className={inputClass}
           value={draft.city ?? ""}
           onChange={(e) => set("city", e.target.value)}
