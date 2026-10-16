@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 旅 Japan '27
 
-## Getting Started
+Josh & Sam's planner for Japan, **29 Mar – 11 Apr 2027** (into Tokyo, out of Osaka).
+Sakura on VHS: washi paper, film grain, ticket stubs.
 
-First, run the development server:
+## What it does
+
+- **Today**: countdown before the trip, then that day's plan and map once you're there.
+- **Trip**: the whole 14 days at a glance: route ribbon, every day, everything on one map.
+- **Days**: 3, 5 or 7 days side by side; ◀◀ ▶▶ to move through the trip.
+- **Ideas**: a curated starter list (cars, drives, retro games, kissaten, craft beer, sakura spots) plus your own wishlist. Tap **+ Add to plan** to drop one into a day.
+- Tap a ticket to edit it; tap its status stamp to cycle Idea → Planned → Booked → Done.
+- Tap **Edit** on a day to set the city, hotel and whether it's a 道 drive day.
+- Changes sync live between both phones.
+
+There's no login, just "who's watching?" (Josh/Sam), remembered per device.
+
+## Stack
+
+Next.js 16 (App Router) · TypeScript · Tailwind v4 · Framer Motion · Supabase (Postgres + Realtime) · Leaflet/OpenStreetMap · Vercel.
+
+## Run locally
 
 ```bash
+cp .env.example .env.local   # values are the public Supabase URL + publishable key
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy (Vercel)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. vercel.com → **Add New → Project** → import `japan-2027`.
+2. Add the two env vars from `.env.example` (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`) for all environments.
+3. Deploy. Every push to `main` goes to production; other branches get preview URLs.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Database
 
-## Learn More
+Supabase project `japan-2027` (Tokyo region). Schema is in `supabase/migrations/`, the suggestion seed data in `supabase/seed/suggestions.json`.
 
-To learn more about Next.js, take a look at the following resources:
+Tables: `trip_days` (one row per date), `plan_items` (the tickets), `suggestions` (curated catalogue), `travellers`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Privacy note:** with no passwords, anyone who has the site URL can view and edit the plan. The site is marked `noindex`, so keep the link between the two of you.

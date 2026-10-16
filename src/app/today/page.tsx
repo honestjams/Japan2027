@@ -1,0 +1,124 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { itemsForDay, useTrip } from "@/components/TripProvider";
+import { DayBlock } from "@/components/DayBlock";
+import { Loading } from "@/components/Loading";
+import { MapView, toPoints } from "@/components/MapView";
+import { Petals } from "@/components/Petals";
+import { SectionLabel, spring } from "@/components/ui";
+import {
+  TRIP_END,
+  TRIP_START,
+  dayNumber,
+  diffDays,
+  longDate,
+  pad2,
+  todayInJapan,
+  vhsStamp,
+} from "@/lib/dates";
+
+export default function TodayPage() {
+  const { days, items, loading } = useTrip();
+  if (loading) return <Loading />;
+
+  const today = todayInJapan();
+  const before = today < TRIP_START;
+  const after = today > TRIP_END;
+  // Before the trip, "today" previews Day 1 so there's always something to plan.
+  const focusDate = before ? TRIP_START : after ? TRIP_END : today;
+  const day = days.find((d) => d.date === focusDate);
+  const dayItems = itemsForDay(items, focusDate);
+  const ideas = items.filter((i) => !i.date).length;
+
+  return (
+    <>
+      <Petals />
+      <motion.section
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={spring}
+        className="scanlines relative -mx-4 mb-8 overflow-hidden border-b border-paper-edge px-4 pb-14 pt-6"
+      >
+        <div className="flex justify-between">
+          <p className="vhs-text text-2xl text-tape-red">
+            {after ? "■ STOP" : before ? "❚❚ PAUSE" : "▶ PLAY"}
+          </p>
+          <p className="vhs-text text-2xl">SP</p>
+        </div>
+
+        {before ? (
+          <>
+            <p className="mt-8 font-display text-[72px] font-extrabold leading-none tracking-tight">
+              {diffDays(today, TRIP_START)}
+            </p>
+            <p className="mt-2 font-display text-2xl font-bold">
+              sleeps until Tokyo.
+            </p>
+            <p className="mt-3 max-w-sm text-ink-soft">
+              {items.filter((i) => i.date).length} tickets planned so far,{" "}
+              {ideas} ideas waiting for a day.
+            </p>
+          </>
+        ) : after ? (
+          <>
+            <p className="mt-8 font-display text-5xl font-extrabold leading-tight">
+              That&apos;s a wrap.
+            </p>
+            <p className="mt-2 text-ink-soft">
+              {items.filter((i) => i.status === "done").length} things done
+              across 14 days.
+            </p>
+          </>
+        ) : (
+          <>
+            <p className="vhs-text mt-8 text-2xl uppercase text-ink-soft">
+              Day {pad2(dayNumber(today))} of 14
+            </p>
+            <p className="font-display text-4xl font-extrabold leading-tight">
+              {longDate(today)}
+            </p>
+            <p className="mt-1 text-lg">{day?.city}</p>
+          </>
+        )}
+
+        <p className="vhs-text absolute bottom-3 right-4 text-xl">
+          {vhsStamp(focusDate)}
+        </p>
+      </motion.section>
+
+      {before && (
+        <p className="vhs-text mb-4 text-lg uppercase text-ink-soft">
+          ▶ Preview · Day 01
+        </p>
+      )}
+
+      <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+        {day && <DayBlock day={day} />}
+        {toPoints(dayItems).length > 0 && (
+          <div>
+            <MapView points={toPoints(dayItems)} className="h-80" />
+          </div>
+        )}
+      </div>
+
+      {ideas > 0 && (
+        <>
+          <SectionLabel>Loose ideas</SectionLabel>
+          <Link
+            href="/ideas?tab=ours"
+            className="paper-card block p-4 hover:-translate-y-0.5 transition-transform"
+          >
+            <p className="font-display text-lg font-bold">
+              {ideas} idea{ideas === 1 ? "" : "s"} without a day yet →
+            </p>
+            <p className="text-sm text-ink-soft">
+              Give them a slot so they don&apos;t get forgotten.
+            </p>
+          </Link>
+        </>
+      )}
+    </>
+  );
+}

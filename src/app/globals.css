@@ -1,26 +1,279 @@
 @import "tailwindcss";
 
+/* ── Sakura on VHS ─────────────────────────────────────────────
+   Washi paper, sumi ink, faded tape colours. Dark mode is "night tape". */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --washi: #f2ebdd;
+  --paper: #fbf7ee;
+  --paper-edge: #e4dac6;
+  --ink: #2a2522;
+  --ink-soft: #6b625b;
+  --sakura: #e7b3b6;
+  --sakura-deep: #c97f86;
+  --tape-red: #c8553d;
+  --shadow: 42 37 34;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --cat-food: #c8553d;
+  --cat-coffee: #8a5a3b;
+  --cat-drinks: #d6a23f;
+  --cat-retro: #7a6fa8;
+  --cat-cars: #4f7f7c;
+  --cat-drive: #3e6a8a;
+  --cat-sights: #d98f96;
+  --cat-shopping: #8c9460;
+  --cat-transport: #8c8680;
+  --cat-stay: #b98a6e;
+  --cat-tip: #6b625b;
+
+  --grain-opacity: 0.09;
+  --grain-blend: multiply;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --washi: #1b191e;
+    --paper: #26232a;
+    --paper-edge: #34303a;
+    --ink: #ede6d9;
+    --ink-soft: #a39a90;
+    --sakura: #e7b3b6;
+    --sakura-deep: #f0c4c7;
+    --tape-red: #e2735c;
+    --shadow: 0 0 0;
+    --cat-coffee: #b98466;
+    --cat-retro: #a097d0;
+    --cat-cars: #6fa5a1;
+    --cat-drive: #6b98ba;
+    --grain-opacity: 0.14;
+    --grain-blend: screen;
+    color-scheme: dark;
   }
 }
 
+@theme inline {
+  --color-washi: var(--washi);
+  --color-paper: var(--paper);
+  --color-paper-edge: var(--paper-edge);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-sakura: var(--sakura);
+  --color-sakura-deep: var(--sakura-deep);
+  --color-tape-red: var(--tape-red);
+  --font-display: var(--font-shippori), serif;
+  --font-body: var(--font-zen), system-ui, sans-serif;
+  --font-vhs: var(--font-vt323), ui-monospace, monospace;
+}
+
+html {
+  background: var(--washi);
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--washi);
+  color: var(--ink);
+  font-family: var(--font-body);
+  min-height: 100dvh;
+}
+
+::selection {
+  background: var(--sakura);
+  color: #2a2522;
+}
+
+/* Film grain: an SVG noise tile that jitters a few frames per second. */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 1.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.9s steps(6) infinite;
+}
+
+@keyframes grain {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3%, 2%);
+  }
+  40% {
+    transform: translate(2%, -4%);
+  }
+  60% {
+    transform: translate(-4%, -1%);
+  }
+  80% {
+    transform: translate(3%, 3%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Soft VHS scanlines + a faint vignette on the paper. */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 2px,
+    rgb(var(--shadow) / 0.045) 2px 3px
+  );
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 59;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgb(var(--shadow) / 0.12) 100%
+  );
+}
+
+/* Slight red/blue channel split, like a worn tape. */
+.vhs-text {
+  font-family: var(--font-vhs);
+  letter-spacing: 0.04em;
+  text-shadow:
+    -1px 0 rgb(200 85 61 / 0.55),
+    1px 0 rgb(62 106 138 / 0.5);
+}
+
+/* Ticket stub: notched sides cut with a mask; the shadow lives on the wrapper. */
+.ticket {
+  background: var(--paper);
+  -webkit-mask:
+    radial-gradient(circle 9px at 0 50%, #0000 97%, #000) left / 51% 100%
+      no-repeat,
+    radial-gradient(circle 9px at 100% 50%, #0000 97%, #000) right / 51% 100%
+      no-repeat;
+  mask:
+    radial-gradient(circle 9px at 0 50%, #0000 97%, #000) left / 51% 100%
+      no-repeat,
+    radial-gradient(circle 9px at 100% 50%, #0000 97%, #000) right / 51% 100%
+      no-repeat;
+}
+
+.paper-shadow {
+  filter: drop-shadow(0 1px 0 rgb(var(--shadow) / 0.08))
+    drop-shadow(0 6px 10px rgb(var(--shadow) / 0.12));
+}
+
+.paper-card {
+  background: var(--paper);
+  border-radius: 6px;
+  box-shadow:
+    0 1px 0 rgb(var(--shadow) / 0.06),
+    0 8px 18px -8px rgb(var(--shadow) / 0.25);
+}
+
+.perforation {
+  background-image: radial-gradient(
+    circle,
+    var(--paper-edge) 1.3px,
+    transparent 1.6px
+  );
+  background-size: 2px 7px;
+  background-repeat: repeat-y;
+}
+
+/* Washi tape strip with torn ends. */
+.tape {
+  position: absolute;
+  height: 16px;
+  opacity: 0.82;
+  clip-path: polygon(
+    0 12%,
+    4% 0,
+    9% 14%,
+    14% 2%,
+    100% 0,
+    96% 50%,
+    100% 100%,
+    8% 100%,
+    3% 88%,
+    0 100%,
+    4% 50%
+  );
+  background-image: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 0.18) 0 2px,
+    transparent 2px 6px
+  );
+}
+
+.hanko {
+  font-family: var(--font-display);
+  border: 1.5px solid currentColor;
+  border-radius: 5px;
+  line-height: 1;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+
+/* Leaflet tiles get a sepia print treatment to match the paper. */
+.leaflet-container {
+  background: var(--paper-edge);
+  font-family: var(--font-body);
+}
+.leaflet-tile-pane {
+  filter: sepia(0.45) saturate(0.7) contrast(0.95) brightness(1.02);
+}
+@media (prefers-color-scheme: dark) {
+  .leaflet-tile-pane {
+    filter: invert(0.92) hue-rotate(180deg) sepia(0.35) saturate(0.6)
+      brightness(0.85);
+  }
+}
+.leaflet-bar a,
+.leaflet-control-attribution {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  border-color: var(--paper-edge) !important;
+}
+.leaflet-control-attribution a {
+  color: var(--ink-soft) !important;
+}
+.map-pin {
+  background: none;
+  border: none;
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(var(--drift), 110vh, 0) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grain {
+    animation: none !important;
+  }
+  .petal {
+    display: none;
+  }
 }

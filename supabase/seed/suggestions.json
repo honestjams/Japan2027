@@ -1,0 +1,737 @@
+[
+    {
+        "title": "Daikoku PA night meet",
+        "category": "cars",
+        "city": "Yokohama",
+        "area": "Tsurumi",
+        "description": "The famous expressway parking area where JDM, VIP and supercar crowds gather on weekend nights. Police often close it when it gets busy, so go early (around 8pm) and have Tatsumi PA as a backup. Only reachable by car or taxi on the expressway.",
+        "cost_hint": "Free (+ tolls)",
+        "tags": [
+            "night",
+            "weekend",
+            "jdm",
+            "needs-car"
+        ],
+        "lat": 35.4625,
+        "lng": 139.6801,
+        "url": null
+    },
+    {
+        "title": "Tatsumi PA No.1",
+        "category": "cars",
+        "city": "Tokyo",
+        "area": "Koto",
+        "description": "Smaller, more relaxed version of Daikoku right next to the Shuto loop. Friday/Saturday nights are best. Also often closed by police, so check socials on the night.",
+        "cost_hint": "Free (+ tolls)",
+        "tags": [
+            "night",
+            "weekend",
+            "jdm",
+            "needs-car"
+        ],
+        "lat": 35.6457,
+        "lng": 139.8113,
+        "url": null
+    },
+    {
+        "title": "Nissan Heritage Collection (Zama)",
+        "category": "cars",
+        "city": "Kanagawa",
+        "area": "Zama",
+        "description": "Around 300 of Nissan's historic cars: Skylines, Z cars, race cars, Le Mans prototypes. Free, but tours must be booked online in advance and slots go quickly.",
+        "cost_hint": "Free, booking required",
+        "tags": [
+            "museum",
+            "booking",
+            "nissan"
+        ],
+        "lat": 35.487,
+        "lng": 139.4065,
+        "url": null
+    },
+    {
+        "title": "Nissan Global HQ Gallery",
+        "category": "cars",
+        "city": "Yokohama",
+        "area": "Minatomirai",
+        "description": "Free showroom with current models and rotating heritage/race cars. Quick visit if you're in Yokohama anyway.",
+        "cost_hint": "Free",
+        "tags": [
+            "showroom",
+            "nissan"
+        ],
+        "lat": 35.4623,
+        "lng": 139.6225,
+        "url": null
+    },
+    {
+        "title": "NISMO Omori Factory",
+        "category": "cars",
+        "city": "Yokohama",
+        "area": "Tsurumi",
+        "description": "NISMO's restoration and tuning workshop for Skyline GT-Rs. It has a small showroom and shop, and you can sometimes see R32\u2013R34s being rebuilt. Check opening days first.",
+        "cost_hint": "Free to look",
+        "tags": [
+            "gt-r",
+            "workshop",
+            "nissan"
+        ],
+        "lat": 35.503,
+        "lng": 139.676,
+        "url": null
+    },
+    {
+        "title": "Mooneyes Area-1",
+        "category": "cars",
+        "city": "Yokohama",
+        "area": "Honmoku",
+        "description": "The Japanese base of the hot rod / custom culture brand. Shop, merch and the occasional car gathering out front. Very niche, nice vibe.",
+        "cost_hint": "Free",
+        "tags": [
+            "shop",
+            "hotrod",
+            "culture"
+        ],
+        "lat": 35.417,
+        "lng": 139.6585,
+        "url": null
+    },
+    {
+        "title": "Super Autobacs Tokyo Bay",
+        "category": "cars",
+        "city": "Tokyo",
+        "area": "Shinonome",
+        "description": "Huge flagship car parts and accessories store. Good for wandering around, browsing JDM parts and picking up souvenir stickers or air fresheners.",
+        "cost_hint": "Free",
+        "tags": [
+            "shop",
+            "parts"
+        ],
+        "lat": 35.642,
+        "lng": 139.803,
+        "url": null
+    },
+    {
+        "title": "Up Garage (any branch)",
+        "category": "cars",
+        "city": "Tokyo",
+        "area": "Various",
+        "description": "A chain of second-hand car parts stores, a treasure hunt for wheels, steering wheels, shift knobs and old car magazines. Branches are everywhere in the suburbs, so they're easy to drop into on a drive day.",
+        "cost_hint": "Free to browse",
+        "tags": [
+            "shop",
+            "parts",
+            "used",
+            "needs-car"
+        ],
+        "lat": null,
+        "lng": null,
+        "url": null
+    },
+    {
+        "title": "Fuji Speedway + Fuji Motorsports Museum",
+        "category": "cars",
+        "city": "Shizuoka",
+        "area": "Oyama",
+        "description": "Race circuit at the foot of Mt Fuji. The museum (opened 2022) covers racing history, and some weekends have track days or races. Easy to pair with a Hakone drive.",
+        "cost_hint": "~\u00a51,800 museum",
+        "tags": [
+            "circuit",
+            "museum",
+            "fuji",
+            "needs-car"
+        ],
+        "lat": 35.3717,
+        "lng": 138.927,
+        "url": null
+    },
+    {
+        "title": "Honda Collection Hall (Motegi)",
+        "category": "cars",
+        "city": "Tochigi",
+        "area": "Motegi",
+        "description": "Honda's museum at Mobility Resort Motegi: F1 cars, bikes, NSXs. It's a long day trip from Tokyo (about 2.5 hours by car), so it's only worth it if you're really keen.",
+        "cost_hint": "Free museum (parking fee)",
+        "tags": [
+            "museum",
+            "honda",
+            "daytrip",
+            "needs-car"
+        ],
+        "lat": 36.532,
+        "lng": 140.227,
+        "url": null
+    },
+    {
+        "title": "Toyota Automobile Museum",
+        "category": "cars",
+        "city": "Nagoya",
+        "area": "Nagakute",
+        "description": "Arguably Japan's best car museum: about 140 cars from early horseless carriages to 2000GT and Lexus LFA, covering Japanese and foreign makes. Not touristy at all.",
+        "cost_hint": "~\u00a51,200",
+        "tags": [
+            "museum",
+            "toyota"
+        ],
+        "lat": 35.1745,
+        "lng": 137.0567,
+        "url": null
+    },
+    {
+        "title": "Toyota Commemorative Museum of Industry & Technology",
+        "category": "cars",
+        "city": "Nagoya",
+        "area": "Nishi-ku",
+        "description": "Toyota's origins, from looms to cars, in an old red-brick factory. Hands-on and surprisingly fun.",
+        "cost_hint": "~\u00a51,000",
+        "tags": [
+            "museum",
+            "toyota",
+            "engineering"
+        ],
+        "lat": 35.1828,
+        "lng": 136.877,
+        "url": null
+    },
+    {
+        "title": "Suzuka Circuit",
+        "category": "cars",
+        "city": "Mie",
+        "area": "Suzuka",
+        "description": "The legendary F1 circuit, roughly between Nagoya and Osaka. Check the calendar for April events. There are circuit experiences and go-karts on the figure-of-8 layout.",
+        "cost_hint": "Varies",
+        "tags": [
+            "circuit",
+            "f1",
+            "needs-car"
+        ],
+        "lat": 34.8431,
+        "lng": 136.541,
+        "url": null
+    },
+    {
+        "title": "Rent a JDM sports car (Omoshiro / Fun2Drive)",
+        "category": "cars",
+        "city": "Tokyo",
+        "area": "Various",
+        "description": "Specialist rental companies that hire out R34s, FDs, Silvias, NSXs and so on. These are much more fun than a normal rental car for drive days. Book early: spring is busy, and some cars need a deposit.",
+        "cost_hint": "\u00a5\u00a5\u00a5 (varies by car)",
+        "tags": [
+            "rental",
+            "booking",
+            "jdm"
+        ],
+        "lat": null,
+        "lng": null,
+        "url": null
+    },
+    {
+        "title": "International Driving Permit",
+        "category": "tip",
+        "city": "Before you go",
+        "area": null,
+        "description": "You need a 1949 Geneva Convention IDP alongside your licence to rent a car in Japan. Rental companies will turn you away without one. Get it before you leave home.",
+        "cost_hint": null,
+        "tags": [
+            "admin",
+            "must-do"
+        ],
+        "lat": null,
+        "lng": null,
+        "url": null
+    },
+    {
+        "title": "Mazda Turnpike \u2192 Ashinoko Skyline",
+        "category": "drive",
+        "city": "Hakone / Fuji",
+        "area": "Hakone",
+        "description": "Classic Hakone drive: wide sweeping toll road up from Odawara, with the Mazda-branded Turnpike rest area at the top, then the Ashinoko Skyline along the ridge. On a clear day there are Fuji views.",
+        "cost_hint": "Tolls ~\u00a51,000\u20132,000",
+        "tags": [
+            "scenic",
+            "fuji",
+            "toll",
+            "needs-car"
+        ],
+        "lat": 35.2365,
+        "lng": 139.0815,
+        "url": null
+    },
+    {
+        "title": "Izu Skyline",
+        "category": "drive",
+        "city": "Hakone / Fuji",
+        "area": "Izu",
+        "description": "A 40km ridge road running south from Hakone down the Izu peninsula. Quiet on weekdays, with lots of viewpoints. Finish at an onsen town on the coast.",
+        "cost_hint": "Toll ~\u00a51,000",
+        "tags": [
+            "scenic",
+            "toll",
+            "onsen",
+            "needs-car"
+        ],
+        "lat": 35.11,
+        "lng": 139.02,
+        "url": null
+    },
+    {
+        "title": "Fuji Five Lakes loop",
+        "category": "drive",
+        "city": "Hakone / Fuji",
+        "area": "Kawaguchiko",
+        "description": "Slow loop around Kawaguchiko, Saiko and Motosuko, the view on the \u00a51,000 note. Early April can have cherry blossom with snowy Fuji behind it.",
+        "cost_hint": "Free",
+        "tags": [
+            "scenic",
+            "fuji",
+            "sakura",
+            "needs-car"
+        ],
+        "lat": 35.517,
+        "lng": 138.752,
+        "url": null
+    },
+    {
+        "title": "Hakone onsen night",
+        "category": "sights",
+        "city": "Hakone / Fuji",
+        "area": "Hakone",
+        "description": "Pick a small ryokan with private baths (kashikiri) instead of a big hotel. It's the perfect end to a drive day.",
+        "cost_hint": "\u00a5\u00a5\u00a5",
+        "tags": [
+            "onsen",
+            "stay",
+            "cozy"
+        ],
+        "lat": 35.2324,
+        "lng": 139.1069,
+        "url": null
+    },
+    {
+        "title": "Super Potato Akihabara",
+        "category": "retro",
+        "city": "Tokyo",
+        "area": "Akihabara",
+        "description": "Three floors of retro consoles and games, with a tiny retro arcade on the top floor. Prices are touristy for big titles, but it's worth seeing.",
+        "cost_hint": "Free to browse",
+        "tags": [
+            "games",
+            "shop",
+            "arcade"
+        ],
+        "lat": 35.7003,
+        "lng": 139.7714,
+        "url": null
+    },
+    {
+        "title": "Hey (Hirose Entertainment Yard)",
+        "category": "retro",
+        "city": "Tokyo",
+        "area": "Akihabara",
+        "description": "Arcade with a whole floor of 80s/90s shooters and fighters still running on original cabinets.",
+        "cost_hint": "\u00a5100 a go",
+        "tags": [
+            "arcade",
+            "games"
+        ],
+        "lat": 35.699,
+        "lng": 139.7713,
+        "url": null
+    },
+    {
+        "title": "Game Center Mikado",
+        "category": "retro",
+        "city": "Tokyo",
+        "area": "Takadanobaba",
+        "description": "A proper local retro arcade, loved by fighting game players. Lots of 90s cabinets and a non-touristy crowd.",
+        "cost_hint": "\u00a5100 a go",
+        "tags": [
+            "arcade",
+            "games",
+            "local"
+        ],
+        "lat": 35.7128,
+        "lng": 139.7036,
+        "url": null
+    },
+    {
+        "title": "Nakano Broadway",
+        "category": "retro",
+        "city": "Tokyo",
+        "area": "Nakano",
+        "description": "A 1960s mall packed with tiny shops (lots of Mandarake) selling vintage toys, anime cels, old games, watches and figures. Much calmer than Akihabara.",
+        "cost_hint": "Free to browse",
+        "tags": [
+            "shop",
+            "toys",
+            "anime",
+            "collectors"
+        ],
+        "lat": 35.7085,
+        "lng": 139.6658,
+        "url": null
+    },
+    {
+        "title": "Surugaya / Trader (Akihabara)",
+        "category": "retro",
+        "city": "Tokyo",
+        "area": "Akihabara",
+        "description": "Big used-game chains with fairer prices than the boutique retro shops. Good for actually buying cartridges.",
+        "cost_hint": "Cheap\u2013mid",
+        "tags": [
+            "games",
+            "shop",
+            "used"
+        ],
+        "lat": 35.6995,
+        "lng": 139.772,
+        "url": null
+    },
+    {
+        "title": "Ghibli Museum, Mitaka",
+        "category": "retro",
+        "city": "Tokyo",
+        "area": "Mitaka",
+        "description": "Charming, small and hand-crafted. Tickets go on sale on the 10th of the month before (so 10 March for early April) and sell out fast. Combine with Inokashira Park.",
+        "cost_hint": "\u00a51,000",
+        "tags": [
+            "ghibli",
+            "booking",
+            "anime"
+        ],
+        "lat": 35.6962,
+        "lng": 139.5704,
+        "url": null
+    },
+    {
+        "title": "Nintendo Museum",
+        "category": "retro",
+        "city": "Kyoto",
+        "area": "Uji",
+        "description": "Opened late 2024 in Nintendo's old Uji factory: hanafuda cards up to the Switch, with playable giant-sized games. Tickets are by lottery months ahead, so enter early.",
+        "cost_hint": "\u00a53,300",
+        "tags": [
+            "games",
+            "booking",
+            "nintendo"
+        ],
+        "lat": 34.8963,
+        "lng": 135.7932,
+        "url": null
+    },
+    {
+        "title": "Osu shopping street",
+        "category": "retro",
+        "city": "Nagoya",
+        "area": "Osu",
+        "description": "Covered shopping arcade full of retro game shops, second-hand stores and street food. Very local feel.",
+        "cost_hint": "Free to browse",
+        "tags": [
+            "games",
+            "shop",
+            "street-food"
+        ],
+        "lat": 35.159,
+        "lng": 136.904,
+        "url": null
+    },
+    {
+        "title": "Den Den Town (Nipponbashi)",
+        "category": "retro",
+        "city": "Osaka",
+        "area": "Nipponbashi",
+        "description": "Osaka's Akihabara, a bit grittier and cheaper. Super Potato Osaka, retro arcades and used-game shops all within a few blocks.",
+        "cost_hint": "Free to browse",
+        "tags": [
+            "games",
+            "shop",
+            "arcade"
+        ],
+        "lat": 34.6597,
+        "lng": 135.5062,
+        "url": null
+    },
+    {
+        "title": "Shinsekai",
+        "category": "retro",
+        "city": "Osaka",
+        "area": "Shinsekai",
+        "description": "A faded Showa-era neighbourhood under Tsutenkaku tower, with kushikatsu stalls, old smart-ball parlours and retro game centres. Great at dusk.",
+        "cost_hint": "Cheap",
+        "tags": [
+            "showa",
+            "food",
+            "arcade"
+        ],
+        "lat": 34.6525,
+        "lng": 135.5063,
+        "url": null
+    },
+    {
+        "title": "Caf\u00e9 de l'Ambre",
+        "category": "coffee",
+        "city": "Tokyo",
+        "area": "Ginza",
+        "description": "Pour-over coffee only, since 1948. The owner ages his own beans for decades. A dark wood counter, and very quiet.",
+        "cost_hint": "~\u00a51,000",
+        "tags": [
+            "kissaten",
+            "showa",
+            "quiet"
+        ],
+        "lat": 35.668,
+        "lng": 139.7648,
+        "url": null
+    },
+    {
+        "title": "Kissa Sabouru",
+        "category": "coffee",
+        "city": "Tokyo",
+        "area": "Jimbocho",
+        "description": "A cave-like 1955 kissaten among Jimbocho's second-hand bookshops. Try the coloured cream sodas. Browse the bookshops for old magazines afterwards.",
+        "cost_hint": "~\u00a5700",
+        "tags": [
+            "kissaten",
+            "showa",
+            "books"
+        ],
+        "lat": 35.696,
+        "lng": 139.759,
+        "url": null
+    },
+    {
+        "title": "Yanaka & Yanaka Ginza",
+        "category": "coffee",
+        "city": "Tokyo",
+        "area": "Yanaka",
+        "description": "Old-Tokyo neighbourhood that survived the war: little caf\u00e9s, a temple-lined cemetery with cherry trees, and a sleepy shopping street. Perfect quiet sakura morning.",
+        "cost_hint": "Free",
+        "tags": [
+            "walk",
+            "sakura",
+            "cozy",
+            "old-tokyo"
+        ],
+        "lat": 35.7275,
+        "lng": 139.766,
+        "url": null
+    },
+    {
+        "title": "Smart Coffee",
+        "category": "coffee",
+        "city": "Kyoto",
+        "area": "Teramachi",
+        "description": "Kyoto kissaten since 1932, known for its fluffy pancakes and French toast. Go at opening to avoid the queue.",
+        "cost_hint": "~\u00a51,000",
+        "tags": [
+            "kissaten",
+            "breakfast"
+        ],
+        "lat": 35.0092,
+        "lng": 135.7672,
+        "url": null
+    },
+    {
+        "title": "Rokuyosha",
+        "category": "coffee",
+        "city": "Kyoto",
+        "area": "Kawaramachi",
+        "description": "A 1950 basement coffee house with tiled walls, hand-roasted beans and homemade donuts. Like stepping into a film.",
+        "cost_hint": "~\u00a5800",
+        "tags": [
+            "kissaten",
+            "showa",
+            "cozy"
+        ],
+        "lat": 35.008,
+        "lng": 135.7703,
+        "url": null
+    },
+    {
+        "title": "Nakazakicho caf\u00e9s",
+        "category": "coffee",
+        "city": "Osaka",
+        "area": "Nakazakicho",
+        "description": "Quiet pre-war lanes behind Umeda full of tiny independent caf\u00e9s, vintage shops and galleries.",
+        "cost_hint": "Cheap",
+        "tags": [
+            "walk",
+            "cozy",
+            "vintage"
+        ],
+        "lat": 34.7077,
+        "lng": 135.5046,
+        "url": null
+    },
+    {
+        "title": "Shimokitazawa",
+        "category": "drinks",
+        "city": "Tokyo",
+        "area": "Shimokitazawa",
+        "description": "Vintage clothes, record shops, tiny live-music bars and craft beer. Ushitora is a great taproom here. Best explored from the afternoon into the evening.",
+        "cost_hint": "Cheap\u2013mid",
+        "tags": [
+            "vintage",
+            "craft-beer",
+            "records",
+            "cozy"
+        ],
+        "lat": 35.6615,
+        "lng": 139.668,
+        "url": null
+    },
+    {
+        "title": "Koenji",
+        "category": "drinks",
+        "city": "Tokyo",
+        "area": "Koenji",
+        "description": "Punk and vintage neighbourhood with a maze of six-seat bars and izakaya under the train tracks. Feels very local.",
+        "cost_hint": "Cheap",
+        "tags": [
+            "bars",
+            "vintage",
+            "local"
+        ],
+        "lat": 35.7055,
+        "lng": 139.6496,
+        "url": null
+    },
+    {
+        "title": "Beer Club Popeye",
+        "category": "drinks",
+        "city": "Tokyo",
+        "area": "Ryogoku",
+        "description": "Legendary craft beer bar with 70+ Japanese beers on tap. Go before 8pm for the happy-hour free snacks.",
+        "cost_hint": "~\u00a51,000/pint",
+        "tags": [
+            "craft-beer"
+        ],
+        "lat": 35.6967,
+        "lng": 139.7957,
+        "url": null
+    },
+    {
+        "title": "Nonbei Yokocho",
+        "category": "drinks",
+        "city": "Tokyo",
+        "area": "Shibuya",
+        "description": "A lantern-lit alley of tiny bars right by Shibuya station. It's a quieter, less touristy alternative to Golden Gai.",
+        "cost_hint": "Cover charges vary",
+        "tags": [
+            "bars",
+            "alley",
+            "cozy"
+        ],
+        "lat": 35.6593,
+        "lng": 139.7029,
+        "url": null
+    },
+    {
+        "title": "Harmonica Yokocho, Kichijoji",
+        "category": "drinks",
+        "city": "Tokyo",
+        "area": "Kichijoji",
+        "description": "A narrow post-war market alley with standing bars and yakitori. Pair it with a rowboat on Inokashira Park pond under the cherry blossom.",
+        "cost_hint": "Cheap",
+        "tags": [
+            "bars",
+            "alley",
+            "sakura"
+        ],
+        "lat": 35.7033,
+        "lng": 139.5797,
+        "url": null
+    },
+    {
+        "title": "Beer Komachi",
+        "category": "drinks",
+        "city": "Kyoto",
+        "area": "Higashiyama",
+        "description": "Small, friendly craft beer bar with an all-Japanese tap list and great bar food, in an old shopping arcade.",
+        "cost_hint": "~\u00a51,000/glass",
+        "tags": [
+            "craft-beer",
+            "cozy"
+        ],
+        "lat": 35.0083,
+        "lng": 135.7782,
+        "url": null
+    },
+    {
+        "title": "Beer Belly (Minoh Beer)",
+        "category": "drinks",
+        "city": "Osaka",
+        "area": "Tosabori",
+        "description": "The taproom of Minoh Beer, one of Japan's best breweries. Relaxed, near the river.",
+        "cost_hint": "~\u00a51,000/glass",
+        "tags": [
+            "craft-beer"
+        ],
+        "lat": 34.6905,
+        "lng": 135.4953,
+        "url": null
+    },
+    {
+        "title": "Ura-Namba",
+        "category": "food",
+        "city": "Osaka",
+        "area": "Namba",
+        "description": "The back streets behind Namba, packed with standing bars, izakaya and tiny counter restaurants. Wander around and pick whichever place looks busy with locals.",
+        "cost_hint": "Cheap",
+        "tags": [
+            "izakaya",
+            "alley",
+            "local"
+        ],
+        "lat": 34.6655,
+        "lng": 135.504,
+        "url": null
+    },
+    {
+        "title": "Philosopher's Path at dawn",
+        "category": "sights",
+        "city": "Kyoto",
+        "area": "Higashiyama",
+        "description": "A canal walk lined with cherry trees. Go before 7am to have it nearly to yourselves, then get coffee nearby.",
+        "cost_hint": "Free",
+        "tags": [
+            "sakura",
+            "walk",
+            "early"
+        ],
+        "lat": 35.023,
+        "lng": 135.7948,
+        "url": null
+    },
+    {
+        "title": "Fushimi Inari before sunrise",
+        "category": "sights",
+        "city": "Kyoto",
+        "area": "Fushimi",
+        "description": "Thousands of torii gates on the mountain. It's magical and empty if you start before 6:30am and climb past the halfway point.",
+        "cost_hint": "Free",
+        "tags": [
+            "shrine",
+            "early",
+            "walk"
+        ],
+        "lat": 34.9671,
+        "lng": 135.7727,
+        "url": null
+    },
+    {
+        "title": "Inokashira Park",
+        "category": "sights",
+        "city": "Tokyo",
+        "area": "Kichijoji",
+        "description": "Cherry trees hanging over a pond with swan boats. It's more of a local hanami spot than Meguro River or Ueno.",
+        "cost_hint": "Boat ~\u00a5700",
+        "tags": [
+            "sakura",
+            "park"
+        ],
+        "lat": 35.6995,
+        "lng": 139.573,
+        "url": null
+    }
+]
