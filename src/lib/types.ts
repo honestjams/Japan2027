@@ -6,6 +6,9 @@ export type Category =
   | "cars"
   | "drive"
   | "sights"
+  | "art"
+  | "tea"
+  | "nature"
   | "shopping"
   | "transport"
   | "stay"
@@ -53,6 +56,7 @@ export type PlanItemDraft = Partial<Omit<PlanItem, "id" | "created_at">> & {
 
 export interface Suggestion {
   id: string;
+  for_who: Who;
   title: string;
   category: Category;
   city: string;
@@ -77,6 +81,9 @@ export const CATEGORIES: Record<
   cars: { label: "Cars", kanji: "車", color: "var(--cat-cars)" },
   drive: { label: "Drive", kanji: "道", color: "var(--cat-drive)" },
   sights: { label: "Sights", kanji: "景", color: "var(--cat-sights)" },
+  art: { label: "Art", kanji: "美", color: "var(--cat-art)" },
+  tea: { label: "Tea", kanji: "茶", color: "var(--cat-tea)" },
+  nature: { label: "Nature", kanji: "鹿", color: "var(--cat-nature)" },
   shopping: { label: "Shops", kanji: "買", color: "var(--cat-shopping)" },
   transport: { label: "Transit", kanji: "移", color: "var(--cat-transport)" },
   stay: { label: "Stay", kanji: "宿", color: "var(--cat-stay)" },

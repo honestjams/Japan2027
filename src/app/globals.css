@@ -20,6 +20,9 @@
   --cat-cars: #4f7f7c;
   --cat-drive: #3e6a8a;
   --cat-sights: #d98f96;
+  --cat-art: #9b5a8a;
+  --cat-tea: #7e9a4f;
+  --cat-nature: #b0784a;
   --cat-shopping: #8c9460;
   --cat-transport: #8c8680;
   --cat-stay: #b98a6e;
@@ -45,6 +48,9 @@
     --cat-retro: #a097d0;
     --cat-cars: #6fa5a1;
     --cat-drive: #6b98ba;
+    --cat-art: #c58ab4;
+    --cat-tea: #a4bf74;
+    --cat-nature: #d29c6c;
     --grain-opacity: 0.14;
     --grain-blend: screen;
     color-scheme: dark;

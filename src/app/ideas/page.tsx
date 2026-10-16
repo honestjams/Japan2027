@@ -8,11 +8,38 @@ import { Loading } from "@/components/Loading";
 import { MapView, toPoints } from "@/components/MapView";
 import { TicketCard } from "@/components/TicketCard";
 import { Button, Chip, Hanko, Tape, spring } from "@/components/ui";
-import { CATEGORIES, type Category, type Suggestion } from "@/lib/types";
+import {
+  CATEGORIES,
+  TRAVELLERS,
+  type Category,
+  type Suggestion,
+  type Traveller,
+} from "@/lib/types";
 import { dayNumber } from "@/lib/dates";
 import { mapsLink, tilt } from "@/lib/places";
 
 type Tab = "suggested" | "ours";
+
+// Cities roughly in the order the trip passes through them.
+const ROUTE = [
+  "Before you go",
+  "Tokyo",
+  "Yokohama",
+  "Kanagawa",
+  "Hakone / Fuji",
+  "Shizuoka",
+  "Tochigi",
+  "Nagano",
+  "Nagoya",
+  "Mie",
+  "Kyoto",
+  "Nara",
+  "Osaka",
+];
+const routeIndex = (city: string) => {
+  const i = ROUTE.indexOf(city);
+  return i === -1 ? ROUTE.length : i;
+};
 
 export default function IdeasPage() {
   return (
@@ -29,16 +56,31 @@ function Ideas() {
   const { suggestions, items, loading, openItem, me } = useTrip();
   const [cat, setCat] = useState<Category | null>(null);
   const [city, setCity] = useState<string | null>(null);
+  const [forWho, setForWho] = useState<Traveller | null>(null);
+  const [query, setQuery] = useState("");
   const [showMap, setShowMap] = useState(false);
 
   if (loading) return <Loading />;
 
   const ours = items.filter((i) => !i.date);
-  const cities = [...new Set(suggestions.map((s) => s.city))];
-  const cats = [...new Set(suggestions.map((s) => s.category))];
-  const shown = suggestions.filter(
-    (s) => (!cat || s.category === cat) && (!city || s.city === city),
+  const cities = [...new Set(suggestions.map((s) => s.city))].sort(
+    (a, b) => routeIndex(a) - routeIndex(b),
   );
+  const cats = [...new Set(suggestions.map((s) => s.category))];
+  const q = query.trim().toLowerCase();
+  const shown = suggestions
+    .filter(
+      (s) =>
+        (!cat || s.category === cat) &&
+        (!city || s.city === city) &&
+        (!forWho || s.for_who === forWho) &&
+        (!q ||
+          [s.title, s.area, s.city, s.description, ...s.tags]
+            .join(" ")
+            .toLowerCase()
+            .includes(q)),
+    )
+    .sort((a, b) => routeIndex(a.city) - routeIndex(b.city));
 
   return (
     <>
@@ -97,7 +139,30 @@ function Ideas() {
         </div>
       ) : (
         <>
-          <div className="no-scrollbar -mx-4 mt-5 flex gap-2 overflow-x-auto px-4">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search: Kusama, GT-R, matcha, deer…"
+            aria-label="Search suggestions"
+            className="mt-5 w-full rounded-md border border-paper-edge bg-paper px-3 py-2.5 text-base text-ink placeholder:text-ink-soft/60 focus:border-sakura-deep focus:outline-none"
+          />
+          <div className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4">
+            <Chip active={!forWho} onClick={() => setForWho(null)}>
+              Everyone
+            </Chip>
+            {(Object.keys(TRAVELLERS) as Traveller[]).map((w) => (
+              <Chip
+                key={w}
+                active={forWho === w}
+                color={TRAVELLERS[w].color}
+                onClick={() => setForWho(forWho === w ? null : w)}
+              >
+                {TRAVELLERS[w].name}&apos;s picks
+              </Chip>
+            ))}
+          </div>
+          <div className="no-scrollbar -mx-4 mt-2 flex gap-2 overflow-x-auto px-4">
             <Chip active={!cat} onClick={() => setCat(null)}>
               All
             </Chip>
@@ -130,7 +195,8 @@ function Ideas() {
 
           <div className="mt-4 flex items-center justify-between">
             <p className="text-sm text-ink-soft">
-              Hand-picked starting points. Check opening hours before going.
+              {shown.length} hand-picked spot{shown.length === 1 ? "" : "s"}.
+              Check hours and booking before going.
             </p>
             <Button variant="ghost" onClick={() => setShowMap((v) => !v)}>
               {showMap ? "Hide map" : "Map"}
@@ -146,6 +212,11 @@ function Ideas() {
             layout
             className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3"
           >
+            {shown.length === 0 && (
+              <p className="py-10 text-center text-ink-soft md:col-span-2 xl:col-span-3">
+                Nothing matches. Try fewer filters.
+              </p>
+            )}
             <AnimatePresence initial={false}>
               {shown.map((s) => (
                 <SuggestionCard key={s.id} s={s} />
@@ -183,6 +254,14 @@ function SuggestionCard({ s }: { s: Suggestion }) {
           <p className="vhs-text text-base uppercase text-ink-soft">
             {[s.area, s.city].filter(Boolean).join(" · ")}
           </p>
+          {s.for_who !== "both" && (
+            <span
+              className="mt-1 inline-block rounded-full px-2 text-xs font-bold leading-5 text-[#2a2522]"
+              style={{ background: TRAVELLERS[s.for_who].color }}
+            >
+              For {TRAVELLERS[s.for_who].name}
+            </span>
+          )}
         </div>
       </div>
       <p className="mt-3 text-[15px] leading-relaxed">{s.description}</p>
@@ -213,7 +292,7 @@ function SuggestionCard({ s }: { s: Suggestion }) {
                 url: s.url,
                 notes: s.description,
                 suggestion_id: s.id,
-                wish_of: me ?? "both",
+                wish_of: s.for_who === "both" ? (me ?? "both") : s.for_who,
                 status: "idea",
               })
             }
