@@ -1,0 +1,2672 @@
+[
+  {
+    "title": "miffy style, Tokyo Station",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Marunouchi",
+    "for_who": "sam",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "miffy",
+      "shop",
+      "kawaii"
+    ],
+    "lat": 35.6806,
+    "lng": 139.768,
+    "description": "Official Miffy shop on Character Street under Tokyo Station, with plush, stationery and Tokyo-only pieces like Stationmaster Miffy. Easy to drop into on arrival day or when catching a Shinkansen.",
+    "url": null
+  },
+  {
+    "title": "Kiddy Land Harajuku",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Omotesando",
+    "for_who": "sam",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "miffy",
+      "ghibli",
+      "shop",
+      "kawaii"
+    ],
+    "lat": 35.6681,
+    "lng": 139.707,
+    "description": "Several floors of character goods on Omotesando, run by the same company as the miffy style shops. Usually has Miffy and Ghibli corners. Busy at weekends, so go on a weekday morning.",
+    "url": null
+  },
+  {
+    "title": "Yayoi Kusama Museum",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Shinjuku (Bentencho)",
+    "for_who": "sam",
+    "cost_hint": "~¥1,100, timed tickets",
+    "tags": [
+      "kusama",
+      "art",
+      "booking",
+      "must-book"
+    ],
+    "lat": 35.7036,
+    "lng": 139.7262,
+    "description": "Kusama's own five-floor museum, with rotating shows, an infinity room when one is on, and pumpkins on the roof. Tickets are online only, for 90-minute slots, and go on sale at 10am JST on the 1st of the month two months ahead. That means 1 January for 29–31 March slots and 1 February for April. Usually closed Monday to Wednesday.",
+    "url": null
+  },
+  {
+    "title": "Nezu Museum & garden",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Minami-Aoyama",
+    "for_who": "sam",
+    "cost_hint": "~¥1,300, timed tickets",
+    "tags": [
+      "art",
+      "garden",
+      "tea",
+      "traditional",
+      "booking"
+    ],
+    "lat": 35.6623,
+    "lng": 139.7171,
+    "description": "Kengo Kuma building full of Japanese and East Asian art, opening onto a sloping hidden garden with teahouses and stone lanterns. There's a glass-walled café overlooking the garden. Book a timed slot online.",
+    "url": null
+  },
+  {
+    "title": "21_21 Design Sight",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Roppongi",
+    "for_who": "sam",
+    "cost_hint": "~¥1,600",
+    "tags": [
+      "design",
+      "art",
+      "architecture"
+    ],
+    "lat": 35.6664,
+    "lng": 139.7314,
+    "description": "Tadao Ando gallery co-founded by Issey Miyake, with thoughtful, playful design exhibitions. It's small and calm, a good counterweight to the big Roppongi museums.",
+    "url": null
+  },
+  {
+    "title": "Mori Art Museum",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Roppongi Hills",
+    "for_who": "both",
+    "cost_hint": "~¥2,000",
+    "tags": [
+      "art",
+      "contemporary",
+      "night",
+      "views"
+    ],
+    "lat": 35.6604,
+    "lng": 139.7292,
+    "description": "Big contemporary art shows on the 53rd floor, paired with the Tokyo City View deck. It's open late most nights, so it works well as an evening plan after dinner.",
+    "url": null
+  },
+  {
+    "title": "teamLab Planets",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Toyosu",
+    "for_who": "sam",
+    "cost_hint": "~¥4,000, book ahead",
+    "tags": [
+      "art",
+      "immersive",
+      "booking"
+    ],
+    "lat": 35.6491,
+    "lng": 139.7898,
+    "description": "Barefoot digital art: you wade through knee-deep water rooms and a floating flower garden. It's popular rather than niche, but genuinely beautiful. Book a timed slot and wear shorts or trousers that roll up.",
+    "url": null
+  },
+  {
+    "title": "Sumida Hokusai Museum",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Ryogoku",
+    "for_who": "sam",
+    "cost_hint": "~¥1,000",
+    "tags": [
+      "ukiyo-e",
+      "art",
+      "traditional"
+    ],
+    "lat": 35.6967,
+    "lng": 139.8008,
+    "description": "Small, striking museum (designed by Kazuyo Sejima) for Hokusai, the Great Wave artist, in the neighbourhood where he lived. Pairs with Beer Club Popeye nearby for Josh.",
+    "url": null
+  },
+  {
+    "title": "Ota Memorial Museum of Art",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Harajuku",
+    "for_who": "sam",
+    "cost_hint": "~¥1,000",
+    "tags": [
+      "ukiyo-e",
+      "art",
+      "traditional",
+      "quiet"
+    ],
+    "lat": 35.669,
+    "lng": 139.705,
+    "description": "Tiny ukiyo-e woodblock print museum tucked behind Omotesando, where you take your shoes off at the door. Exhibitions change monthly and it closes between shows, so check dates.",
+    "url": null
+  },
+  {
+    "title": "Tokyo National Museum",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Ueno",
+    "for_who": "sam",
+    "cost_hint": "~¥1,000",
+    "tags": [
+      "art",
+      "traditional",
+      "history"
+    ],
+    "lat": 35.7188,
+    "lng": 139.7765,
+    "description": "Japan's oldest museum, with kimono, samurai armour, ceramics and screens. The Horyuji Treasures gallery is quietly stunning. Ueno Park's cherry blossom is right outside.",
+    "url": null
+  },
+  {
+    "title": "Edo-Tokyo Open-Air Architectural Museum",
+    "category": "sights",
+    "city": "Tokyo",
+    "area": "Koganei",
+    "for_who": "sam",
+    "cost_hint": "~¥400",
+    "tags": [
+      "ghibli",
+      "spirited-away",
+      "architecture",
+      "traditional"
+    ],
+    "lat": 35.7155,
+    "lng": 139.5134,
+    "description": "Park full of rescued historic buildings: bathhouses, shops, farmhouses. Miyazaki sketched here for Spirited Away; the old bathhouse and the Takei Sanshodo stationery shop show up in the film's world. Easy to pair with the Ghibli Museum.",
+    "url": null
+  },
+  {
+    "title": "Donguri Kyowakoku (Ghibli shop)",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Various",
+    "for_who": "sam",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "ghibli",
+      "shop",
+      "totoro"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Studio Ghibli's official shop chain, with Totoro, Kiki and No-Face goods, much of it not sold abroad. There are branches in most big cities and stations, so look up the nearest one on the day.",
+    "url": null
+  },
+  {
+    "title": "Laputa Asagaya",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Asagaya",
+    "for_who": "sam",
+    "cost_hint": "~¥1,400",
+    "tags": [
+      "film",
+      "cinema",
+      "ghibli",
+      "retro"
+    ],
+    "lat": 35.7062,
+    "lng": 139.6352,
+    "description": "Ivy-covered little cinema named after Castle in the Sky, showing mostly 1950s–60s Japanese films. Usually there are no subtitles, but the building and posters are worth it. Asagaya's covered shopping street is lovely too.",
+    "url": null
+  },
+  {
+    "title": "National Film Archive of Japan",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Kyobashi",
+    "for_who": "sam",
+    "cost_hint": "~¥250",
+    "tags": [
+      "film",
+      "cinema",
+      "history"
+    ],
+    "lat": 35.6761,
+    "lng": 139.7704,
+    "description": "Japan's national film archive. Its exhibition floor covers Japanese cinema history through old cameras, posters and props, and it also runs screenings of restored classics.",
+    "url": null
+  },
+  {
+    "title": "JCII Camera Museum",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Ichibancho",
+    "for_who": "sam",
+    "cost_hint": "Small fee",
+    "tags": [
+      "film-camera",
+      "museum",
+      "photography"
+    ],
+    "lat": 35.6857,
+    "lng": 139.7413,
+    "description": "Small museum near Hanzomon with a huge collection of historic Japanese cameras, from wooden plate cameras to Nikon Fs. There's a photo gallery downstairs.",
+    "url": null
+  },
+  {
+    "title": "Fujiya Camera, Nakano",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Nakano",
+    "for_who": "sam",
+    "cost_hint": "Varies",
+    "tags": [
+      "film-camera",
+      "used",
+      "shop"
+    ],
+    "lat": 35.7075,
+    "lng": 139.6655,
+    "description": "Long-running used camera dealer by Nakano station, with honest condition grades and plenty of film bodies and lenses. It's right next to Nakano Broadway, so Sam does cameras while Josh does toys.",
+    "url": null
+  },
+  {
+    "title": "Map Camera, Shinjuku",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "for_who": "sam",
+    "cost_hint": "Varies",
+    "tags": [
+      "film-camera",
+      "used",
+      "leica",
+      "shop"
+    ],
+    "lat": 35.6913,
+    "lng": 139.6963,
+    "description": "Multi-floor used camera store near Shinjuku West Exit. The basement is the film and Leica floor. English-speaking staff, tax-free, and no haggling.",
+    "url": null
+  },
+  {
+    "title": "Popeye Camera, Jiyugaoka",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Jiyugaoka",
+    "for_who": "sam",
+    "cost_hint": "Cheap–mid",
+    "tags": [
+      "film",
+      "film-camera",
+      "developing",
+      "stationery"
+    ],
+    "lat": 35.6079,
+    "lng": 139.6683,
+    "description": "Decades-old film shop with rare film stock, developing, and cute washi tape, albums and stationery. Usually closed Wednesdays. Wander Jiyugaoka's cafés afterwards.",
+    "url": null
+  },
+  {
+    "title": "Jiyugaoka",
+    "category": "coffee",
+    "city": "Tokyo",
+    "area": "Jiyugaoka",
+    "for_who": "both",
+    "cost_hint": "Cheap–mid",
+    "tags": [
+      "cozy",
+      "cafes",
+      "walk",
+      "sweets"
+    ],
+    "lat": 35.6073,
+    "lng": 139.6688,
+    "description": "Leafy, slow neighbourhood full of patisseries, homeware shops and small cafés. A gentle half-day with zero tourist crowds.",
+    "url": null
+  },
+  {
+    "title": "Nakajima-no-Ochaya, Hama-rikyu",
+    "category": "tea",
+    "city": "Tokyo",
+    "area": "Shiodome",
+    "for_who": "sam",
+    "cost_hint": "~¥300 garden + matcha set",
+    "tags": [
+      "tea",
+      "garden",
+      "traditional"
+    ],
+    "lat": 35.6597,
+    "lng": 139.7631,
+    "description": "Matcha and a wagashi sweet in a teahouse on a pond, inside a former shogun's garden, with skyscrapers behind. One of Tokyo's best quiet contrasts.",
+    "url": null
+  },
+  {
+    "title": "Sakurai Japanese Tea Experience",
+    "category": "tea",
+    "city": "Tokyo",
+    "area": "Omotesando",
+    "for_who": "sam",
+    "cost_hint": "¥¥¥",
+    "tags": [
+      "tea",
+      "tasting",
+      "counter",
+      "booking"
+    ],
+    "lat": 35.664,
+    "lng": 139.711,
+    "description": "Minimalist tea bar where a tea master roasts leaves at the counter and walks you through a tasting course. Book ahead for the course.",
+    "url": null
+  },
+  {
+    "title": "Kagurazaka",
+    "category": "sights",
+    "city": "Tokyo",
+    "area": "Kagurazaka",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "traditional",
+      "walk",
+      "cozy",
+      "alleys"
+    ],
+    "lat": 35.702,
+    "lng": 139.7406,
+    "description": "Old geisha district with stone-paved back lanes, tiny restaurants and a French twist (lots of bistros). Lovely at dusk.",
+    "url": null
+  },
+  {
+    "title": "Gotokuji Temple",
+    "category": "sights",
+    "city": "Tokyo",
+    "area": "Setagaya",
+    "for_who": "sam",
+    "cost_hint": "Free",
+    "tags": [
+      "traditional",
+      "cats",
+      "temple",
+      "quiet"
+    ],
+    "lat": 35.6489,
+    "lng": 139.6474,
+    "description": "Temple said to be the home of the maneki-neko beckoning cat, with thousands of little white cat figures. Quiet suburban temple, and a short ride on the Setagaya tram line.",
+    "url": null
+  },
+  {
+    "title": "Rikugien Garden",
+    "category": "nature",
+    "city": "Tokyo",
+    "area": "Komagome",
+    "for_who": "sam",
+    "cost_hint": "~¥300",
+    "tags": [
+      "garden",
+      "sakura",
+      "traditional",
+      "night"
+    ],
+    "lat": 35.733,
+    "lng": 139.7469,
+    "description": "Classic Edo strolling garden with a huge weeping cherry tree that's lit up at night during blossom season.",
+    "url": null
+  },
+  {
+    "title": "Koishikawa Korakuen",
+    "category": "nature",
+    "city": "Tokyo",
+    "area": "Iidabashi",
+    "for_who": "sam",
+    "cost_hint": "~¥300",
+    "tags": [
+      "garden",
+      "sakura",
+      "traditional"
+    ],
+    "lat": 35.7055,
+    "lng": 139.7497,
+    "description": "One of Tokyo's oldest gardens, with a red bridge, ponds and weeping cherries. Much quieter than Ueno or Meguro.",
+    "url": null
+  },
+  {
+    "title": "Shinjuku Gyoen",
+    "category": "nature",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "for_who": "both",
+    "cost_hint": "~¥500",
+    "tags": [
+      "sakura",
+      "park",
+      "picnic"
+    ],
+    "lat": 35.6852,
+    "lng": 139.7101,
+    "description": "Huge garden with 1,000+ cherry trees of many varieties, so something's usually blooming. No alcohol allowed. In peak season it may need advance timed tickets.",
+    "url": null
+  },
+  {
+    "title": "Kiyosumi-Shirakawa",
+    "category": "coffee",
+    "city": "Tokyo",
+    "area": "Koto",
+    "for_who": "both",
+    "cost_hint": "Cheap–mid",
+    "tags": [
+      "coffee",
+      "gallery",
+      "garden",
+      "cozy"
+    ],
+    "lat": 35.681,
+    "lng": 139.799,
+    "description": "Warehouse district turned coffee neighbourhood (Blue Bottle's first Japan café is here), with small galleries and the lovely Kiyosumi Garden.",
+    "url": null
+  },
+  {
+    "title": "Kappabashi Kitchen Street",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Asakusa",
+    "for_who": "both",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "knives",
+      "ceramics",
+      "plastic-food"
+    ],
+    "lat": 35.713,
+    "lng": 139.788,
+    "description": "Street of trade shops selling knives, ceramics, lanterns and those plastic food models. Great for real souvenirs.",
+    "url": null
+  },
+  {
+    "title": "Kosugi-yu bathhouse",
+    "category": "sights",
+    "city": "Tokyo",
+    "area": "Koenji",
+    "for_who": "both",
+    "cost_hint": "~¥550",
+    "tags": [
+      "sento",
+      "traditional",
+      "local"
+    ],
+    "lat": 35.707,
+    "lng": 139.651,
+    "description": "A beautiful old public bathhouse from the 1930s with a temple-style roof. Hot baths with locals, then beers in Koenji. Bring a small towel.",
+    "url": null
+  },
+  {
+    "title": "Tsukiji Outer Market breakfast",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Tsukiji",
+    "for_who": "both",
+    "cost_hint": "Cheap–mid",
+    "tags": [
+      "breakfast",
+      "seafood",
+      "market"
+    ],
+    "lat": 35.6655,
+    "lng": 139.7707,
+    "description": "The wholesale fish market moved, but the outer market's stalls remain: tamagoyaki on a stick, sushi counters and knife shops. Go early, around 8am.",
+    "url": null
+  },
+  {
+    "title": "Fuunji tsukemen",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "for_who": "both",
+    "cost_hint": "~¥1,100",
+    "tags": [
+      "ramen",
+      "queue"
+    ],
+    "lat": 35.687,
+    "lng": 139.697,
+    "description": "Cult dipping-noodle shop near Shinjuku Station, with thick noodles and a rich chicken-and-fish broth. There's always a queue; it moves.",
+    "url": null
+  },
+  {
+    "title": "Butagumi tonkatsu",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Nishi-Azabu",
+    "for_who": "both",
+    "cost_hint": "~¥3,000",
+    "tags": [
+      "tonkatsu",
+      "dinner"
+    ],
+    "lat": 35.659,
+    "lng": 139.723,
+    "description": "Tonkatsu in an old house, where you choose your pork by breed and farm. Possibly the best katsu of your life. Book ahead.",
+    "url": null
+  },
+  {
+    "title": "Yurakucho izakaya under the tracks",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Yurakucho",
+    "for_who": "both",
+    "cost_hint": "Cheap",
+    "tags": [
+      "izakaya",
+      "yakitori",
+      "alley",
+      "local"
+    ],
+    "lat": 35.674,
+    "lng": 139.763,
+    "description": "Smoky yakitori and beer joints tucked into the brick arches under the train line between Yurakucho and Shimbashi. Very salaryman, very fun.",
+    "url": null
+  },
+  {
+    "title": "Tsukishima Monja Street",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Tsukishima",
+    "for_who": "both",
+    "cost_hint": "Cheap",
+    "tags": [
+      "monjayaki",
+      "dinner",
+      "local"
+    ],
+    "lat": 35.6635,
+    "lng": 139.784,
+    "description": "Street lined with monjayaki restaurants, a gooey Tokyo cousin of okonomiyaki that you cook yourselves on a hotplate. Messy and great.",
+    "url": null
+  },
+  {
+    "title": "Isetan Shinjuku depachika",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "for_who": "both",
+    "cost_hint": "Cheap–mid",
+    "tags": [
+      "food-hall",
+      "sweets",
+      "picnic"
+    ],
+    "lat": 35.6919,
+    "lng": 139.7046,
+    "description": "Basement food hall of dreams: bento, wagashi and fancy fruit. Build a hanami picnic for Shinjuku Gyoen.",
+    "url": null
+  },
+  {
+    "title": "Bar Benfiddich",
+    "category": "drinks",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "for_who": "both",
+    "cost_hint": "¥¥¥",
+    "tags": [
+      "cocktails",
+      "bar",
+      "special"
+    ],
+    "lat": 35.6911,
+    "lng": 139.6982,
+    "description": "Tiny world-famous bar where the bartender grinds herbs and spirits by hand. Small and seated, so arrive at opening or expect a wait.",
+    "url": null
+  },
+  {
+    "title": "JBS (Jazz, Blues & Soul)",
+    "category": "drinks",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "for_who": "both",
+    "cost_hint": "~¥1,000/drink",
+    "tags": [
+      "vinyl",
+      "bar",
+      "music",
+      "cozy"
+    ],
+    "lat": 35.6602,
+    "lng": 139.6977,
+    "description": "Tiny Shibuya listening bar lined with thousands of the owner's records. Order a whisky and just listen.",
+    "url": null
+  },
+  {
+    "title": "Hitachino Brewing Lab",
+    "category": "drinks",
+    "city": "Tokyo",
+    "area": "Akihabara",
+    "for_who": "both",
+    "cost_hint": "~¥1,000/glass",
+    "tags": [
+      "craft-beer"
+    ],
+    "lat": 35.698,
+    "lng": 139.771,
+    "description": "Owl-logo brewery's taproom in a converted railway viaduct between Akihabara and Kanda. A perfect reset after the retro game shops.",
+    "url": null
+  },
+  {
+    "title": "Mikkeller Tokyo",
+    "category": "drinks",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "for_who": "both",
+    "cost_hint": "~¥1,000+/glass",
+    "tags": [
+      "craft-beer"
+    ],
+    "lat": 35.657,
+    "lng": 139.696,
+    "description": "Small two-floor craft beer bar up the hill from Shibuya. Great tap list including Japanese collabs.",
+    "url": null
+  },
+  {
+    "title": "Spring Valley Brewery",
+    "category": "drinks",
+    "city": "Tokyo",
+    "area": "Daikanyama",
+    "for_who": "both",
+    "cost_hint": "~¥1,000/glass",
+    "tags": [
+      "craft-beer",
+      "food"
+    ],
+    "lat": 35.6495,
+    "lng": 139.703,
+    "description": "Kirin's craft brewpub under the tracks at Log Road Daikanyama, with tasting flights and good food pairings.",
+    "url": null
+  },
+  {
+    "title": "Fuglen Tokyo",
+    "category": "coffee",
+    "city": "Tokyo",
+    "area": "Tomigaya",
+    "for_who": "both",
+    "cost_hint": "~¥600",
+    "tags": [
+      "coffee",
+      "cocktails",
+      "vintage"
+    ],
+    "lat": 35.6676,
+    "lng": 139.6914,
+    "description": "Oslo café with 1960s Norwegian furniture. Great light-roast coffee by day, cocktails by night. Yoyogi Park is round the corner.",
+    "url": null
+  },
+  {
+    "title": "Glitch Coffee & Roasters",
+    "category": "coffee",
+    "city": "Tokyo",
+    "area": "Jimbocho",
+    "for_who": "both",
+    "cost_hint": "~¥800",
+    "tags": [
+      "coffee",
+      "specialty"
+    ],
+    "lat": 35.6939,
+    "lng": 139.7609,
+    "description": "Excellent single-origin pour-overs, among Tokyo's best. Fits a Jimbocho bookshop morning.",
+    "url": null
+  },
+  {
+    "title": "Tokyo Video Gamers barcade",
+    "category": "retro",
+    "city": "Tokyo",
+    "area": "Akihabara",
+    "for_who": "josh",
+    "cost_hint": "Drinks ~¥1,000",
+    "tags": [
+      "arcade",
+      "bar",
+      "games"
+    ],
+    "lat": 35.699,
+    "lng": 139.7705,
+    "description": "Retro game bar near Akihabara Electric Town exit, with licensed SEGA, SNK and Data East games to play while you drink. Usually open 11am–11pm.",
+    "url": null
+  },
+  {
+    "title": "Mandarake Complex",
+    "category": "retro",
+    "city": "Tokyo",
+    "area": "Akihabara",
+    "for_who": "josh",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "games",
+      "toys",
+      "shop",
+      "collectors"
+    ],
+    "lat": 35.7008,
+    "lng": 139.77,
+    "description": "Eight floors of collectables, including a whole retro-game and vintage toy floor. A different vibe from Super Potato and often better prices.",
+    "url": null
+  },
+  {
+    "title": "BEEP Akihabara",
+    "category": "retro",
+    "city": "Tokyo",
+    "area": "Akihabara",
+    "for_who": "josh",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "games",
+      "retro-pc",
+      "shop"
+    ],
+    "lat": 35.6996,
+    "lng": 139.7718,
+    "description": "Specialist in retro Japanese computers and consoles (PC-98, MSX, Mega Drive). Deep cuts you won't find elsewhere.",
+    "url": null
+  },
+  {
+    "title": "Akihabara Gachapon Hall",
+    "category": "retro",
+    "city": "Tokyo",
+    "area": "Akihabara",
+    "for_who": "both",
+    "cost_hint": "¥300–500 a go",
+    "tags": [
+      "gachapon",
+      "toys",
+      "fun"
+    ],
+    "lat": 35.7,
+    "lng": 139.7712,
+    "description": "Hundreds of capsule toy machines in one room. Dangerous with a pocket of ¥100 coins.",
+    "url": null
+  },
+  {
+    "title": "Radio Kaikan",
+    "category": "retro",
+    "city": "Tokyo",
+    "area": "Akihabara",
+    "for_who": "both",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "figures",
+      "toys",
+      "shop"
+    ],
+    "lat": 35.6985,
+    "lng": 139.7717,
+    "description": "Akihabara's landmark building with ten floors of figure, model kit, trading card and toy shops.",
+    "url": null
+  },
+  {
+    "title": "Hard Off / Book Off (suburbs)",
+    "category": "retro",
+    "city": "Tokyo",
+    "area": "Various",
+    "for_who": "josh",
+    "cost_hint": "Cheap",
+    "tags": [
+      "games",
+      "junk",
+      "used",
+      "needs-car"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Second-hand chains that are a treasure hunt for retro consoles, Game Boys and 'junk' bins. The suburban branches you pass on drive days are the best.",
+    "url": null
+  },
+  {
+    "title": "Nissan Crossing, Ginza",
+    "category": "cars",
+    "city": "Tokyo",
+    "area": "Ginza",
+    "for_who": "josh",
+    "cost_hint": "Free",
+    "tags": [
+      "showroom",
+      "nissan",
+      "concept-cars"
+    ],
+    "lat": 35.6716,
+    "lng": 139.765,
+    "description": "Nissan's glass showroom on Ginza's main crossing, with concept and heritage cars on rotation and a café upstairs. Quick and free.",
+    "url": null
+  },
+  {
+    "title": "Shuto Expressway night loop",
+    "category": "drive",
+    "city": "Tokyo",
+    "area": "Shuto",
+    "for_who": "josh",
+    "cost_hint": "Tolls ~¥1,000–2,000",
+    "tags": [
+      "night",
+      "drive",
+      "wangan",
+      "needs-car"
+    ],
+    "lat": 35.63,
+    "lng": 139.78,
+    "description": "The real Wangan Midnight drive: the C1 inner loop, over Rainbow Bridge, out along the Bayshore. Do it legally and in the left lane, and get an ETC card with the rental.",
+    "url": null
+  },
+  {
+    "title": "Nissan Engine Museum",
+    "category": "cars",
+    "city": "Yokohama",
+    "area": "Kanagawa-ku",
+    "for_who": "josh",
+    "cost_hint": "Free",
+    "tags": [
+      "museum",
+      "engines",
+      "nissan",
+      "weekday"
+    ],
+    "lat": 35.4865,
+    "lng": 139.6505,
+    "description": "Nissan's original Yokohama plant building with a hall of historic and racing engines. Free, weekdays only (closed weekends), and the factory tour needs booking.",
+    "url": null
+  },
+  {
+    "title": "Cup Noodles Museum",
+    "category": "sights",
+    "city": "Yokohama",
+    "area": "Minatomirai",
+    "for_who": "both",
+    "cost_hint": "~¥500 + ¥500 to design a cup",
+    "tags": [
+      "fun",
+      "food",
+      "hands-on"
+    ],
+    "lat": 35.4552,
+    "lng": 139.6384,
+    "description": "Design your own cup noodle packaging and pick the flavours, then take it home in an inflated bag. Silly and great.",
+    "url": null
+  },
+  {
+    "title": "Sankeien Garden",
+    "category": "nature",
+    "city": "Yokohama",
+    "area": "Honmoku",
+    "for_who": "sam",
+    "cost_hint": "~¥900",
+    "tags": [
+      "garden",
+      "traditional",
+      "sakura",
+      "architecture"
+    ],
+    "lat": 35.418,
+    "lng": 139.665,
+    "description": "Big landscaped garden with historic buildings moved from Kyoto and Kamakura, including a three-storey pagoda over a pond. Gorgeous in blossom season.",
+    "url": null
+  },
+  {
+    "title": "Kamakura & Enoden line",
+    "category": "sights",
+    "city": "Kanagawa",
+    "area": "Kamakura",
+    "for_who": "both",
+    "cost_hint": "Cheap",
+    "tags": [
+      "temples",
+      "seaside",
+      "retro-train"
+    ],
+    "lat": 35.3167,
+    "lng": 139.5358,
+    "description": "Great Buddha, bamboo-garden temples, then the little Enoden train along the coast to Enoshima. A good day trip from Tokyo.",
+    "url": null
+  },
+  {
+    "title": "Route 134 Shonan coast drive",
+    "category": "drive",
+    "city": "Kanagawa",
+    "area": "Shonan",
+    "for_who": "josh",
+    "cost_hint": "Free",
+    "tags": [
+      "coast",
+      "drive",
+      "needs-car"
+    ],
+    "lat": 35.31,
+    "lng": 139.48,
+    "description": "Seaside road from Kamakura past Enoshima toward Oiso, with surf town cafés and Fuji views on clear days. Easy run to start a Hakone drive day.",
+    "url": null
+  },
+  {
+    "title": "Hakone Open-Air Museum",
+    "category": "art",
+    "city": "Hakone / Fuji",
+    "area": "Ninotaira",
+    "for_who": "sam",
+    "cost_hint": "~¥2,000",
+    "tags": [
+      "art",
+      "sculpture",
+      "outdoors",
+      "picasso"
+    ],
+    "lat": 35.2449,
+    "lng": 139.0507,
+    "description": "Sculpture park in the mountains: Henry Moore, a Picasso pavilion and a hot-spring foot bath. Great for a drive day stop.",
+    "url": null
+  },
+  {
+    "title": "Pola Museum of Art",
+    "category": "art",
+    "city": "Hakone / Fuji",
+    "area": "Sengokuhara",
+    "for_who": "sam",
+    "cost_hint": "~¥1,800",
+    "tags": [
+      "art",
+      "impressionists",
+      "forest"
+    ],
+    "lat": 35.265,
+    "lng": 139.043,
+    "description": "Glass museum sunk into a beech forest, with Monet, Renoir and modern Japanese works, plus a nice forest walking trail.",
+    "url": null
+  },
+  {
+    "title": "Hakone Shrine lakeside torii",
+    "category": "sights",
+    "city": "Hakone / Fuji",
+    "area": "Lake Ashi",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "shrine",
+      "traditional",
+      "lake"
+    ],
+    "lat": 35.205,
+    "lng": 139.025,
+    "description": "Cedar-lined shrine with a red torii gate standing in the lake. Go early before the photo queue.",
+    "url": null
+  },
+  {
+    "title": "Chureito Pagoda at dawn",
+    "category": "sights",
+    "city": "Hakone / Fuji",
+    "area": "Fujiyoshida",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "sakura",
+      "fuji",
+      "early"
+    ],
+    "lat": 35.5013,
+    "lng": 138.802,
+    "description": "The classic pagoda, cherry blossom and Fuji shot. It's busy, so go at sunrise. Around 400 steps up.",
+    "url": null
+  },
+  {
+    "title": "Shuzenji onsen town",
+    "category": "sights",
+    "city": "Hakone / Fuji",
+    "area": "Izu",
+    "for_who": "both",
+    "cost_hint": "Cheap",
+    "tags": [
+      "onsen",
+      "bamboo",
+      "traditional"
+    ],
+    "lat": 34.97,
+    "lng": 138.929,
+    "description": "Small onsen town with a riverside bamboo path, red bridges and an old temple. Quiet end point after the Izu Skyline.",
+    "url": null
+  },
+  {
+    "title": "Jogasaki Coast",
+    "category": "nature",
+    "city": "Hakone / Fuji",
+    "area": "Izu",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "coast",
+      "walk",
+      "suspension-bridge"
+    ],
+    "lat": 34.9,
+    "lng": 139.136,
+    "description": "Volcanic cliffs and a swaying suspension bridge over the sea on the east Izu coast. Good leg-stretch on a drive day.",
+    "url": null
+  },
+  {
+    "title": "Matsumoto City Museum of Art (Kusama)",
+    "category": "art",
+    "city": "Nagano",
+    "area": "Matsumoto",
+    "for_who": "sam",
+    "cost_hint": "~¥410+",
+    "tags": [
+      "kusama",
+      "art",
+      "daytrip",
+      "needs-car"
+    ],
+    "lat": 36.234,
+    "lng": 137.976,
+    "description": "Kusama's hometown museum: polka-dot exterior, flower sculpture and a big permanent Kusama collection. About 3 hours' drive from Tokyo; combine with Matsumoto Castle for a full Sam day.",
+    "url": null
+  },
+  {
+    "title": "Matsumoto Castle",
+    "category": "sights",
+    "city": "Nagano",
+    "area": "Matsumoto",
+    "for_who": "both",
+    "cost_hint": "~¥700",
+    "tags": [
+      "castle",
+      "traditional",
+      "sakura"
+    ],
+    "lat": 36.2385,
+    "lng": 137.969,
+    "description": "One of Japan's few original castles, black-walled with the Alps behind. Its cherry blossom is usually early-mid April.",
+    "url": null
+  },
+  {
+    "title": "Jigokudani Snow Monkey Park",
+    "category": "nature",
+    "city": "Nagano",
+    "area": "Yamanouchi",
+    "for_who": "sam",
+    "cost_hint": "~¥800",
+    "tags": [
+      "wildlife",
+      "monkeys",
+      "onsen",
+      "daytrip"
+    ],
+    "lat": 36.733,
+    "lng": 138.462,
+    "description": "Wild macaques soaking in hot springs. In early April the snow is mostly gone but the monkeys are still there. It's a big detour, and only worth it if Sam really wants it.",
+    "url": null
+  },
+  {
+    "title": "Ghibli Park",
+    "category": "art",
+    "city": "Nagoya",
+    "area": "Nagakute",
+    "for_who": "sam",
+    "cost_hint": "Day pass, book ahead",
+    "tags": [
+      "ghibli",
+      "booking",
+      "must-book",
+      "totoro"
+    ],
+    "lat": 35.172,
+    "lng": 137.088,
+    "description": "Life-size Ghibli worlds: Satsuki and Mei's house, the Grand Warehouse and Howl's Castle area. Overseas day passes go on sale on the 10th, two months ahead, at 2pm JST, so 10 February for an April visit. It's ten minutes from the Toyota Automobile Museum, so both of you win that day.",
+    "url": null
+  },
+  {
+    "title": "Toyota Kaikan + plant tour",
+    "category": "cars",
+    "city": "Nagoya",
+    "area": "Toyota City",
+    "for_who": "josh",
+    "cost_hint": "Free, booking required",
+    "tags": [
+      "toyota",
+      "factory",
+      "booking",
+      "weekday"
+    ],
+    "lat": 35.0573,
+    "lng": 137.157,
+    "description": "Watch cars being built on a real Toyota line. Tours are free, weekdays only, and book up: reserve two weeks to three months ahead on Toyota's site, with limited English slots.",
+    "url": null
+  },
+  {
+    "title": "SCMaglev & Railway Park",
+    "category": "sights",
+    "city": "Nagoya",
+    "area": "Kinjo-futo",
+    "for_who": "josh",
+    "cost_hint": "~¥1,000",
+    "tags": [
+      "trains",
+      "maglev",
+      "shinkansen"
+    ],
+    "lat": 35.045,
+    "lng": 136.849,
+    "description": "JR Central's museum with record-breaking maglevs, every generation of Shinkansen and a driving simulator.",
+    "url": null
+  },
+  {
+    "title": "Meiji Mura",
+    "category": "sights",
+    "city": "Nagoya",
+    "area": "Inuyama",
+    "for_who": "both",
+    "cost_hint": "~¥2,000",
+    "tags": [
+      "architecture",
+      "history",
+      "film-sets",
+      "needs-car"
+    ],
+    "lat": 35.348,
+    "lng": 136.989,
+    "description": "Open-air museum of Meiji-era buildings, including the lobby of Frank Lloyd Wright's Imperial Hotel, with steam trains and old trams. Feels like walking through a film set.",
+    "url": null
+  },
+  {
+    "title": "Inuyama Castle & old town",
+    "category": "sights",
+    "city": "Nagoya",
+    "area": "Inuyama",
+    "for_who": "both",
+    "cost_hint": "~¥550",
+    "tags": [
+      "castle",
+      "traditional",
+      "sakura"
+    ],
+    "lat": 35.3883,
+    "lng": 136.9393,
+    "description": "Original 1500s castle above the river, with a charming castle-town street of sweets and sake shops below.",
+    "url": null
+  },
+  {
+    "title": "Tokugawa Art Museum",
+    "category": "art",
+    "city": "Nagoya",
+    "area": "Higashi-ku",
+    "for_who": "sam",
+    "cost_hint": "~¥1,600",
+    "tags": [
+      "art",
+      "samurai",
+      "traditional"
+    ],
+    "lat": 35.186,
+    "lng": 136.933,
+    "description": "Treasures of the Owari Tokugawa lords: samurai armour, tea ceremony utensils, Noh costumes, plus a lovely Japanese garden next door (Tokugawaen).",
+    "url": null
+  },
+  {
+    "title": "Atsuta Jingu",
+    "category": "sights",
+    "city": "Nagoya",
+    "area": "Atsuta",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "shrine",
+      "traditional",
+      "forest"
+    ],
+    "lat": 35.1279,
+    "lng": 136.9087,
+    "description": "One of Japan's most important shrines, set in a deep forest of huge camphor trees. Pair with hitsumabushi next door.",
+    "url": null
+  },
+  {
+    "title": "Hitsumabushi at Atsuta Horaiken",
+    "category": "food",
+    "city": "Nagoya",
+    "area": "Atsuta",
+    "for_who": "both",
+    "cost_hint": "~¥4,500",
+    "tags": [
+      "eel",
+      "dinner",
+      "local-specialty"
+    ],
+    "lat": 35.126,
+    "lng": 136.909,
+    "description": "Nagoya's grilled eel on rice, eaten three ways: plain, with condiments, then as a broth. The original restaurant, and it queues.",
+    "url": null
+  },
+  {
+    "title": "Miso katsu at Yabaton",
+    "category": "food",
+    "city": "Nagoya",
+    "area": "Yabacho",
+    "for_who": "both",
+    "cost_hint": "~¥1,500",
+    "tags": [
+      "tonkatsu",
+      "local-specialty"
+    ],
+    "lat": 35.1615,
+    "lng": 136.906,
+    "description": "Pork cutlet drowned in sweet red miso sauce, Nagoya's signature dish.",
+    "url": null
+  },
+  {
+    "title": "Nagoya 'morning' kissaten",
+    "category": "coffee",
+    "city": "Nagoya",
+    "area": "Osu",
+    "for_who": "both",
+    "cost_hint": "~¥500",
+    "tags": [
+      "kissaten",
+      "breakfast",
+      "local"
+    ],
+    "lat": 35.159,
+    "lng": 136.904,
+    "description": "Nagoya cafés give you free toast, egg and sometimes more with your morning coffee. Find an old kissaten near Osu and order before 11.",
+    "url": null
+  },
+  {
+    "title": "Arashiyama Miffy Sakura Kitchen",
+    "category": "food",
+    "city": "Kyoto",
+    "area": "Arashiyama",
+    "for_who": "sam",
+    "cost_hint": "Under ¥1,000",
+    "tags": [
+      "miffy",
+      "bakery",
+      "kawaii"
+    ],
+    "lat": 35.0155,
+    "lng": 135.6775,
+    "description": "Miffy bakery and shop on Arashiyama's main street, selling Miffy-face buns and pastries plus Kyoto-only Miffy goods. Go before the midday crowds.",
+    "url": null
+  },
+  {
+    "title": "Arashiyama Monkey Park Iwatayama",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Arashiyama",
+    "for_who": "sam",
+    "cost_hint": "~¥600",
+    "tags": [
+      "wildlife",
+      "monkeys",
+      "views"
+    ],
+    "lat": 35.01,
+    "lng": 135.6772,
+    "description": "Wild macaques roaming free on a hilltop with a view over Kyoto. It's a steep 20-minute climb. Don't stare them in the eye.",
+    "url": null
+  },
+  {
+    "title": "Okochi Sanso villa",
+    "category": "tea",
+    "city": "Kyoto",
+    "area": "Arashiyama",
+    "for_who": "sam",
+    "cost_hint": "~¥1,000 incl. matcha",
+    "tags": [
+      "tea",
+      "garden",
+      "film",
+      "traditional"
+    ],
+    "lat": 35.017,
+    "lng": 135.67,
+    "description": "Hillside garden and villa of 1920s–30s samurai-film star Denjiro Okochi. Matcha and a sweet are included with entry. Film plus tea plus garden, very Sam.",
+    "url": null
+  },
+  {
+    "title": "Arashiyama bamboo grove at dawn",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Arashiyama",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "bamboo",
+      "early",
+      "walk"
+    ],
+    "lat": 35.017,
+    "lng": 135.672,
+    "description": "Magical when empty, unbearable by 10am. Be there by 7, then Miffy buns.",
+    "url": null
+  },
+  {
+    "title": "Ippodo Tea main store",
+    "category": "tea",
+    "city": "Kyoto",
+    "area": "Teramachi",
+    "for_who": "sam",
+    "cost_hint": "~¥1,500 tearoom",
+    "tags": [
+      "tea",
+      "matcha",
+      "shop"
+    ],
+    "lat": 35.0136,
+    "lng": 135.7676,
+    "description": "300-year-old tea merchant. The Kaboku tearoom lets you whisk your own matcha and taste gyokuro. The best place to buy tea to take home.",
+    "url": null
+  },
+  {
+    "title": "Kawai Kanjiro's House",
+    "category": "art",
+    "city": "Kyoto",
+    "area": "Higashiyama",
+    "for_who": "sam",
+    "cost_hint": "~¥900",
+    "tags": [
+      "ceramics",
+      "mingei",
+      "traditional",
+      "quiet"
+    ],
+    "lat": 34.9935,
+    "lng": 135.7745,
+    "description": "Home and kiln of a great 20th-century potter, preserved as he left it, with his furniture, pots and climbing kiln. Peaceful. Closed Mondays.",
+    "url": null
+  },
+  {
+    "title": "Toei Kyoto Studio Park",
+    "category": "sights",
+    "city": "Kyoto",
+    "area": "Uzumasa",
+    "for_who": "sam",
+    "cost_hint": "~¥2,400",
+    "tags": [
+      "film",
+      "samurai",
+      "sets"
+    ],
+    "lat": 35.017,
+    "lng": 135.709,
+    "description": "A working film studio backlot for samurai dramas: Edo streets, ninja shows, and sometimes real shoots. Cinema history you can walk through.",
+    "url": null
+  },
+  {
+    "title": "Daitokuji sub-temples",
+    "category": "sights",
+    "city": "Kyoto",
+    "area": "Kita-ku",
+    "for_who": "sam",
+    "cost_hint": "~¥500 each",
+    "tags": [
+      "zen",
+      "gardens",
+      "tea",
+      "traditional"
+    ],
+    "lat": 35.044,
+    "lng": 135.746,
+    "description": "A walled complex of Zen temples where the tea ceremony grew up. Daisen-in and Koto-in have extraordinary small gardens. Calm even in peak season.",
+    "url": null
+  },
+  {
+    "title": "Kiyomizu-yaki pottery workshop",
+    "category": "art",
+    "city": "Kyoto",
+    "area": "Gojozaka",
+    "for_who": "sam",
+    "cost_hint": "~¥3,000",
+    "tags": [
+      "ceramics",
+      "hands-on",
+      "traditional",
+      "booking"
+    ],
+    "lat": 34.996,
+    "lng": 135.778,
+    "description": "Paint or throw your own Kyoto-style bowl in the old pottery lanes below Kiyomizu-dera. They glaze and ship it home.",
+    "url": null
+  },
+  {
+    "title": "Heian Shrine garden",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Okazaki",
+    "for_who": "sam",
+    "cost_hint": "~¥600",
+    "tags": [
+      "sakura",
+      "garden",
+      "traditional"
+    ],
+    "lat": 35.016,
+    "lng": 135.782,
+    "description": "The garden behind the big red shrine has famous weeping cherries over the pond, and the stepping stones across it appear in Lost in Translation. Best in early April.",
+    "url": null
+  },
+  {
+    "title": "Ohara & Sanzen-in",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Ohara",
+    "for_who": "sam",
+    "cost_hint": "~¥700",
+    "tags": [
+      "moss",
+      "temple",
+      "rural",
+      "quiet"
+    ],
+    "lat": 35.12,
+    "lng": 135.834,
+    "description": "Rural valley north of Kyoto with mossy temple gardens and little stone statues peeking out of the moss. Feels like a Ghibli countryside.",
+    "url": null
+  },
+  {
+    "title": "Kyoto Gyoen weeping cherries",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Imperial Palace",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "sakura",
+      "park",
+      "picnic"
+    ],
+    "lat": 35.0254,
+    "lng": 135.7621,
+    "description": "The Imperial Palace park's early weeping cherries near the north side. Wide open, local, and good for a picnic.",
+    "url": null
+  },
+  {
+    "title": "Shimogamo Shrine & Tadasu no Mori",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Shimogamo",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "forest",
+      "shrine",
+      "traditional",
+      "walk"
+    ],
+    "lat": 35.039,
+    "lng": 135.772,
+    "description": "Ancient forest path leading to a vermilion shrine. Pair with mame-mochi from Demachi Futaba down the road.",
+    "url": null
+  },
+  {
+    "title": "Kurama to Kibune hike",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Kurama",
+    "for_who": "both",
+    "cost_hint": "Cheap",
+    "tags": [
+      "hike",
+      "forest",
+      "onsen",
+      "temple"
+    ],
+    "lat": 35.118,
+    "lng": 135.771,
+    "description": "Mountain trail over cedar roots from Kurama temple to the riverside village of Kibune, about 2 hours. Great half-day out of the city.",
+    "url": null
+  },
+  {
+    "title": "Byodoin, Uji",
+    "category": "sights",
+    "city": "Kyoto",
+    "area": "Uji",
+    "for_who": "both",
+    "cost_hint": "~¥700",
+    "tags": [
+      "temple",
+      "traditional",
+      "tea-town"
+    ],
+    "lat": 34.8893,
+    "lng": 135.8077,
+    "description": "The Phoenix Hall on the ¥10 coin, reflected in its pond. Uji is Japan's matcha town, and the Nintendo Museum is here too, so it makes a perfect shared day.",
+    "url": null
+  },
+  {
+    "title": "Taihoan tea house, Uji",
+    "category": "tea",
+    "city": "Kyoto",
+    "area": "Uji",
+    "for_who": "sam",
+    "cost_hint": "~¥2,400",
+    "tags": [
+      "tea",
+      "ceremony",
+      "booking"
+    ],
+    "lat": 34.8885,
+    "lng": 135.809,
+    "description": "City-run tea house by the Uji river, where you watch a tea master and then whisk your own matcha. Reserve at least three days ahead.",
+    "url": null
+  },
+  {
+    "title": "Nakamura Tokichi, Uji",
+    "category": "tea",
+    "city": "Kyoto",
+    "area": "Uji",
+    "for_who": "sam",
+    "cost_hint": "~¥1,500",
+    "tags": [
+      "matcha",
+      "sweets",
+      "shop"
+    ],
+    "lat": 34.8925,
+    "lng": 135.8035,
+    "description": "Historic tea merchant (since 1854) in an old wooden building, famous for matcha jelly parfaits. Expect a queue at lunch.",
+    "url": null
+  },
+  {
+    "title": "Gion Tsujiri",
+    "category": "tea",
+    "city": "Kyoto",
+    "area": "Gion",
+    "for_who": "both",
+    "cost_hint": "~¥1,500",
+    "tags": [
+      "matcha",
+      "sweets"
+    ],
+    "lat": 35.0037,
+    "lng": 135.775,
+    "description": "Matcha parfaits and soft serve from a tea company founded in 1860. A perfect afternoon reset in Gion.",
+    "url": null
+  },
+  {
+    "title": "Gion Shirakawa at dusk",
+    "category": "sights",
+    "city": "Kyoto",
+    "area": "Gion",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "traditional",
+      "sakura",
+      "walk",
+      "evening"
+    ],
+    "lat": 35.005,
+    "lng": 135.775,
+    "description": "Willow- and cherry-lined canal with wooden teahouses, prettiest as the lanterns come on. Please don't chase geiko for photos.",
+    "url": null
+  },
+  {
+    "title": "Maruyama Park weeping cherry",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Higashiyama",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "sakura",
+      "night",
+      "hanami"
+    ],
+    "lat": 35.0036,
+    "lng": 135.781,
+    "description": "Kyoto's most famous single cherry tree, lit up at night, with food stalls and hanami parties all around.",
+    "url": null
+  },
+  {
+    "title": "Sanjusangendo",
+    "category": "sights",
+    "city": "Kyoto",
+    "area": "Higashiyama",
+    "for_who": "both",
+    "cost_hint": "~¥600",
+    "tags": [
+      "temple",
+      "statues",
+      "traditional"
+    ],
+    "lat": 34.988,
+    "lng": 135.772,
+    "description": "A 120-metre wooden hall holding 1,001 golden statues of Kannon. Genuinely breathtaking.",
+    "url": null
+  },
+  {
+    "title": "Nishiki Market",
+    "category": "food",
+    "city": "Kyoto",
+    "area": "Nakagyo",
+    "for_who": "both",
+    "cost_hint": "Cheap",
+    "tags": [
+      "market",
+      "street-food",
+      "pickles"
+    ],
+    "lat": 35.005,
+    "lng": 135.765,
+    "description": "Covered market street of pickles, tofu, tamagoyaki and knives. Go before 10:30am to beat the crush. Eating while walking is discouraged, so eat at the stall.",
+    "url": null
+  },
+  {
+    "title": "Pontocho alley dinner",
+    "category": "food",
+    "city": "Kyoto",
+    "area": "Pontocho",
+    "for_who": "both",
+    "cost_hint": "Mid–¥¥¥",
+    "tags": [
+      "dinner",
+      "alley",
+      "river"
+    ],
+    "lat": 35.006,
+    "lng": 135.771,
+    "description": "Narrow lantern-lit alley along the Kamo river packed with restaurants. Some have riverside platforms.",
+    "url": null
+  },
+  {
+    "title": "Demachi Futaba mame-mochi",
+    "category": "food",
+    "city": "Kyoto",
+    "area": "Demachi",
+    "for_who": "both",
+    "cost_hint": "~¥250",
+    "tags": [
+      "wagashi",
+      "sweets",
+      "queue"
+    ],
+    "lat": 35.03,
+    "lng": 135.772,
+    "description": "Legendary sweet shop for mochi studded with salty beans. Locals queue happily for it.",
+    "url": null
+  },
+  {
+    "title": "Kissa Francois",
+    "category": "coffee",
+    "city": "Kyoto",
+    "area": "Shijo",
+    "for_who": "both",
+    "cost_hint": "~¥700",
+    "tags": [
+      "kissaten",
+      "showa",
+      "cozy"
+    ],
+    "lat": 35.003,
+    "lng": 135.7695,
+    "description": "1934 European-style coffee house with velvet chairs, a stained-glass ceiling and classical music. Listed as a cultural property.",
+    "url": null
+  },
+  {
+    "title": "Weekenders Coffee Tominokoji",
+    "category": "coffee",
+    "city": "Kyoto",
+    "area": "Tominokoji",
+    "for_who": "both",
+    "cost_hint": "~¥600",
+    "tags": [
+      "coffee",
+      "specialty"
+    ],
+    "lat": 35.006,
+    "lng": 135.764,
+    "description": "Tiny specialty roaster hidden in a car park courtyard behind a traditional facade. Some of Kyoto's best coffee.",
+    "url": null
+  },
+  {
+    "title": "Fushimi sake district",
+    "category": "drinks",
+    "city": "Kyoto",
+    "area": "Fushimi",
+    "for_who": "both",
+    "cost_hint": "Cheap tastings",
+    "tags": [
+      "sake",
+      "brewery",
+      "canal"
+    ],
+    "lat": 34.931,
+    "lng": 135.761,
+    "description": "Old sake brewery quarter with willow-lined canals. Gekkeikan's museum has tastings, and there's a canal boat in spring. Pair with an early Fushimi Inari.",
+    "url": null
+  },
+  {
+    "title": "Kyoto Brewing Co. taproom",
+    "category": "drinks",
+    "city": "Kyoto",
+    "area": "Nishikujo",
+    "for_who": "both",
+    "cost_hint": "~¥1,000/glass",
+    "tags": [
+      "craft-beer",
+      "weekend"
+    ],
+    "lat": 34.985,
+    "lng": 135.744,
+    "description": "Kyoto's best-known craft brewery, with a taproom that usually opens weekends only. Check before going.",
+    "url": null
+  },
+  {
+    "title": "Kyoto International Manga Museum",
+    "category": "retro",
+    "city": "Kyoto",
+    "area": "Karasuma-Oike",
+    "for_who": "both",
+    "cost_hint": "~¥1,200",
+    "tags": [
+      "manga",
+      "reading",
+      "retro"
+    ],
+    "lat": 35.0118,
+    "lng": 135.759,
+    "description": "Old school building with walls of 50,000 manga you can pull off the shelves and read on the lawn, plus history exhibits.",
+    "url": null
+  },
+  {
+    "title": "Kyoto Railway Museum",
+    "category": "sights",
+    "city": "Kyoto",
+    "area": "Umekoji",
+    "for_who": "josh",
+    "cost_hint": "~¥1,500",
+    "tags": [
+      "trains",
+      "steam",
+      "museum"
+    ],
+    "lat": 34.987,
+    "lng": 135.743,
+    "description": "Huge train museum with a working steam locomotive ride and the Shinkansen 0-series.",
+    "url": null
+  },
+  {
+    "title": "Nara Park deer",
+    "category": "nature",
+    "city": "Nara",
+    "area": "Nara Park",
+    "for_who": "sam",
+    "cost_hint": "Crackers ~¥200",
+    "tags": [
+      "deer",
+      "wildlife",
+      "daytrip"
+    ],
+    "lat": 34.685,
+    "lng": 135.843,
+    "description": "1,000+ free-roaming sacred deer that bow for crackers. Walk a few minutes away from the cracker stands, where the deer are pushy, and feed one cracker at a time. Only feed them the official crackers.",
+    "url": null
+  },
+  {
+    "title": "Todaiji",
+    "category": "sights",
+    "city": "Nara",
+    "area": "Nara Park",
+    "for_who": "both",
+    "cost_hint": "~¥800",
+    "tags": [
+      "temple",
+      "buddha",
+      "traditional"
+    ],
+    "lat": 34.689,
+    "lng": 135.8398,
+    "description": "One of the world's largest wooden buildings, home to a 15-metre bronze Buddha. Deer wander around the gate.",
+    "url": null
+  },
+  {
+    "title": "Kasuga Taisha lanterns",
+    "category": "sights",
+    "city": "Nara",
+    "area": "Nara Park",
+    "for_who": "sam",
+    "cost_hint": "Free / ~¥700 inner area",
+    "tags": [
+      "shrine",
+      "lanterns",
+      "forest",
+      "deer"
+    ],
+    "lat": 34.6813,
+    "lng": 135.8485,
+    "description": "Forest shrine lined with 3,000 stone and bronze lanterns, with deer drifting between them. Quietest early morning.",
+    "url": null
+  },
+  {
+    "title": "Yoshikien Garden",
+    "category": "nature",
+    "city": "Nara",
+    "area": "Nara Park",
+    "for_who": "sam",
+    "cost_hint": "Free for overseas visitors",
+    "tags": [
+      "garden",
+      "traditional",
+      "quiet"
+    ],
+    "lat": 34.686,
+    "lng": 135.835,
+    "description": "Three small Japanese gardens (moss, pond and tea) next to Isuien. Free for foreign visitors with a passport, and often nearly empty.",
+    "url": null
+  },
+  {
+    "title": "Wakakusayama at sunset",
+    "category": "nature",
+    "city": "Nara",
+    "area": "Nara Park",
+    "for_who": "sam",
+    "cost_hint": "~¥150",
+    "tags": [
+      "views",
+      "deer",
+      "sunset"
+    ],
+    "lat": 34.687,
+    "lng": 135.85,
+    "description": "Grassy hill above Nara Park with deer grazing and a view over the city at sunset. Usually opens for the season in mid-March.",
+    "url": null
+  },
+  {
+    "title": "Naramachi",
+    "category": "coffee",
+    "city": "Nara",
+    "area": "Naramachi",
+    "for_who": "both",
+    "cost_hint": "Cheap",
+    "tags": [
+      "old-town",
+      "cafes",
+      "cozy"
+    ],
+    "lat": 34.678,
+    "lng": 135.829,
+    "description": "Old merchant quarter of latticed wooden houses turned cafés, craft shops and a sake brewery. The calm part of Nara.",
+    "url": null
+  },
+  {
+    "title": "Nakanoshima Museum of Art",
+    "category": "art",
+    "city": "Osaka",
+    "area": "Nakanoshima",
+    "for_who": "sam",
+    "cost_hint": "Varies by show",
+    "tags": [
+      "art",
+      "design",
+      "architecture"
+    ],
+    "lat": 34.692,
+    "lng": 135.492,
+    "description": "Striking black-box museum opened in 2022 with modern art and design shows. The National Museum of Art Osaka is right next door.",
+    "url": null
+  },
+  {
+    "title": "Tower of the Sun, Expo '70 Park",
+    "category": "art",
+    "city": "Osaka",
+    "area": "Suita",
+    "for_who": "sam",
+    "cost_hint": "~¥720 + park",
+    "tags": [
+      "art",
+      "retro",
+      "taro-okamoto",
+      "booking"
+    ],
+    "lat": 34.809,
+    "lng": 135.532,
+    "description": "Taro Okamoto's giant, strange sculpture from Expo '70. You can go inside to see the 'Tree of Life' (book ahead). The park has lovely cherry blossom too.",
+    "url": null
+  },
+  {
+    "title": "Kitamura Camera, Namba",
+    "category": "shopping",
+    "city": "Osaka",
+    "area": "Namba",
+    "for_who": "sam",
+    "cost_hint": "Varies",
+    "tags": [
+      "film-camera",
+      "used",
+      "developing"
+    ],
+    "lat": 34.664,
+    "lng": 135.502,
+    "description": "Used film cameras in good condition that you can test in store, plus on-site colour film developing. In Namba CITY by Nankai Namba station.",
+    "url": null
+  },
+  {
+    "title": "Yaotomi Camera, Osaka Station",
+    "category": "shopping",
+    "city": "Osaka",
+    "area": "Umeda",
+    "for_who": "sam",
+    "cost_hint": "Varies",
+    "tags": [
+      "film-camera",
+      "used"
+    ],
+    "lat": 34.702,
+    "lng": 135.496,
+    "description": "Used film cameras and binoculars near Osaka Station. A good second stop for film bodies.",
+    "url": null
+  },
+  {
+    "title": "Osaka Mint cherry blossom passage",
+    "category": "nature",
+    "city": "Osaka",
+    "area": "Temmabashi",
+    "for_who": "both",
+    "cost_hint": "Free (may need reservation)",
+    "tags": [
+      "sakura",
+      "late-bloom",
+      "limited-dates"
+    ],
+    "lat": 34.696,
+    "lng": 135.524,
+    "description": "The Mint opens its 560m avenue of late-blooming cherry varieties for about a week in early-mid April, which might line up with your Osaka days. Dates are announced in March.",
+    "url": null
+  },
+  {
+    "title": "Osaka Castle Nishinomaru Garden",
+    "category": "nature",
+    "city": "Osaka",
+    "area": "Osaka Castle",
+    "for_who": "both",
+    "cost_hint": "~¥200",
+    "tags": [
+      "sakura",
+      "castle",
+      "picnic"
+    ],
+    "lat": 34.6873,
+    "lng": 135.5262,
+    "description": "The castle's quieter paid garden lawn with about 600 cherry trees and the keep behind. Nice evening light-ups in season.",
+    "url": null
+  },
+  {
+    "title": "Kitahama Retro",
+    "category": "tea",
+    "city": "Osaka",
+    "area": "Kitahama",
+    "for_who": "sam",
+    "cost_hint": "~¥1,500",
+    "tags": [
+      "tea",
+      "british",
+      "architecture",
+      "cozy"
+    ],
+    "lat": 34.6915,
+    "lng": 135.507,
+    "description": "English-style tea room inside a tiny 1912 brick building by the river. Scones and afternoon tea in Osaka.",
+    "url": null
+  },
+  {
+    "title": "Minoo Park waterfall",
+    "category": "nature",
+    "city": "Osaka",
+    "area": "Minoh",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "hike",
+      "waterfall",
+      "monkeys",
+      "momiji-tempura"
+    ],
+    "lat": 34.853,
+    "lng": 135.472,
+    "description": "An easy 3km forest walk to a 33-metre waterfall, with stalls selling deep-fried maple leaves. Wild monkeys live here too (don't feed them). Pair with Minoh Beer.",
+    "url": null
+  },
+  {
+    "title": "Sumiyoshi Taisha",
+    "category": "sights",
+    "city": "Osaka",
+    "area": "Sumiyoshi",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "shrine",
+      "traditional",
+      "bridge"
+    ],
+    "lat": 34.6125,
+    "lng": 135.493,
+    "description": "One of Japan's oldest shrines, with a steep arched red bridge and a distinctive architectural style. Take the retro Hankai tram there.",
+    "url": null
+  },
+  {
+    "title": "Tenma izakaya streets",
+    "category": "food",
+    "city": "Osaka",
+    "area": "Tenma",
+    "for_who": "both",
+    "cost_hint": "Cheap",
+    "tags": [
+      "izakaya",
+      "local",
+      "standing-bars"
+    ],
+    "lat": 34.705,
+    "lng": 135.512,
+    "description": "Japan's longest shopping arcade plus a warren of cheap izakaya and standing bars around Tenma station. Where Osaka goes after work.",
+    "url": null
+  },
+  {
+    "title": "Okonomiyaki Mizuno",
+    "category": "food",
+    "city": "Osaka",
+    "area": "Dotonbori",
+    "for_who": "both",
+    "cost_hint": "~¥1,500",
+    "tags": [
+      "okonomiyaki",
+      "queue"
+    ],
+    "lat": 34.6688,
+    "lng": 135.502,
+    "description": "Family-run okonomiyaki spot since 1945. The yam-batter version is the one. Worth the queue.",
+    "url": null
+  },
+  {
+    "title": "Rokko mountain drive, Kobe",
+    "category": "drive",
+    "city": "Osaka",
+    "area": "Kobe",
+    "for_who": "josh",
+    "cost_hint": "Small tolls",
+    "tags": [
+      "drive",
+      "night-view",
+      "needs-car"
+    ],
+    "lat": 34.76,
+    "lng": 135.23,
+    "description": "Twisting mountain roads above Kobe with one of Japan's famous night views. Pair with Kobe beef for dinner.",
+    "url": null
+  },
+  {
+    "title": "Okubiwako Parkway, Lake Biwa",
+    "category": "drive",
+    "city": "Kyoto",
+    "area": "Shiga",
+    "for_who": "josh",
+    "cost_hint": "Free",
+    "tags": [
+      "drive",
+      "sakura",
+      "lake",
+      "needs-car"
+    ],
+    "lat": 35.53,
+    "lng": 136.17,
+    "description": "Hilltop road on Lake Biwa's north shore lined with thousands of cherry trees, usually blooming in early-mid April. A blossom tunnel drive with lake views.",
+    "url": null
+  },
+  {
+    "title": "Booking calendar: the big ones",
+    "category": "tip",
+    "city": "Before you go",
+    "area": null,
+    "for_who": "both",
+    "cost_hint": null,
+    "tags": [
+      "admin",
+      "must-do",
+      "booking"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Set reminders. Yayoi Kusama Museum: 1 Jan / 1 Feb, 10am JST. Ghibli Park: 10 Feb, 2pm JST. Ghibli Museum: 10 March (via Lawson). Nintendo Museum: lottery months ahead. Toyota plant tour: 2 weeks to 3 months ahead. JDM rental cars: now.",
+    "url": null
+  },
+  {
+    "title": "Japan Expressway Pass + ETC card",
+    "category": "tip",
+    "city": "Before you go",
+    "area": null,
+    "for_who": "josh",
+    "cost_hint": null,
+    "tags": [
+      "admin",
+      "driving",
+      "tolls"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Foreign drivers can rent a flat-rate expressway pass with an ETC card from the rental company. It can save a lot on tolls across multi-day drives. Ask when booking the car.",
+    "url": null
+  },
+  {
+    "title": "Luggage forwarding (takkyubin)",
+    "category": "tip",
+    "city": "Before you go",
+    "area": null,
+    "for_who": "both",
+    "cost_hint": "~¥2,000/bag",
+    "tags": [
+      "admin",
+      "luggage"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Hotels and convenience stores can send your big bags ahead to the next hotel overnight. Essential when you're switching to a rental car or a small ryokan.",
+    "url": null
+  },
+  {
+    "title": "Sakura forecast",
+    "category": "tip",
+    "city": "Before you go",
+    "area": null,
+    "for_who": "both",
+    "cost_hint": null,
+    "tags": [
+      "sakura",
+      "planning"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Tokyo usually peaks late March to early April, and Kyoto and Osaka a few days later. Watch the Japan Meteorological Corporation forecast from February and shuffle hanami plans to match.",
+    "url": null
+  },
+  {
+    "title": "IC card on your phone",
+    "category": "tip",
+    "city": "Before you go",
+    "area": null,
+    "for_who": "both",
+    "cost_hint": null,
+    "tags": [
+      "admin",
+      "transport"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Add a Suica or PASMO to Apple Wallet before you fly. It works on trains, buses, convenience stores and lockers everywhere on your route.",
+    "url": null
+  },
+  {
+    "title": "Cash & 7-Eleven ATMs",
+    "category": "tip",
+    "city": "Before you go",
+    "area": null,
+    "for_who": "both",
+    "cost_hint": null,
+    "tags": [
+      "admin",
+      "money"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Plenty of small bars, temples and kissaten are cash-only. 7-Eleven ATMs take foreign cards reliably, so keep ¥10–20k on you.",
+    "url": null
+  },
+  {
+    "title": "Yamaha Communication Plaza",
+    "category": "cars",
+    "city": "Shizuoka",
+    "area": "Iwata",
+    "for_who": "josh",
+    "cost_hint": "Free",
+    "tags": [
+      "museum",
+      "yamaha",
+      "bikes",
+      "needs-car"
+    ],
+    "lat": 34.723,
+    "lng": 137.856,
+    "description": "Yamaha Motor's museum with GP bikes, classic motorcycles and the engines Yamaha built for Toyota (2000GT, LFA). It's right on the route between Hakone and Nagoya. Check opening days.",
+    "url": null
+  },
+  {
+    "title": "Suzuki Plaza",
+    "category": "cars",
+    "city": "Shizuoka",
+    "area": "Hamamatsu",
+    "for_who": "josh",
+    "cost_hint": "Free, book ahead",
+    "tags": [
+      "museum",
+      "suzuki",
+      "kei-cars"
+    ],
+    "lat": 34.711,
+    "lng": 137.723,
+    "description": "Suzuki's history museum: looms to kei cars, Hayabusas and a mini factory line. Reserve a slot online. Pairs with Yamaha the same day.",
+    "url": null
+  },
+  {
+    "title": "Kawasaki Good Times World",
+    "category": "cars",
+    "city": "Osaka",
+    "area": "Kobe Harborland",
+    "for_who": "josh",
+    "cost_hint": "~¥900",
+    "tags": [
+      "museum",
+      "kawasaki",
+      "bikes",
+      "shinkansen"
+    ],
+    "lat": 34.68,
+    "lng": 135.188,
+    "description": "Kawasaki's showcase by Kobe's harbour, with Ninjas, race bikes, a 0-series Shinkansen nose and helicopters. Easy add-on to a Rokko drive.",
+    "url": null
+  },
+  {
+    "title": "Mazda Museum, Hiroshima",
+    "category": "cars",
+    "city": "Osaka",
+    "area": "Hiroshima (day trip)",
+    "for_who": "josh",
+    "cost_hint": "Free, booking required",
+    "tags": [
+      "museum",
+      "mazda",
+      "rotary",
+      "daytrip"
+    ],
+    "lat": 34.37,
+    "lng": 132.5,
+    "description": "Rotary history (Cosmo, RX-7s, the Le Mans 787B) plus a look at the real assembly line. It's 1.5 hours from Osaka by Shinkansen. Combine with Miyajima for Sam.",
+    "url": null
+  },
+  {
+    "title": "Miyajima (Itsukushima)",
+    "category": "nature",
+    "city": "Osaka",
+    "area": "Hiroshima (day trip)",
+    "for_who": "sam",
+    "cost_hint": "Ferry ~¥200 + visitor tax",
+    "tags": [
+      "deer",
+      "shrine",
+      "island",
+      "daytrip"
+    ],
+    "lat": 34.296,
+    "lng": 132.319,
+    "description": "Island of friendly deer and the floating torii gate, with maple-leaf cakes on the high street. The deer here aren't fed crackers, so keep food away from them. Pairs with the Mazda Museum.",
+    "url": null
+  },
+  {
+    "title": "Yamazaki Distillery",
+    "category": "drinks",
+    "city": "Kyoto",
+    "area": "Shimamoto",
+    "for_who": "both",
+    "cost_hint": "Tour ~¥3,000, book far ahead",
+    "tags": [
+      "whisky",
+      "booking",
+      "must-book"
+    ],
+    "lat": 34.892,
+    "lng": 135.674,
+    "description": "Suntory's first whisky distillery, between Kyoto and Osaka. Tour slots open online and vanish in minutes, so set a reminder. The tasting bar has rare pours.",
+    "url": null
+  },
+  {
+    "title": "Hakutsuru Sake Brewery Museum",
+    "category": "drinks",
+    "city": "Osaka",
+    "area": "Kobe (Nada)",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "sake",
+      "museum",
+      "tasting"
+    ],
+    "lat": 34.713,
+    "lng": 135.26,
+    "description": "Old brewery in Kobe's Nada sake district showing traditional brewing, with free tastings at the end. Other breweries are walkable nearby.",
+    "url": null
+  },
+  {
+    "title": "Shinjuku Golden Gai",
+    "category": "drinks",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "for_who": "both",
+    "cost_hint": "Cover ¥500–1,000 + drinks",
+    "tags": [
+      "bars",
+      "tiny",
+      "night"
+    ],
+    "lat": 35.694,
+    "lng": 139.7046,
+    "description": "Six alleys of 200 bars that seat five to eight people each. Touristy now, but still magic. Pick one with a theme you love, like punk, film or horror, and check the cover charge on the door.",
+    "url": null
+  },
+  {
+    "title": "Baird Beer Harajuku Taproom",
+    "category": "drinks",
+    "city": "Tokyo",
+    "area": "Harajuku",
+    "for_who": "both",
+    "cost_hint": "~¥1,000/pint",
+    "tags": [
+      "craft-beer",
+      "izakaya"
+    ],
+    "lat": 35.67,
+    "lng": 139.705,
+    "description": "Taproom of one of Japan's pioneering craft brewers, with yakitori-style bar food, just off Takeshita Street's chaos.",
+    "url": null
+  },
+  {
+    "title": "Disk Union Shinjuku",
+    "category": "retro",
+    "city": "Tokyo",
+    "area": "Shinjuku",
+    "for_who": "both",
+    "cost_hint": "Varies",
+    "tags": [
+      "records",
+      "vinyl",
+      "city-pop",
+      "shop"
+    ],
+    "lat": 35.6915,
+    "lng": 139.704,
+    "description": "Cluster of genre-specific record shops across several floors and buildings. City pop and old anime soundtracks on vinyl are the souvenirs.",
+    "url": null
+  },
+  {
+    "title": "Mandarake Grand Chaos, Osaka",
+    "category": "retro",
+    "city": "Osaka",
+    "area": "Shinsaibashi",
+    "for_who": "josh",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "games",
+      "toys",
+      "collectors"
+    ],
+    "lat": 34.672,
+    "lng": 135.499,
+    "description": "Osaka's big Mandarake with vintage toys, retro games, cels and figures. A good rainy-day dig near Amerikamura.",
+    "url": null
+  },
+  {
+    "title": "Kobe beef lunch",
+    "category": "food",
+    "city": "Osaka",
+    "area": "Kobe (Sannomiya)",
+    "for_who": "both",
+    "cost_hint": "~¥5,000–10,000",
+    "tags": [
+      "kobe-beef",
+      "teppanyaki",
+      "lunch"
+    ],
+    "lat": 34.693,
+    "lng": 135.195,
+    "description": "Teppanyaki lunch sets are far better value than dinner. Look for the certified Kobe beef bronze statue logo. Book ahead.",
+    "url": null
+  },
+  {
+    "title": "AFURI ramen",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Harajuku",
+    "for_who": "both",
+    "cost_hint": "~¥1,300",
+    "tags": [
+      "ramen",
+      "yuzu"
+    ],
+    "lat": 35.671,
+    "lng": 139.707,
+    "description": "Light, citrusy yuzu shio ramen. A great first ramen when it's warm or you're jet-lagged.",
+    "url": null
+  },
+  {
+    "title": "Ramen Jiro (Mita main shop)",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Mita",
+    "for_who": "josh",
+    "cost_hint": "~¥900",
+    "tags": [
+      "ramen",
+      "challenge",
+      "queue"
+    ],
+    "lat": 35.646,
+    "lng": 139.744,
+    "description": "Cult-status mountain of noodles, pork, garlic and bean sprouts. There are rules: buy a ticket, order toppings when asked, eat fast, leave. An experience.",
+    "url": null
+  },
+  {
+    "title": "Uobei conveyor sushi",
+    "category": "food",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "for_who": "both",
+    "cost_hint": "~¥1,500",
+    "tags": [
+      "sushi",
+      "cheap",
+      "fun"
+    ],
+    "lat": 35.659,
+    "lng": 139.699,
+    "description": "Touch-screen sushi that arrives on bullet-train lanes. Cheap, fast and fun in Shibuya.",
+    "url": null
+  },
+  {
+    "title": "Moomin Valley Park",
+    "category": "sights",
+    "city": "Tokyo",
+    "area": "Hanno (Saitama)",
+    "for_who": "sam",
+    "cost_hint": "~¥3,600",
+    "tags": [
+      "moomin",
+      "lake",
+      "kawaii",
+      "daytrip"
+    ],
+    "lat": 35.864,
+    "lng": 139.317,
+    "description": "Lakeside forest park with the Moomin house, shows and Nordic cafés. Slow and sweet, about an hour from Ikebukuro.",
+    "url": null
+  },
+  {
+    "title": "Kurosuke's House, Totoro Forest",
+    "category": "sights",
+    "city": "Tokyo",
+    "area": "Tokorozawa (Saitama)",
+    "for_who": "sam",
+    "cost_hint": "Free",
+    "tags": [
+      "ghibli",
+      "totoro",
+      "forest",
+      "limited-days"
+    ],
+    "lat": 35.781,
+    "lng": 139.422,
+    "description": "Old farmhouse in the Sayama Hills, the woods that inspired My Neighbour Totoro, run by the Totoro Forest Foundation. Open only a few days a week, so check before going.",
+    "url": null
+  },
+  {
+    "title": "Shibamata & Tora-san Museum",
+    "category": "sights",
+    "city": "Tokyo",
+    "area": "Katsushika",
+    "for_who": "sam",
+    "cost_hint": "~¥500",
+    "tags": [
+      "film",
+      "showa",
+      "temple",
+      "old-tokyo"
+    ],
+    "lat": 35.758,
+    "lng": 139.877,
+    "description": "Showa-era temple town from the long-running Tora-san film series: a museum with the film sets, a street of dango shops, and Taishakuten temple's incredible wood carvings.",
+    "url": null
+  },
+  {
+    "title": "Higashiya Ginza",
+    "category": "tea",
+    "city": "Tokyo",
+    "area": "Ginza",
+    "for_who": "sam",
+    "cost_hint": "~¥2,000",
+    "tags": [
+      "tea",
+      "wagashi",
+      "design"
+    ],
+    "lat": 35.672,
+    "lng": 139.765,
+    "description": "Modern wagashi tea salon with beautiful seasonal sweets and tea pairings. Calm, design-led and very Sam.",
+    "url": null
+  },
+  {
+    "title": "Kintsugi workshop",
+    "category": "art",
+    "city": "Tokyo",
+    "area": "Various",
+    "for_who": "sam",
+    "cost_hint": "~¥5,000–10,000",
+    "tags": [
+      "kintsugi",
+      "hands-on",
+      "traditional",
+      "booking"
+    ],
+    "lat": null,
+    "lng": null,
+    "description": "Mend a broken bowl with lacquer and gold. Several Tokyo studios run English classes of 2–3 hours, and some let you take the piece home unfinished to cure. Book ahead.",
+    "url": null
+  },
+  {
+    "title": "Itoya Ginza",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Ginza",
+    "for_who": "sam",
+    "cost_hint": "Varies",
+    "tags": [
+      "stationery",
+      "paper",
+      "shop"
+    ],
+    "lat": 35.672,
+    "lng": 139.768,
+    "description": "Twelve floors of stationery, with washi paper, fountain pens, letter-writing desks and a hydroponic lettuce farm near the top. Dangerous for a stationery lover.",
+    "url": null
+  },
+  {
+    "title": "Kyukyodo, Kyoto",
+    "category": "shopping",
+    "city": "Kyoto",
+    "area": "Teramachi",
+    "for_who": "sam",
+    "cost_hint": "Varies",
+    "tags": [
+      "incense",
+      "paper",
+      "traditional",
+      "shop"
+    ],
+    "lat": 35.012,
+    "lng": 135.7675,
+    "description": "Incense and washi paper shop dating to 1663. Beautiful postcards, letter sets and incense to take home.",
+    "url": null
+  },
+  {
+    "title": "Otagi Nenbutsu-ji",
+    "category": "sights",
+    "city": "Kyoto",
+    "area": "Arashiyama (Okusaga)",
+    "for_who": "sam",
+    "cost_hint": "~¥300",
+    "tags": [
+      "temple",
+      "statues",
+      "quirky",
+      "quiet"
+    ],
+    "lat": 35.03,
+    "lng": 135.665,
+    "description": "Mossy hillside with 1,200 little stone rakan statues carved by amateurs, each with its own face, some laughing and one holding a camera. Far quieter than central Arashiyama.",
+    "url": null
+  },
+  {
+    "title": "Kamogawa Delta turtle stones",
+    "category": "nature",
+    "city": "Kyoto",
+    "area": "Demachiyanagi",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "river",
+      "picnic",
+      "sakura",
+      "fun"
+    ],
+    "lat": 35.03,
+    "lng": 135.772,
+    "description": "Hop across the river on turtle-shaped stepping stones where the two rivers meet. Take a beer or a bento and sit on the bank.",
+    "url": null
+  },
+  {
+    "title": "Yoyogi Park hanami",
+    "category": "nature",
+    "city": "Tokyo",
+    "area": "Harajuku",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "sakura",
+      "picnic",
+      "hanami",
+      "people-watching"
+    ],
+    "lat": 35.672,
+    "lng": 139.695,
+    "description": "Where Tokyo actually does hanami: tarps, beers and music under the trees. Bring a picnic sheet from a konbini.",
+    "url": null
+  },
+  {
+    "title": "Meguro River at night",
+    "category": "nature",
+    "city": "Tokyo",
+    "area": "Nakameguro",
+    "for_who": "both",
+    "cost_hint": "Free",
+    "tags": [
+      "sakura",
+      "night",
+      "busy"
+    ],
+    "lat": 35.644,
+    "lng": 139.699,
+    "description": "Canal lined with cherry trees lit with lanterns. It's very busy at peak, so go late on a weeknight with a strawberry sparkling wine from a stall. Nakameguro's cafés are around it.",
+    "url": null
+  }
+]
