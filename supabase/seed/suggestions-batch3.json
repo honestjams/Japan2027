@@ -1,0 +1,195 @@
+[
+  {
+    "title": "TORCH TORCH, Shibuya PARCO",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "for_who": "josh",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "fromsoftware",
+      "elden-ring",
+      "dark-souls",
+      "apparel",
+      "games",
+      "shop"
+    ],
+    "lat": 35.6621,
+    "lng": 139.6985,
+    "description": "Officially licensed FromSoftware apparel brand on PARCO's 5th floor: Elden Ring, Dark Souls, Bloodborne, Sekiro and Armored Core tees, hoodies, jewellery and bags, designed like streetwear rather than fan merch. The brand also has shops in Shinsaibashi PARCO (Osaka) and Nagoya PARCO. Usually 11:00–21:00.",
+    "url": null
+  },
+  {
+    "title": "Capcom Store Tokyo",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "for_who": "josh",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "capcom",
+      "monster-hunter",
+      "resident-evil",
+      "apparel",
+      "games",
+      "shop"
+    ],
+    "lat": 35.6621,
+    "lng": 139.6985,
+    "description": "Capcom's flagship shop on Shibuya PARCO's 6th floor, one floor above TORCH TORCH. Monster Hunter, Resident Evil and Street Fighter clothing, homeware and art books alongside the figures. Pair the two in one visit.",
+    "url": null
+  },
+  {
+    "title": "Nintendo TOKYO",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Shibuya",
+    "for_who": "both",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "nintendo",
+      "zelda",
+      "mario",
+      "apparel",
+      "games",
+      "shop"
+    ],
+    "lat": 35.6621,
+    "lng": 139.6985,
+    "description": "Nintendo's own shop, also on PARCO's 6th floor next to the Pokémon Center and Jump Shop. Good for Zelda and Animal Crossing clothing, kitchenware and stationery that you won't find in normal toy shops. Busy: a timed entry ticket is sometimes needed at peak times.",
+    "url": null
+  },
+  {
+    "title": "Square Enix ARTNIA",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Higashi-Shinjuku",
+    "for_who": "josh",
+    "cost_hint": "Free to browse, café extra",
+    "tags": [
+      "square-enix",
+      "final-fantasy",
+      "dragon-quest",
+      "cafe",
+      "games",
+      "shop"
+    ],
+    "lat": 35.6975,
+    "lng": 139.708,
+    "description": "Square Enix's café and shop at its Shinjuku Eastside Square HQ. Final Fantasy, Dragon Quest and NieR goods, art prints and accessories, plus themed drinks with collectible coasters. A newer licensed Square Enix Café & Shop also opened in June 2026 near Shinjuku-sanchome, so check which has the better range.",
+    "url": null
+  },
+  {
+    "title": "EVANGELION STORE TOKYO-01",
+    "category": "shopping",
+    "city": "Tokyo",
+    "area": "Ikebukuro",
+    "for_who": "josh",
+    "cost_hint": "Caps ~¥15,000",
+    "tags": [
+      "evangelion",
+      "anime",
+      "apparel",
+      "shop"
+    ],
+    "lat": 35.73,
+    "lng": 139.711,
+    "description": "Official Eva shop on Ikebukuro PARCO's 2nd floor, with character voices on the tannoy. Best for the RADIO EVA fashion label (jackets, caps and collabs with brands like KANGOL) rather than figures. 11:00–21:00.",
+    "url": null
+  },
+  {
+    "title": "Hakone-Yumoto EVA-YA",
+    "category": "shopping",
+    "city": "Hakone / Fuji",
+    "area": "Hakone-Yumoto",
+    "for_who": "josh",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "evangelion",
+      "anime",
+      "shop"
+    ],
+    "lat": 35.2325,
+    "lng": 139.105,
+    "description": "Little Evangelion shop in Hakone (Tokyo-3 in the series), handy for a souvenir you can't get in Tokyo. A quick stop on the way into Hakone on a drive day. Check it's open before making a detour.",
+    "url": null
+  },
+  {
+    "title": "Nintendo KYOTO",
+    "category": "shopping",
+    "city": "Kyoto",
+    "area": "Shijo-Kawaramachi",
+    "for_who": "both",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "nintendo",
+      "zelda",
+      "mario",
+      "games",
+      "shop"
+    ],
+    "lat": 35.0035,
+    "lng": 135.7686,
+    "description": "Nintendo's shop on the 7th floor of Kyoto Takashimaya S.C., in the company's home town. Similar range to Tokyo but usually calmer, with a life-size Mario photo spot. Pairs with the Nintendo Museum in Uji.",
+    "url": null
+  },
+  {
+    "title": "TORCH TORCH, Shinsaibashi PARCO",
+    "category": "shopping",
+    "city": "Osaka",
+    "area": "Shinsaibashi",
+    "for_who": "josh",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "fromsoftware",
+      "elden-ring",
+      "dark-souls",
+      "apparel",
+      "games",
+      "shop"
+    ],
+    "lat": 34.6745,
+    "lng": 135.5013,
+    "description": "The Osaka branch of the FromSoftware apparel shop, so you can leave the Elden Ring hoodie until the end of the trip. Capcom Store Osaka is in the same PARCO.",
+    "url": null
+  },
+  {
+    "title": "Capcom Store Osaka",
+    "category": "shopping",
+    "city": "Osaka",
+    "area": "Shinsaibashi",
+    "for_who": "josh",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "capcom",
+      "monster-hunter",
+      "resident-evil",
+      "apparel",
+      "games",
+      "shop"
+    ],
+    "lat": 34.6745,
+    "lng": 135.5013,
+    "description": "Capcom's Osaka shop in Shinsaibashi PARCO (it opened on the 6th floor; check the floor guide). Same mix of Monster Hunter and Resident Evil clothing and homeware as Tokyo. Mandarake Grand Chaos is a few minutes' walk away.",
+    "url": null
+  },
+  {
+    "title": "Nintendo OSAKA",
+    "category": "shopping",
+    "city": "Osaka",
+    "area": "Umeda",
+    "for_who": "both",
+    "cost_hint": "Free to browse",
+    "tags": [
+      "nintendo",
+      "zelda",
+      "mario",
+      "games",
+      "shop"
+    ],
+    "lat": 34.703,
+    "lng": 135.497,
+    "description": "Nintendo's shop on the 13th floor of Daimaru Umeda, above Osaka Station. Easy last-day stop for anything you didn't fit in your bag in Tokyo, since it's right by the airport trains.",
+    "url": null
+  }
+]
