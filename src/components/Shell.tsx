@@ -16,6 +16,7 @@ const TABS = [
   { href: "/trip", match: "/trip", label: "Trip", kanji: "旅" },
   { href: "/view/3", match: "/view", label: "Days", kanji: "日" },
   { href: "/ideas", match: "/ideas", label: "Ideas", kanji: "案" },
+  { href: "/prep", match: "/prep", label: "Prep", kanji: "備" },
 ];
 
 export function Shell({ children }: { children: ReactNode }) {
@@ -73,7 +74,7 @@ function CurrentNav() {
 function BottomNav({ path }: { path: string }) {
   return (
     <nav className="pb-safe fixed inset-x-0 bottom-0 z-40 border-t border-paper-edge bg-paper/95 backdrop-blur">
-      <ul className="mx-auto grid max-w-md grid-cols-4">
+      <ul className="mx-auto grid max-w-md grid-cols-5">
         {TABS.map((t) => {
           const active = path.startsWith(t.match);
           return (

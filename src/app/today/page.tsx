@@ -15,12 +15,13 @@ import {
   diffDays,
   longDate,
   pad2,
+  shortDate,
   todayInJapan,
   vhsStamp,
 } from "@/lib/dates";
 
 export default function TodayPage() {
-  const { days, items, loading } = useTrip();
+  const { days, items, checklist, loading } = useTrip();
   if (loading) return <Loading />;
 
   const today = todayInJapan();
@@ -31,6 +32,10 @@ export default function TodayPage() {
   const day = days.find((d) => d.date === focusDate);
   const dayItems = itemsForDay(items, focusDate);
   const ideas = items.filter((i) => !i.date).length;
+  const prepLeft = checklist.filter((c) => !c.done);
+  const prepNext = prepLeft
+    .filter((c) => c.due_by)
+    .sort((a, b) => a.due_by!.localeCompare(b.due_by!))[0];
 
   return (
     <>
@@ -102,6 +107,26 @@ export default function TodayPage() {
           </div>
         )}
       </div>
+
+      {before && prepLeft.length > 0 && (
+        <>
+          <SectionLabel>Before you go</SectionLabel>
+          <Link
+            href="/prep"
+            className="paper-card block p-4 hover:-translate-y-0.5 transition-transform"
+          >
+            <p className="font-display text-lg font-bold">
+              {prepLeft.length} thing{prepLeft.length === 1 ? "" : "s"} left
+              to sort →
+            </p>
+            {prepNext && (
+              <p className="text-sm text-ink-soft">
+                Next: {prepNext.title}, by {shortDate(prepNext.due_by!)}
+              </p>
+            )}
+          </Link>
+        </>
+      )}
 
       {ideas > 0 && (
         <>

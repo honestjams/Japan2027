@@ -119,3 +119,50 @@ export const CITY_PRESETS = [
   "Kyoto",
   "Osaka",
 ];
+
+export type ChecklistSection =
+  | "book"
+  | "papers"
+  | "money"
+  | "tech"
+  | "health"
+  | "home"
+  | "pack"
+  | "final";
+
+export interface ChecklistItem {
+  id: string;
+  title: string;
+  section: ChecklistSection;
+  notes: string | null;
+  due_by: string | null;
+  owner: Who;
+  done: boolean;
+  done_by: Traveller | null;
+  done_at: string | null;
+  sort_order: number;
+  created_at: string;
+}
+
+export type ChecklistDraft = Partial<Omit<ChecklistItem, "id" | "created_at">> & {
+  id?: string;
+};
+
+/** Pre-trip checklist sections, in the order you'd tackle them. */
+export const CHECKLIST_SECTIONS: Record<
+  ChecklistSection,
+  { label: string; kanji: string; color: string }
+> = {
+  book: { label: "Book it", kanji: "予", color: "var(--cat-stay)" },
+  papers: { label: "Papers", kanji: "証", color: "var(--cat-drive)" },
+  money: { label: "Money", kanji: "円", color: "var(--cat-drinks)" },
+  tech: { label: "Phones & tech", kanji: "電", color: "var(--cat-retro)" },
+  health: { label: "Health", kanji: "薬", color: "var(--cat-tea)" },
+  home: { label: "Home", kanji: "家", color: "var(--cat-coffee)" },
+  pack: { label: "Pack", kanji: "荷", color: "var(--cat-shopping)" },
+  final: { label: "Last few days", kanji: "発", color: "var(--tape-red)" },
+};
+
+export const CHECKLIST_SECTION_KEYS = Object.keys(
+  CHECKLIST_SECTIONS,
+) as ChecklistSection[];

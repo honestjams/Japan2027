@@ -12,6 +12,8 @@ import {
 } from "react";
 import { supabase } from "@/lib/supabase";
 import type {
+  ChecklistDraft,
+  ChecklistItem,
   PlanItem,
   PlanItemDraft,
   Suggestion,
@@ -25,6 +27,7 @@ interface TripState {
   days: TripDay[];
   items: PlanItem[];
   suggestions: Suggestion[];
+  checklist: ChecklistItem[];
   loading: boolean;
   error: string | null;
   me: Traveller | null;
@@ -34,6 +37,9 @@ interface TripState {
   updateItem: (id: string, patch: Partial<PlanItem>) => Promise<void>;
   deleteItem: (id: string) => Promise<void>;
   updateDay: (date: string, patch: Partial<TripDay>) => Promise<void>;
+  saveCheck: (draft: ChecklistDraft) => Promise<ChecklistItem | null>;
+  updateCheck: (id: string, patch: Partial<ChecklistItem>) => Promise<void>;
+  deleteCheck: (id: string) => Promise<void>;
   // Sheets live at the app shell so any screen can open them.
   editing: PlanItemDraft | null;
   openItem: (draft: PlanItemDraft) => void;
@@ -66,18 +72,20 @@ function subscribeMe(cb: () => void) {
 const noop = () => () => {};
 
 async function fetchAll() {
-  const [d, i, s] = await Promise.all([
+  const [d, i, s, c] = await Promise.all([
     supabase.from("trip_days").select("*").order("date"),
     supabase.from("plan_items").select("*").order("sort_order"),
     supabase.from("suggestions").select("*").order("city"),
+    supabase.from("checklist_items").select("*").order("sort_order"),
   ]);
-  const err = d.error ?? i.error ?? s.error;
+  const err = d.error ?? i.error ?? s.error ?? c.error;
   if (err) return { ok: false as const, error: err.message };
   return {
     ok: true as const,
     days: d.data as TripDay[],
     items: i.data as PlanItem[],
     suggestions: s.data as Suggestion[],
+    checklist: c.data as ChecklistItem[],
   };
 }
 
@@ -101,6 +109,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
   const [days, setDays] = useState<TripDay[]>([]);
   const [items, setItems] = useState<PlanItem[]>([]);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+  const [checklist, setChecklist] = useState<ChecklistItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const me = useSyncExternalStore(subscribeMe, readMe, () => null);
@@ -130,6 +139,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
           setDays(r.days);
           setItems(r.items);
           setSuggestions(r.suggestions);
+          setChecklist(r.checklist);
           setError(null);
         }
         setLoading(false);
@@ -144,6 +154,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
         setDays(r.days);
         setItems(r.items);
         setSuggestions(r.suggestions);
+        setChecklist(r.checklist);
       }
       setLoading(false);
     });
@@ -164,6 +175,17 @@ export function TripProvider({ children }: { children: ReactNode }) {
         "postgres_changes",
         { event: "UPDATE", schema: "public", table: "trip_days" },
         (p) => setDays((list) => upsert(list, p.new as TripDay, "date")),
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "checklist_items" },
+        (p) => {
+          if (p.eventType === "DELETE") {
+            const id = (p.old as { id?: string }).id;
+            setChecklist((list) => list.filter((r) => r.id !== id));
+          } else
+            setChecklist((list) => upsert(list, p.new as ChecklistItem, "id"));
+        },
       )
       .subscribe();
     return () => {
@@ -234,11 +256,58 @@ export function TripProvider({ children }: { children: ReactNode }) {
     [load],
   );
 
+  const saveCheck = useCallback(async (draft: ChecklistDraft) => {
+    const { id, ...fields } = draft;
+    const query = id
+      ? supabase.from("checklist_items").update(fields).eq("id", id)
+      : supabase.from("checklist_items").insert(fields);
+    const { data, error } = await query.select().single();
+    if (error) {
+      setError(error.message);
+      return null;
+    }
+    setChecklist((list) => upsert(list, data as ChecklistItem, "id"));
+    return data as ChecklistItem;
+  }, []);
+
+  const updateCheck = useCallback(
+    async (id: string, patch: Partial<ChecklistItem>) => {
+      setChecklist((list) =>
+        list.map((r) => (r.id === id ? { ...r, ...patch } : r)),
+      );
+      const { error } = await supabase
+        .from("checklist_items")
+        .update(patch)
+        .eq("id", id);
+      if (error) {
+        setError(error.message);
+        load();
+      }
+    },
+    [load],
+  );
+
+  const deleteCheck = useCallback(
+    async (id: string) => {
+      setChecklist((list) => list.filter((r) => r.id !== id));
+      const { error } = await supabase
+        .from("checklist_items")
+        .delete()
+        .eq("id", id);
+      if (error) {
+        setError(error.message);
+        load();
+      }
+    },
+    [load],
+  );
+
   const value = useMemo<TripState>(
     () => ({
       days,
       items,
       suggestions,
+      checklist,
       loading,
       error,
       me,
@@ -248,6 +317,9 @@ export function TripProvider({ children }: { children: ReactNode }) {
       updateItem,
       deleteItem,
       updateDay,
+      saveCheck,
+      updateCheck,
+      deleteCheck,
       editing,
       openItem: setEditing,
       closeItem: () => setEditing(null),
@@ -259,6 +331,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
       days,
       items,
       suggestions,
+      checklist,
       loading,
       error,
       me,
@@ -268,6 +341,9 @@ export function TripProvider({ children }: { children: ReactNode }) {
       updateItem,
       deleteItem,
       updateDay,
+      saveCheck,
+      updateCheck,
+      deleteCheck,
       editing,
       editingDay,
     ],
