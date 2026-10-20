@@ -1,12 +1,12 @@
 # 旅 Japan '27
 
-Josh & Sam's planner for Japan, **29 Mar – 11 Apr 2027** (into Tokyo, out of Osaka).
+Josh & Sam's planner for Japan, **29 Mar – 12 Apr 2027** (into Tokyo, out of Osaka).
 Sakura on VHS: washi paper, film grain, ticket stubs.
 
 ## What it does
 
 - **Today**: countdown before the trip, then that day's plan and map once you're there.
-- **Trip**: the whole 14 days at a glance: route ribbon, every day, everything on one map.
+- **Trip**: the whole 15 days at a glance: route ribbon, every day, everything on one map.
 - **Days**: 3, 5 or 7 days side by side; ◀◀ ▶▶ to move through the trip.
 - **Ideas**: a curated starter list (cars, drives, retro games, kissaten, craft beer, sakura spots) plus your own wishlist. Tap **+ Add to plan** to drop one into a day.
 - **Prep**: the pre-trip checklist (bookings with their on-sale dates, papers, money, phones, packing). Tick things off and both phones see it; anything with a deadline shows how long is left.

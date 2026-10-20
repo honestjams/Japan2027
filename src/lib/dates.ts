@@ -1,5 +1,5 @@
 export const TRIP_START = "2027-03-29";
-export const TRIP_END = "2027-04-11";
+export const TRIP_END = "2027-04-12";
 
 // Trip dates are plain calendar days, so all maths happens in UTC to avoid
 // the viewer's timezone shifting a day either way.

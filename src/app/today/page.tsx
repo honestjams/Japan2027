@@ -9,6 +9,7 @@ import { MapView, toPoints } from "@/components/MapView";
 import { Petals } from "@/components/Petals";
 import { SectionLabel, spring } from "@/components/ui";
 import {
+  TRIP_DATES,
   TRIP_END,
   TRIP_START,
   dayNumber,
@@ -73,13 +74,13 @@ export default function TodayPage() {
             </p>
             <p className="mt-2 text-ink-soft">
               {items.filter((i) => i.status === "done").length} things done
-              across 14 days.
+              across {TRIP_DATES.length} days.
             </p>
           </>
         ) : (
           <>
             <p className="vhs-text mt-8 text-2xl uppercase text-ink-soft">
-              Day {pad2(dayNumber(today))} of 14
+              Day {pad2(dayNumber(today))} of {TRIP_DATES.length}
             </p>
             <p className="font-display text-4xl font-extrabold leading-tight">
               {longDate(today)}
@@ -116,8 +117,8 @@ export default function TodayPage() {
             className="paper-card block p-4 hover:-translate-y-0.5 transition-transform"
           >
             <p className="font-display text-lg font-bold">
-              {prepLeft.length} thing{prepLeft.length === 1 ? "" : "s"} left
-              to sort →
+              {prepLeft.length} thing{prepLeft.length === 1 ? "" : "s"} left to
+              sort →
             </p>
             {prepNext && (
               <p className="text-sm text-ink-soft">

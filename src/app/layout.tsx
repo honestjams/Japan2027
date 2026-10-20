@@ -23,7 +23,7 @@ const vt323 = VT323({
 
 export const metadata: Metadata = {
   title: "旅 Japan '27",
-  description: "Josh & Sam's Japan trip — 29 Mar to 11 Apr 2027",
+  description: "Josh & Sam's Japan trip — 29 Mar to 12 Apr 2027",
   robots: { index: false, follow: false },
   appleWebApp: { capable: true, title: "Japan '27", statusBarStyle: "default" },
 };

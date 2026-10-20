@@ -7,7 +7,17 @@ import { Loading } from "@/components/Loading";
 import { MapView, toPoints } from "@/components/MapView";
 import { SectionLabel, Tape, spring } from "@/components/ui";
 import { CATEGORIES, type TripDay } from "@/lib/types";
-import { dayNumber, pad2, shortDate, todayInJapan, weekday } from "@/lib/dates";
+import {
+  TRIP_DATES,
+  TRIP_END,
+  TRIP_START,
+  dayNumber,
+  pad2,
+  shortDate,
+  todayInJapan,
+  vhsStamp,
+  weekday,
+} from "@/lib/dates";
 import { tilt, yen } from "@/lib/places";
 
 /** Consecutive days in the same city collapse into one leg of the route. */
@@ -37,7 +47,8 @@ export default function TripPage() {
       transition={spring}
     >
       <p className="vhs-text text-lg uppercase text-ink-soft">
-        29.MAR → 11.APR.2027 · 14 days
+        {vhsStamp(TRIP_START).slice(0, 6)} → {vhsStamp(TRIP_END)} ·{" "}
+        {TRIP_DATES.length} days
       </p>
       <h1 className="font-display text-4xl font-extrabold leading-tight">
         Tokyo → Osaka
