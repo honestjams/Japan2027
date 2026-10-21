@@ -34,10 +34,9 @@ function DayForm({ day }: { day: TripDay }) {
     setDraft((d) => ({ ...d, [k]: v }));
 
   async function save() {
-    const { city, stay, is_drive_day, car, notes } = draft;
+    const { city, is_drive_day, car, notes } = draft;
     await updateDay(editingDay, {
       city: city?.trim() || "TBC",
-      stay: stay || null,
       is_drive_day: !!is_drive_day,
       car: is_drive_day ? car || null : null,
       notes: notes || null,
@@ -65,15 +64,6 @@ function DayForm({ day }: { day: TripDay }) {
             </Chip>
           ))}
         </div>
-      </Field>
-
-      <Field label="Sleeping at">
-        <input
-          className={inputClass}
-          placeholder="Hotel / ryokan name"
-          value={draft.stay ?? ""}
-          onChange={(e) => set("stay", e.target.value)}
-        />
       </Field>
 
       <div className="paper-card flex items-center justify-between p-4">

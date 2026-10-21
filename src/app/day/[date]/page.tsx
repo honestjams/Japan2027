@@ -6,13 +6,14 @@ import { motion } from "framer-motion";
 import { itemsForDay, useTrip } from "@/components/TripProvider";
 import { DayBlock } from "@/components/DayBlock";
 import { Loading } from "@/components/Loading";
-import { MapView, toPoints } from "@/components/MapView";
+import { MapView, stayPoints, toPoints } from "@/components/MapView";
+import { staysForDay } from "@/lib/stays";
 import { spring } from "@/components/ui";
 import { addDays, longDate, vhsStamp } from "@/lib/dates";
 
 export default function DayPage() {
   const { date } = useParams<{ date: string }>();
-  const { days, items, loading } = useTrip();
+  const { days, items, stays, loading } = useTrip();
   if (loading) return <Loading />;
 
   const day = days.find((d) => d.date === date);
@@ -25,7 +26,10 @@ export default function DayPage() {
 
   const prev = days.find((d) => d.date === addDays(date, -1));
   const next = days.find((d) => d.date === addDays(date, 1));
-  const points = toPoints(itemsForDay(items, date));
+  const points = [
+    ...stayPoints(staysForDay(stays, date)),
+    ...toPoints(itemsForDay(items, date)),
+  ];
 
   return (
     <motion.div

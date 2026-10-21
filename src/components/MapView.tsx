@@ -2,7 +2,8 @@
 
 import dynamic from "next/dynamic";
 import type { MapPoint } from "./TripMap";
-import type { PlanItem, Suggestion } from "@/lib/types";
+import type { PlanItem, Stay, Suggestion } from "@/lib/types";
+import { shortDate } from "@/lib/dates";
 
 // Leaflet touches `window`, so it only ever renders in the browser.
 export const MapView = dynamic(() => import("./TripMap"), {
@@ -24,5 +25,19 @@ export function toPoints(rows: (PlanItem | Suggestion)[]): MapPoint[] {
       title: r.title,
       category: r.category,
       subtitle: [r.area, r.city].filter(Boolean).join(" · "),
+    }));
+}
+
+export function stayPoints(stays: Stay[]): MapPoint[] {
+  return stays
+    .filter((s) => s.lat != null && s.lng != null)
+    .map((s) => ({
+      id: `stay-${s.id}`,
+      lat: s.lat!,
+      lng: s.lng!,
+      title: s.name,
+      category: "stay",
+      kind: "stay",
+      subtitle: `${shortDate(s.check_in)} → ${shortDate(s.check_out)}${s.area ? ` · ${s.area}` : ""}`,
     }));
 }

@@ -4,8 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTrip } from "@/components/TripProvider";
 import { Loading } from "@/components/Loading";
-import { MapView, toPoints } from "@/components/MapView";
-import { SectionLabel, Tape, spring } from "@/components/ui";
+import { MapView, stayPoints, toPoints } from "@/components/MapView";
+import { StayCard } from "@/components/StayCard";
+import { Button, SectionLabel, Tape, spring } from "@/components/ui";
 import { CATEGORIES, type TripDay } from "@/lib/types";
 import {
   TRIP_DATES,
@@ -19,6 +20,7 @@ import {
   weekday,
 } from "@/lib/dates";
 import { tilt, yen } from "@/lib/places";
+import { sortStays, stayForNight, unbookedNights } from "@/lib/stays";
 
 /** Consecutive days in the same city collapse into one leg of the route. */
 function legs(days: TripDay[]) {
@@ -32,12 +34,16 @@ function legs(days: TripDay[]) {
 }
 
 export default function TripPage() {
-  const { days, items, loading } = useTrip();
+  const { days, items, stays, loading, openStay } = useTrip();
   if (loading) return <Loading />;
 
   const scheduled = items.filter((i) => i.date);
   const count = (s: string) => items.filter((i) => i.status === s).length;
-  const budget = scheduled.reduce((n, i) => n + (i.cost_jpy ?? 0), 0);
+  const budget =
+    scheduled.reduce((n, i) => n + (i.cost_jpy ?? 0), 0) +
+    stays.reduce((n, s) => n + (s.cost_jpy ?? 0), 0);
+  const gaps = unbookedNights(stays);
+  const mapPoints = [...stayPoints(stays), ...toPoints(scheduled)];
   const today = todayInJapan();
 
   return (
@@ -99,6 +105,55 @@ export default function TripPage() {
         ))}
       </div>
 
+      <div className="flex items-end justify-between">
+        <SectionLabel>Where we&apos;re staying</SectionLabel>
+        <Button
+          variant="ghost"
+          className="mb-2"
+          onClick={() =>
+            openStay({
+              check_in: gaps[0] ?? TRIP_START,
+              city: days.find((d) => d.date === (gaps[0] ?? TRIP_START))?.city,
+            })
+          }
+        >
+          + Add stay
+        </Button>
+      </div>
+      {stays.length > 0 && (
+        <div className="grid gap-4 md:grid-cols-2">
+          {sortStays(stays).map((s) => (
+            <StayCard key={s.id} stay={s} />
+          ))}
+        </div>
+      )}
+      {gaps.length > 0 && (
+        <div className="mt-4">
+          <p className="text-sm text-ink-soft">
+            {gaps.length} night{gaps.length === 1 ? "" : "s"} without a bed yet.
+            Tap one to add where you&apos;ll sleep:
+          </p>
+          <div className="no-scrollbar -mx-4 mt-2 flex gap-2 overflow-x-auto px-4">
+            {gaps.map((g) => (
+              <motion.button
+                key={g}
+                whileTap={{ scale: 0.92 }}
+                onClick={() =>
+                  openStay({
+                    check_in: g,
+                    city: days.find((d) => d.date === g)?.city,
+                  })
+                }
+                className="vhs-text shrink-0 rounded-full border border-dashed px-3 py-1.5 text-base uppercase"
+                style={{ borderColor: "var(--cat-stay)" }}
+              >
+                {weekday(g)} {shortDate(g)}
+              </motion.button>
+            ))}
+          </div>
+        </div>
+      )}
+
       <SectionLabel>Every day</SectionLabel>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
         {days.map((d, i) => {
@@ -130,6 +185,7 @@ export default function TripPage() {
                   {shortDate(d.date)}
                 </p>
                 <p className="truncate text-sm">{d.city}</p>
+                <StayLine date={d.date} />
                 <div className="mt-auto flex flex-wrap gap-1 pt-3">
                   {dayItems.map((it) => (
                     <span
@@ -150,12 +206,29 @@ export default function TripPage() {
       </div>
 
       <SectionLabel>On the map</SectionLabel>
-      <MapView points={toPoints(scheduled)} className="h-[420px]" />
-      {toPoints(scheduled).length === 0 && (
-        <p className="mt-2 text-sm text-ink-soft">
-          Pins appear here once scheduled tickets have a map location.
-        </p>
-      )}
+      <MapView points={mapPoints} className="h-[420px]" />
+      <p className="mt-2 text-sm text-ink-soft">
+        {mapPoints.length === 0
+          ? "Pins appear here once scheduled tickets and stays have a map location."
+          : "Dark 宿 pins are where we sleep."}
+      </p>
     </motion.div>
+  );
+}
+
+/** Where we sleep that night, on a day tile. */
+function StayLine({ date }: { date: string }) {
+  const { stays } = useTrip();
+  if (date === TRIP_END)
+    return <p className="mt-1 text-xs text-ink-soft">✈ Flight home</p>;
+  const stay = stayForNight(stays, date);
+  return stay ? (
+    <p className="mt-1 truncate text-xs">
+      <span className="font-display">宿</span> {stay.name}
+    </p>
+  ) : (
+    <p className="mt-1 text-xs text-tape-red">
+      <span className="font-display">宿</span> no bed yet
+    </p>
   );
 }

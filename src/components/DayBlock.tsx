@@ -4,9 +4,20 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { itemsForDay, useTrip } from "./TripProvider";
 import { TicketCard } from "./TicketCard";
+import { StayCard } from "./StayCard";
 import { Tape } from "./ui";
 import type { TripDay } from "@/lib/types";
-import { dayNumber, pad2, shortDate, todayInJapan, weekday } from "@/lib/dates";
+import {
+  TRIP_END,
+  addDays,
+  dayNumber,
+  formatTime,
+  pad2,
+  shortDate,
+  todayInJapan,
+  weekday,
+} from "@/lib/dates";
+import { checkOutOn, stayForNight } from "@/lib/stays";
 
 /** One day of the trip: header + its ticket stubs + an add button. */
 export function DayBlock({
@@ -16,8 +27,12 @@ export function DayBlock({
   day: TripDay;
   compact?: boolean;
 }) {
-  const { items, openItem, openDay } = useTrip();
+  const { items, stays, openItem, openDay, openStay } = useTrip();
   const list = itemsForDay(items, day.date);
+  const tonight = stayForNight(stays, day.date);
+  // Only call out a check-out when we're actually moving on (or flying home).
+  const leaving = checkOutOn(stays, day.date);
+  const showCheckOut = leaving && leaving.id !== tonight?.id;
   const isToday = todayInJapan() === day.date;
 
   return (
@@ -54,6 +69,14 @@ export function DayBlock({
         </div>
       )}
 
+      {showCheckOut && (
+        <p className="vhs-text mb-3 text-base uppercase text-ink-soft">
+          <span className="font-display">宿</span> Check out of {leaving.name}
+          {leaving.check_out_time &&
+            ` by ${formatTime(leaving.check_out_time)}`}
+        </p>
+      )}
+
       <div className={compact ? "space-y-3" : "space-y-4"}>
         <AnimatePresence initial={false}>
           {list.map((item) => (
@@ -77,10 +100,38 @@ export function DayBlock({
         </motion.button>
       </div>
 
-      {day.stay && !compact && (
-        <p className="mt-4 text-sm text-ink-soft">
-          <span className="font-display">宿</span> {day.stay}
-        </p>
+      {day.date !== TRIP_END && (
+        <div className="mt-5">
+          {tonight ? (
+            compact ? (
+              <button
+                onClick={() => openStay(tonight)}
+                className="flex min-h-11 w-full items-center gap-2 rounded-md bg-ink px-3 text-left text-sm text-washi"
+              >
+                <span className="font-display">宿</span>
+                <span className="truncate">{tonight.name}</span>
+              </button>
+            ) : (
+              <StayCard stay={tonight} tonight={{ date: day.date }} />
+            )
+          ) : (
+            <motion.button
+              whileTap={{ scale: 0.96 }}
+              onClick={() =>
+                openStay({
+                  check_in: day.date,
+                  check_out: addDays(day.date, 1),
+                  city: day.city,
+                })
+              }
+              className="flex min-h-11 w-full items-center justify-center gap-1.5 rounded-md border-2 border-dashed text-sm text-ink-soft hover:text-ink"
+              style={{ borderColor: "var(--cat-stay)" }}
+            >
+              <span className="font-display">宿</span>
+              {compact ? "Where to sleep?" : "Where are we sleeping tonight?"}
+            </motion.button>
+          )}
+        </div>
       )}
     </section>
   );

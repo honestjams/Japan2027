@@ -7,6 +7,7 @@ import { Suspense, type ReactNode } from "react";
 import { TripProvider, useTrip } from "./TripProvider";
 import { ItemSheet } from "./ItemSheet";
 import { DaySheet } from "./DaySheet";
+import { StaySheet } from "./StaySheet";
 import { Loading } from "./Loading";
 import { spring } from "./ui";
 import { TRAVELLERS, type Traveller } from "@/lib/types";
@@ -34,6 +35,7 @@ export function Shell({ children }: { children: ReactNode }) {
       </Suspense>
       <ItemSheet />
       <DaySheet />
+      <StaySheet />
       <WhoGate />
       <ErrorToast />
     </TripProvider>

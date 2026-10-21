@@ -22,12 +22,7 @@ import {
   type Traveller,
   type Who,
 } from "@/lib/types";
-import {
-  TRIP_START,
-  diffDays,
-  shortDate,
-  todayInJapan,
-} from "@/lib/dates";
+import { TRIP_START, diffDays, shortDate, todayInJapan } from "@/lib/dates";
 
 /** Open things first, soonest deadline first; ticked-off things sink. */
 const byUrgency = (a: ChecklistItem, b: ChecklistItem) =>
@@ -52,8 +47,7 @@ export default function PrepPage() {
   ).length;
   const shown = checklist.filter(
     (c) =>
-      (!who || c.owner === who || c.owner === "both") &&
-      (!hideDone || !c.done),
+      (!who || c.owner === who || c.owner === "both") && (!hideDone || !c.done),
   );
 
   return (

@@ -13,6 +13,8 @@ export interface MapPoint {
   title: string;
   category: Category;
   subtitle?: string;
+  /** Where we sleep: drawn as a bigger dark key-tag above the other pins. */
+  kind?: "stay";
 }
 
 const JAPAN: [number, number] = [35.4, 137.5];
@@ -26,6 +28,13 @@ function pin(category: Category) {
     html: `<span style="display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;transform:rotate(-6deg);background:var(--paper);border:2px solid ${c.color};color:${c.color};font-family:var(--font-shippori),serif;font-weight:700;font-size:16px;box-shadow:0 3px 6px rgb(0 0 0 / .25)">${c.kanji}</span>`,
   });
 }
+
+const stayPin = L.divIcon({
+  className: "map-pin",
+  iconSize: [38, 38],
+  iconAnchor: [19, 19],
+  html: `<span style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:8px;background:var(--ink);color:var(--washi);border:2px solid var(--cat-stay);font-family:var(--font-shippori),serif;font-weight:700;font-size:20px;box-shadow:0 4px 10px rgb(0 0 0 / .35)">宿</span>`,
+});
 
 function FitBounds({ points }: { points: MapPoint[] }) {
   const map = useMap();
@@ -76,7 +85,12 @@ export default function TripMap({
         />
         <FitBounds points={points} />
         {points.map((p) => (
-          <Marker key={p.id} position={[p.lat, p.lng]} icon={icons[p.category]}>
+          <Marker
+            key={p.id}
+            position={[p.lat, p.lng]}
+            icon={p.kind === "stay" ? stayPin : icons[p.category]}
+            zIndexOffset={p.kind === "stay" ? 1000 : 0}
+          >
             <Popup>
               <strong>{p.title}</strong>
               {p.subtitle && <br />}

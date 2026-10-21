@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 import { itemsForDay, useTrip } from "@/components/TripProvider";
 import { DayBlock } from "@/components/DayBlock";
 import { Loading } from "@/components/Loading";
-import { MapView, toPoints } from "@/components/MapView";
+import { MapView, stayPoints, toPoints } from "@/components/MapView";
+import { staysForDay } from "@/lib/stays";
 import { Petals } from "@/components/Petals";
 import { SectionLabel, spring } from "@/components/ui";
 import {
@@ -22,7 +23,7 @@ import {
 } from "@/lib/dates";
 
 export default function TodayPage() {
-  const { days, items, checklist, loading } = useTrip();
+  const { days, items, stays, checklist, loading } = useTrip();
   if (loading) return <Loading />;
 
   const today = todayInJapan();
@@ -32,6 +33,10 @@ export default function TodayPage() {
   const focusDate = before ? TRIP_START : after ? TRIP_END : today;
   const day = days.find((d) => d.date === focusDate);
   const dayItems = itemsForDay(items, focusDate);
+  const dayPoints = [
+    ...stayPoints(staysForDay(stays, focusDate)),
+    ...toPoints(dayItems),
+  ];
   const ideas = items.filter((i) => !i.date).length;
   const prepLeft = checklist.filter((c) => !c.done);
   const prepNext = prepLeft
@@ -102,9 +107,9 @@ export default function TodayPage() {
 
       <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
         {day && <DayBlock day={day} />}
-        {toPoints(dayItems).length > 0 && (
+        {dayPoints.length > 0 && (
           <div>
-            <MapView points={toPoints(dayItems)} className="h-80" />
+            <MapView points={dayPoints} className="h-80" />
           </div>
         )}
       </div>

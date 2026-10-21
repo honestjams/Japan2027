@@ -144,7 +144,9 @@ export interface ChecklistItem {
   created_at: string;
 }
 
-export type ChecklistDraft = Partial<Omit<ChecklistItem, "id" | "created_at">> & {
+export type ChecklistDraft = Partial<
+  Omit<ChecklistItem, "id" | "created_at">
+> & {
   id?: string;
 };
 
@@ -166,3 +168,25 @@ export const CHECKLIST_SECTIONS: Record<
 export const CHECKLIST_SECTION_KEYS = Object.keys(
   CHECKLIST_SECTIONS,
 ) as ChecklistSection[];
+
+/** A booking that covers the nights check_in <= date < check_out. */
+export interface Stay {
+  id: string;
+  name: string;
+  city: string | null;
+  area: string | null;
+  address: string | null;
+  check_in: string;
+  check_out: string;
+  check_in_time: string | null;
+  check_out_time: string | null;
+  status: "idea" | "booked";
+  booking_ref: string | null;
+  url: string | null;
+  cost_jpy: number | null;
+  lat: number | null;
+  lng: number | null;
+  notes: string | null;
+}
+
+export type StayDraft = Partial<Omit<Stay, "id">> & { id?: string };
