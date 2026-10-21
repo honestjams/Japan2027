@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTrip } from "./TripProvider";
+import { PinField } from "./PinField";
 import { Sheet } from "./Sheet";
 import { Button, Chip, Field, inputClass } from "./ui";
 import type { StayDraft } from "@/lib/types";
@@ -13,7 +14,6 @@ import {
   shortDate,
   weekday,
 } from "@/lib/dates";
-import { geocode, mapsLink } from "@/lib/places";
 import { nights } from "@/lib/stays";
 
 export function StaySheet() {
@@ -47,7 +47,6 @@ function StayForm({ initial }: { initial: StayDraft }) {
     };
   });
   const [saving, setSaving] = useState(false);
-  const [locating, setLocating] = useState<string | null>(null);
 
   const set = <K extends keyof StayDraft>(k: K, v: StayDraft[K]) =>
     setDraft((d) => ({ ...d, [k]: v }));
@@ -65,22 +64,6 @@ function StayForm({ initial }: { initial: StayDraft }) {
     const saved = await saveStay({ ...draft, name: draft.name.trim() });
     setSaving(false);
     if (saved) closeStay();
-  }
-
-  async function locate() {
-    const q = draft.address?.trim()
-      ? draft.address
-      : [draft.name, draft.area, draft.city].filter(Boolean).join(", ");
-    if (!q) return;
-    setLocating("Searching…");
-    const hit = await geocode(q).catch(() => null);
-    if (hit) {
-      setDraft((d) => ({ ...d, lat: hit.lat, lng: hit.lng }));
-      setLocating(hit.label);
-    } else
-      setLocating(
-        "Couldn't find it. Try pasting the hotel's street address above.",
-      );
   }
 
   return (
@@ -183,40 +166,23 @@ function StayForm({ initial }: { initial: StayDraft }) {
       <Field label="Address">
         <input
           className={inputClass}
-          placeholder="Paste from the booking confirmation"
+          placeholder="Paste the address, or a Google Maps link"
           value={draft.address ?? ""}
           onChange={(e) => set("address", e.target.value || null)}
         />
       </Field>
 
-      <Field label="Map pin" group>
-        <div className="flex flex-wrap items-center gap-2">
-          <Button type="button" onClick={locate}>
-            📍 Find on map
-          </Button>
-          {draft.lat != null && (
-            <a
-              href={mapsLink({
-                title: draft.name ?? "",
-                area: draft.area ?? null,
-                city: draft.city ?? null,
-                lat: draft.lat,
-                lng: draft.lng ?? null,
-              })}
-              target="_blank"
-              rel="noreferrer"
-              className="vhs-text text-lg underline"
-            >
-              {draft.lat.toFixed(3)}, {draft.lng?.toFixed(3)}
-            </a>
-          )}
-        </div>
-        {locating && (
-          <p className="mt-1.5 line-clamp-2 text-sm text-ink-soft">
-            {locating}
-          </p>
-        )}
-      </Field>
+      <PinField
+        lat={draft.lat}
+        lng={draft.lng}
+        query={
+          draft.address?.trim() ||
+          [draft.name, draft.area, draft.city].filter(Boolean).join(", ")
+        }
+        city={draft.city}
+        kanji="宿"
+        onChange={(lat, lng) => setDraft((d) => ({ ...d, lat, lng }))}
+      />
 
       <Field label="Status" group>
         <div className="flex gap-2">

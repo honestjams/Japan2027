@@ -10,22 +10,7 @@ export function mapsLink(p: Place | Suggestion) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 }
 
-/** Free OpenStreetMap geocoder; fine for the handful of lookups we make. */
-export async function geocode(query: string) {
-  const res = await fetch(
-    `https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=jp&q=${encodeURIComponent(query)}`,
-    { headers: { "Accept-Language": "en" } },
-  );
-  if (!res.ok) return null;
-  const [hit] = (await res.json()) as {
-    lat: string;
-    lon: string;
-    display_name: string;
-  }[];
-  return hit
-    ? { lat: Number(hit.lat), lng: Number(hit.lon), label: hit.display_name }
-    : null;
-}
+export { geocode } from "./geocode";
 
 export const yen = (n: number | null) =>
   n == null ? null : `¥${n.toLocaleString("en-GB")}`;

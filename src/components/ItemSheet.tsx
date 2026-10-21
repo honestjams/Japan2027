@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { useTrip } from "./TripProvider";
+import { PinField } from "./PinField";
+import { parseCoords } from "@/lib/geocode";
 import { Sheet } from "./Sheet";
 import { Button, Chip, Field, Hanko, inputClass } from "./ui";
 import {
@@ -14,7 +16,6 @@ import {
   type Who,
 } from "@/lib/types";
 import { TRIP_DATES, dayNumber, shortDate, weekday } from "@/lib/dates";
-import { geocode, mapsLink } from "@/lib/places";
 
 export function ItemSheet() {
   const { editing, closeItem } = useTrip();
@@ -39,7 +40,6 @@ function ItemForm({ initial }: { initial: PlanItemDraft }) {
     ...initial,
   }));
   const [saving, setSaving] = useState(false);
-  const [locating, setLocating] = useState<string | null>(null);
 
   const set = <K extends keyof PlanItemDraft>(k: K, v: PlanItemDraft[K]) =>
     setDraft((d) => ({ ...d, [k]: v }));
@@ -57,19 +57,6 @@ function ItemForm({ initial }: { initial: PlanItemDraft }) {
     });
     setSaving(false);
     if (saved) closeItem();
-  }
-
-  async function locate() {
-    const q = [draft.title, draft.area, draft.city || cityFor(draft.date)]
-      .filter(Boolean)
-      .join(", ");
-    if (!q) return;
-    setLocating("Searching…");
-    const hit = await geocode(q).catch(() => null);
-    if (hit) {
-      setDraft((d) => ({ ...d, lat: hit.lat, lng: hit.lng }));
-      setLocating(hit.label);
-    } else setLocating("Couldn't find it — try adding the area or city.");
   }
 
   const isNew = !initial.id;
@@ -230,46 +217,21 @@ function ItemForm({ initial }: { initial: PlanItemDraft }) {
         </Field>
       </div>
 
-      <Field label="Map pin" group>
-        <div className="flex flex-wrap items-center gap-2">
-          <Button type="button" onClick={locate}>
-            📍 Find on map
-          </Button>
-          {draft.lat != null && (
-            <>
-              <a
-                href={mapsLink({
-                  title: draft.title ?? "",
-                  area: draft.area ?? null,
-                  city: draft.city ?? null,
-                  lat: draft.lat,
-                  lng: draft.lng ?? null,
-                })}
-                target="_blank"
-                rel="noreferrer"
-                className="vhs-text text-lg underline"
-              >
-                {draft.lat.toFixed(3)}, {draft.lng?.toFixed(3)}
-              </a>
-              <Button
-                type="button"
-                variant="ghost"
-                onClick={() => {
-                  setDraft((d) => ({ ...d, lat: null, lng: null }));
-                  setLocating(null);
-                }}
-              >
-                Clear
-              </Button>
-            </>
-          )}
-        </div>
-        {locating && (
-          <p className="mt-1.5 line-clamp-2 text-sm text-ink-soft">
-            {locating}
-          </p>
-        )}
-      </Field>
+      <PinField
+        lat={draft.lat}
+        lng={draft.lng}
+        query={
+          // A pasted Google Maps link is the most exact thing we can get.
+          draft.url && parseCoords(draft.url)
+            ? draft.url
+            : [draft.title, draft.area, draft.city || cityFor(draft.date)]
+                .filter(Boolean)
+                .join(", ")
+        }
+        city={draft.city || cityFor(draft.date)}
+        kanji={draft.category ? CATEGORIES[draft.category].kanji : "景"}
+        onChange={(lat, lng) => setDraft((d) => ({ ...d, lat, lng }))}
+      />
 
       <Field label="Notes">
         <textarea
