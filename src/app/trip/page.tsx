@@ -19,7 +19,9 @@ import {
   vhsStamp,
   weekday,
 } from "@/lib/dates";
-import { tilt, yen } from "@/lib/places";
+import { tilt } from "@/lib/places";
+import { aud, budgetLines, summarise } from "@/lib/money";
+import { useAudRate } from "@/lib/useAudRate";
 import { sortStays, stayForNight, unbookedNights } from "@/lib/stays";
 
 /** Consecutive days in the same city collapse into one leg of the route. */
@@ -35,13 +37,12 @@ function legs(days: TripDay[]) {
 
 export default function TripPage() {
   const { days, items, stays, loading, openStay } = useTrip();
+  const rate = useAudRate();
   if (loading) return <Loading />;
 
   const scheduled = items.filter((i) => i.date);
   const count = (s: string) => items.filter((i) => i.status === s).length;
-  const budget =
-    scheduled.reduce((n, i) => n + (i.cost_jpy ?? 0), 0) +
-    stays.reduce((n, s) => n + (s.cost_jpy ?? 0), 0);
+  const budget = summarise(budgetLines(items, stays)).total;
   const gaps = unbookedNights(stays);
   const mapPoints = [...stayPoints(stays), ...toPoints(scheduled)];
   const today = todayInJapan();
@@ -92,7 +93,6 @@ export default function TripPage() {
           ["Ideas", count("idea")],
           ["Planned", count("planned")],
           ["Booked", count("booked")],
-          ["Budget", budget ? yen(budget) : "—"],
         ].map(([label, value]) => (
           <div key={label} className="paper-card px-1 py-3">
             <p className="font-display text-xl font-extrabold leading-none">
@@ -103,6 +103,25 @@ export default function TripPage() {
             </p>
           </div>
         ))}
+        <motion.div whileTap={{ scale: 0.95 }} whileHover={{ y: -2 }}>
+          <Link
+            href="/budget"
+            className="paper-card relative flex h-full flex-col items-center justify-center px-1 py-3"
+            aria-label="Open budget"
+          >
+            <span
+              aria-hidden
+              className="tape -top-1.5 left-1/2 -translate-x-1/2"
+              style={{ background: "var(--cat-cars)", width: 36 }}
+            />
+            <p className="font-display text-base font-extrabold leading-none">
+              {budget ? aud(budget, rate.jpyPerAud) : "—"}
+            </p>
+            <p className="vhs-text mt-1 text-sm uppercase text-ink-soft">
+              Budget ›
+            </p>
+          </Link>
+        </motion.div>
       </div>
 
       <div className="flex items-end justify-between">

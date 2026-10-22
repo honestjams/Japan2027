@@ -47,6 +47,8 @@ export interface PlanItem {
   notes: string | null;
   suggestion_id: string | null;
   sort_order: number;
+  paid: boolean;
+  paid_by: Traveller | null;
   created_at: string;
 }
 
@@ -187,6 +189,8 @@ export interface Stay {
   lat: number | null;
   lng: number | null;
   notes: string | null;
+  paid: boolean;
+  paid_by: Traveller | null;
 }
 
 export type StayDraft = Partial<Omit<Stay, "id">> & { id?: string };

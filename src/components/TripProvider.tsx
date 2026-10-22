@@ -44,6 +44,7 @@ interface TripState {
   updateCheck: (id: string, patch: Partial<ChecklistItem>) => Promise<void>;
   deleteCheck: (id: string) => Promise<void>;
   saveStay: (draft: StayDraft) => Promise<Stay | null>;
+  updateStay: (id: string, patch: Partial<Stay>) => Promise<void>;
   deleteStay: (id: string) => Promise<void>;
   // Sheets live at the app shell so any screen can open them.
   editing: PlanItemDraft | null;
@@ -340,6 +341,20 @@ export function TripProvider({ children }: { children: ReactNode }) {
     return data as Stay;
   }, []);
 
+  const updateStay = useCallback(
+    async (id: string, patch: Partial<Stay>) => {
+      setStays((list) =>
+        list.map((r) => (r.id === id ? { ...r, ...patch } : r)),
+      );
+      const { error } = await supabase.from("stays").update(patch).eq("id", id);
+      if (error) {
+        setError(error.message);
+        load();
+      }
+    },
+    [load],
+  );
+
   const deleteStay = useCallback(
     async (id: string) => {
       setStays((list) => list.filter((r) => r.id !== id));
@@ -372,6 +387,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
       updateCheck,
       deleteCheck,
       saveStay,
+      updateStay,
       deleteStay,
       editing,
       openItem: setEditing,
@@ -402,6 +418,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
       updateCheck,
       deleteCheck,
       saveStay,
+      updateStay,
       deleteStay,
       editing,
       editingDay,
