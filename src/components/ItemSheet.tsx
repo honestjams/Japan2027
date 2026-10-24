@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTrip } from "./TripProvider";
 import { PinField } from "./PinField";
 import { PriceField } from "./PriceField";
+import { SplitField } from "./SplitField";
 import { parseCoords } from "@/lib/geocode";
 import { Sheet } from "./Sheet";
 import { Button, Chip, Field, Hanko, inputClass } from "./ui";
@@ -17,6 +18,9 @@ import {
   type Who,
 } from "@/lib/types";
 import { TRIP_DATES, dayNumber, shortDate, weekday } from "@/lib/dates";
+
+// Tickets are usually priced per person.
+const DEFAULT_MODE = "each" as const;
 
 export function ItemSheet() {
   const { editing, closeItem } = useTrip();
@@ -38,6 +42,9 @@ function ItemForm({ initial }: { initial: PlanItemDraft }) {
     category: "sights",
     status: initial.date ? "planned" : "idea",
     wish_of: me ?? "both",
+    cost_mode: DEFAULT_MODE,
+    pays_josh: true,
+    pays_sam: true,
     ...initial,
   }));
   const [saving, setSaving] = useState(false);
@@ -240,12 +247,29 @@ function ItemForm({ initial }: { initial: PlanItemDraft }) {
       </Field>
 
       <PriceField
-        label="Cost (approx)"
+        label={
+          (draft.cost_mode ?? DEFAULT_MODE) === "each"
+            ? "Price per person (approx)"
+            : "Total cost (approx)"
+        }
         value={{
           cost_jpy: draft.cost_jpy ?? null,
           cost_aud: draft.cost_aud ?? null,
         }}
         onChange={(p) => setDraft((d) => ({ ...d, ...p }))}
+      />
+
+      <SplitField
+        value={{
+          cost_mode: draft.cost_mode ?? DEFAULT_MODE,
+          pays_josh: draft.pays_josh ?? true,
+          pays_sam: draft.pays_sam ?? true,
+        }}
+        price={{
+          cost_jpy: draft.cost_jpy ?? null,
+          cost_aud: draft.cost_aud ?? null,
+        }}
+        onChange={(v) => setDraft((d) => ({ ...d, ...v }))}
       />
 
       <Field label="Link">

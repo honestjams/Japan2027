@@ -12,7 +12,7 @@ import {
 } from "@/lib/types";
 import { formatTime } from "@/lib/dates";
 import { tilt } from "@/lib/places";
-import { hasPrice, priceLabel } from "@/lib/money";
+import { costLabel, hasPrice } from "@/lib/money";
 import { isBooked } from "@/lib/bookings";
 import { useAudRate } from "@/lib/useAudRate";
 
@@ -83,7 +83,7 @@ export function TicketCard({
           {!compact && (
             <p className="mt-0.5 truncate text-sm text-ink-soft">
               {[item.area, item.city].filter(Boolean).join(" · ") || cat.label}
-              {hasPrice(item) && ` · ${priceLabel(item, rate)}`}
+              {hasPrice(item) && ` · ${costLabel(item, rate)}`}
             </p>
           )}
           {!compact && (

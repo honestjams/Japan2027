@@ -6,7 +6,7 @@ import { Tape, spring } from "./ui";
 import type { Stay } from "@/lib/types";
 import { formatTime, shortDate, weekday } from "@/lib/dates";
 import { mapsLink, tilt } from "@/lib/places";
-import { hasPrice, priceLabel } from "@/lib/money";
+import { costLabel, hasPrice } from "@/lib/money";
 import { useAudRate } from "@/lib/useAudRate";
 import { nights } from "@/lib/stays";
 
@@ -80,7 +80,7 @@ export function StayCard({
             </span>
             <span className="vhs-text text-sm uppercase text-ink-soft">
               {n} night{n === 1 ? "" : "s"}
-              {hasPrice(stay) && ` · ${priceLabel(stay, rate)}`}
+              {hasPrice(stay) && ` · ${costLabel(stay, rate)}`}
             </span>
             {(stay.lat != null || stay.address) && (
               <a

@@ -42,6 +42,10 @@ export interface PlanItem {
   added_by: Traveller | null;
   cost_jpy: number | null;
   cost_aud: number | null;
+  /** 'each' = price per person; 'shared' = one cost for whoever pays. */
+  cost_mode: "each" | "shared";
+  pays_josh: boolean;
+  pays_sam: boolean;
   url: string | null;
   lat: number | null;
   lng: number | null;
@@ -192,6 +196,10 @@ export interface Stay {
   url: string | null;
   cost_jpy: number | null;
   cost_aud: number | null;
+  /** 'each' = price per person; 'shared' = one cost for whoever pays. */
+  cost_mode: "each" | "shared";
+  pays_josh: boolean;
+  pays_sam: boolean;
   lat: number | null;
   lng: number | null;
   notes: string | null;

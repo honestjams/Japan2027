@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTrip } from "./TripProvider";
 import { PinField } from "./PinField";
 import { PriceField } from "./PriceField";
+import { SplitField } from "./SplitField";
 import { Sheet } from "./Sheet";
 import { Button, Chip, Field, inputClass } from "./ui";
 import type { StayDraft } from "@/lib/types";
@@ -16,6 +17,9 @@ import {
   weekday,
 } from "@/lib/dates";
 import { nights } from "@/lib/stays";
+
+// A stay is one bill for the room.
+const DEFAULT_MODE = "shared" as const;
 
 export function StaySheet() {
   const { editingStay, closeStay } = useTrip();
@@ -41,6 +45,9 @@ function StayForm({ initial }: { initial: StayDraft }) {
     const check_in = initial.check_in ?? TRIP_DATES[0];
     return {
       status: "idea",
+      cost_mode: DEFAULT_MODE,
+      pays_josh: true,
+      pays_sam: true,
       check_out: addDays(check_in, 1),
       city: days.find((d) => d.date === check_in)?.city ?? null,
       ...initial,
@@ -204,13 +211,30 @@ function StayForm({ initial }: { initial: StayDraft }) {
       </Field>
 
       <PriceField
-        label="Total for the stay"
+        label={
+          (draft.cost_mode ?? DEFAULT_MODE) === "each"
+            ? "Price per person"
+            : "Total for the stay"
+        }
         placeholderJpy="60000"
         value={{
           cost_jpy: draft.cost_jpy ?? null,
           cost_aud: draft.cost_aud ?? null,
         }}
         onChange={(p) => setDraft((d) => ({ ...d, ...p }))}
+      />
+
+      <SplitField
+        value={{
+          cost_mode: draft.cost_mode ?? DEFAULT_MODE,
+          pays_josh: draft.pays_josh ?? true,
+          pays_sam: draft.pays_sam ?? true,
+        }}
+        price={{
+          cost_jpy: draft.cost_jpy ?? null,
+          cost_aud: draft.cost_aud ?? null,
+        }}
+        onChange={(v) => setDraft((d) => ({ ...d, ...v }))}
       />
 
       <Field label="Booking ref">

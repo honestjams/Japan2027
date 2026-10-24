@@ -118,8 +118,8 @@ export default function BudgetPage() {
         {(Object.keys(TRAVELLERS) as Traveller[]).map((t) => (
           <Tile
             key={t}
-            label={`${TRAVELLERS[t].name}'s half`}
-            jpy={sum.share}
+            label={`${TRAVELLERS[t].name}'s share`}
+            jpy={sum.share[t]}
             r={r}
             tape={TRAVELLERS[t].color}
             note={`has paid ${aud(sum.paidBy[t], r)}`}
@@ -297,6 +297,7 @@ function BudgetRow({
           {weekday(line.date)} {shortDate(line.date)}
           {line.kind === "stay" && " · stay"}
         </p>
+        <p className="text-xs text-ink-soft">{splitNote(line, r)}</p>
       </button>
       <div className="shrink-0 text-right">
         {/* The currency it was entered in is exact; the other is ≈. */}
@@ -323,4 +324,15 @@ function BudgetRow({
       </div>
     </motion.li>
   );
+}
+
+/** "¥1,100 each × 2", "Sam's ticket", "Split 50/50", "Josh covers it". */
+function splitNote(l: BudgetLine, r: number) {
+  const who = (["josh", "sam"] as Traveller[]).filter((t) => l.shares[t] > 0);
+  const name = (t: Traveller) => TRAVELLERS[t].name;
+  if (l.mode === "each")
+    return who.length === 2
+      ? `${l.currency === "AUD" ? aud(l.unit, r) : yen(l.unit)} each × 2`
+      : `${name(who[0])}'s ticket`;
+  return who.length === 2 ? "Split 50/50" : `${name(who[0])} covers it`;
 }
