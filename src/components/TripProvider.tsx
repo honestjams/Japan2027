@@ -11,6 +11,7 @@ import {
   type ReactNode,
 } from "react";
 import { supabase } from "@/lib/supabase";
+import type { Leg, TravelOverride } from "@/lib/travel";
 import type {
   ChecklistDraft,
   ChecklistItem,
@@ -31,6 +32,7 @@ interface TripState {
   suggestions: Suggestion[];
   checklist: ChecklistItem[];
   stays: Stay[];
+  legs: TravelOverride[];
   loading: boolean;
   error: string | null;
   me: Traveller | null;
@@ -46,6 +48,8 @@ interface TripState {
   saveStay: (draft: StayDraft) => Promise<Stay | null>;
   updateStay: (id: string, patch: Partial<Stay>) => Promise<void>;
   deleteStay: (id: string) => Promise<void>;
+  saveLeg: (o: TravelOverride) => Promise<void>;
+  clearLeg: (date: string, toKey: string) => Promise<void>;
   // Sheets live at the app shell so any screen can open them.
   editing: PlanItemDraft | null;
   openItem: (draft: PlanItemDraft) => void;
@@ -56,6 +60,9 @@ interface TripState {
   editingStay: StayDraft | null;
   openStay: (draft: StayDraft) => void;
   closeStay: () => void;
+  editingLeg: (Leg & { date: string }) | null;
+  openLeg: (leg: Leg & { date: string }) => void;
+  closeLeg: () => void;
 }
 
 const ME_EVENT = "japan27:me-changed";
@@ -81,14 +88,15 @@ function subscribeMe(cb: () => void) {
 const noop = () => () => {};
 
 async function fetchAll() {
-  const [d, i, s, c, st] = await Promise.all([
+  const [d, i, s, c, st, lg] = await Promise.all([
     supabase.from("trip_days").select("*").order("date"),
     supabase.from("plan_items").select("*").order("sort_order"),
     supabase.from("suggestions").select("*").order("city"),
     supabase.from("checklist_items").select("*").order("sort_order"),
     supabase.from("stays").select("*").order("check_in"),
+    supabase.from("travel_legs").select("*"),
   ]);
-  const err = d.error ?? i.error ?? s.error ?? c.error ?? st.error;
+  const err = d.error ?? i.error ?? s.error ?? c.error ?? st.error ?? lg.error;
   if (err) return { ok: false as const, error: err.message };
   return {
     ok: true as const,
@@ -97,6 +105,7 @@ async function fetchAll() {
     suggestions: s.data as Suggestion[],
     checklist: c.data as ChecklistItem[],
     stays: st.data as Stay[],
+    legs: lg.data as TravelOverride[],
   };
 }
 
@@ -122,6 +131,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [checklist, setChecklist] = useState<ChecklistItem[]>([]);
   const [stays, setStays] = useState<Stay[]>([]);
+  const [legs, setLegs] = useState<TravelOverride[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const me = useSyncExternalStore(subscribeMe, readMe, () => null);
@@ -133,6 +143,9 @@ export function TripProvider({ children }: { children: ReactNode }) {
   const [editing, setEditing] = useState<PlanItemDraft | null>(null);
   const [editingDay, setEditingDay] = useState<string | null>(null);
   const [editingStay, setEditingStay] = useState<StayDraft | null>(null);
+  const [editingLeg, setEditingLeg] = useState<(Leg & { date: string }) | null>(
+    null,
+  );
 
   const setMe = useCallback((who: Traveller) => {
     try {
@@ -154,6 +167,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
           setSuggestions(r.suggestions);
           setChecklist(r.checklist);
           setStays(r.stays);
+          setLegs(r.legs);
           setError(null);
         }
         setLoading(false);
@@ -170,6 +184,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
         setSuggestions(r.suggestions);
         setChecklist(r.checklist);
         setStays(r.stays);
+        setLegs(r.legs);
       }
       setLoading(false);
     });
@@ -210,6 +225,23 @@ export function TripProvider({ children }: { children: ReactNode }) {
             const id = (p.old as { id?: string }).id;
             setStays((list) => list.filter((r) => r.id !== id));
           } else setStays((list) => upsert(list, p.new as Stay, "id"));
+        },
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "travel_legs" },
+        (p) => {
+          const row = (
+            p.eventType === "DELETE" ? p.old : p.new
+          ) as Partial<TravelOverride>;
+          setLegs((list) => {
+            const rest = list.filter(
+              (l) => !(l.date === row.date && l.to_key === row.to_key),
+            );
+            return p.eventType === "DELETE"
+              ? rest
+              : [...rest, p.new as TravelOverride];
+          });
         },
       )
       .subscribe();
@@ -367,6 +399,41 @@ export function TripProvider({ children }: { children: ReactNode }) {
     [load],
   );
 
+  const saveLeg = useCallback(
+    async (o: TravelOverride) => {
+      setLegs((list) => [
+        ...list.filter((l) => !(l.date === o.date && l.to_key === o.to_key)),
+        o,
+      ]);
+      const { error } = await supabase
+        .from("travel_legs")
+        .upsert(o, { onConflict: "date,to_key" });
+      if (error) {
+        setError(error.message);
+        load();
+      }
+    },
+    [load],
+  );
+
+  const clearLeg = useCallback(
+    async (date: string, toKey: string) => {
+      setLegs((list) =>
+        list.filter((l) => !(l.date === date && l.to_key === toKey)),
+      );
+      const { error } = await supabase
+        .from("travel_legs")
+        .delete()
+        .eq("date", date)
+        .eq("to_key", toKey);
+      if (error) {
+        setError(error.message);
+        load();
+      }
+    },
+    [load],
+  );
+
   const value = useMemo<TripState>(
     () => ({
       days,
@@ -374,6 +441,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
       suggestions,
       checklist,
       stays,
+      legs,
       loading,
       error,
       me,
@@ -389,6 +457,8 @@ export function TripProvider({ children }: { children: ReactNode }) {
       saveStay,
       updateStay,
       deleteStay,
+      saveLeg,
+      clearLeg,
       editing,
       openItem: setEditing,
       closeItem: () => setEditing(null),
@@ -398,6 +468,9 @@ export function TripProvider({ children }: { children: ReactNode }) {
       editingStay,
       openStay: setEditingStay,
       closeStay: () => setEditingStay(null),
+      editingLeg,
+      openLeg: setEditingLeg,
+      closeLeg: () => setEditingLeg(null),
     }),
     [
       days,
@@ -405,6 +478,7 @@ export function TripProvider({ children }: { children: ReactNode }) {
       suggestions,
       checklist,
       stays,
+      legs,
       loading,
       error,
       me,
@@ -420,9 +494,12 @@ export function TripProvider({ children }: { children: ReactNode }) {
       saveStay,
       updateStay,
       deleteStay,
+      saveLeg,
+      clearLeg,
       editing,
       editingDay,
       editingStay,
+      editingLeg,
     ],
   );
 

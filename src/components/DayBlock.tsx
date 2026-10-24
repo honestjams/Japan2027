@@ -30,7 +30,14 @@ export function DayBlock({
   day: TripDay;
   compact?: boolean;
 }) {
-  const { items, stays, openItem, openDay, openStay } = useTrip();
+  const {
+    items,
+    stays,
+    legs: overrides,
+    openItem,
+    openDay,
+    openStay,
+  } = useTrip();
   const list = itemsForDay(items, day.date);
   const tonight = stayForNight(stays, day.date);
   // Only call out a check-out when we're actually moving on (or flying home).
@@ -39,7 +46,8 @@ export function DayBlock({
   const isToday = todayInJapan() === day.date;
 
   // The day's route: wake up at last night's stay, visit each ticket in
-  // order, end at tonight's stay. Legs only appear between pinned stops.
+  // order, end at tonight's stay. Legs are estimated from map pins and can
+  // be edited; each is saved against the stop it arrives at.
   const wokeAt =
     day.date !== TRIP_START
       ? stayForNight(stays, addDays(day.date, -1))
@@ -60,13 +68,20 @@ export function DayBlock({
     ...list,
     ...(tonight && list.length ? [asStop(tonight)] : []),
   ];
-  const legs = legsFor(stops, day.is_drive_day);
+  const legs = legsFor(
+    stops,
+    stops.slice(1).map((s) => (s.id.startsWith("stay-") ? "home" : s.id)),
+    day.is_drive_day,
+    overrides,
+    day.date,
+  );
   const offset = wokeAt && list.length ? 1 : 0;
   // legs[k - 1] arrives at stops[k].
   const legInto = (i: number) => legs[i + offset - 1] ?? null;
   const legHome = tonight && list.length ? legs[legs.length - 1] : null;
   const travelMinutes = legs.reduce((n, l) => n + (l?.minutes ?? 0), 0);
-  const unpinned = list.filter((i) => i.lat == null || i.lng == null).length;
+  const untimed = legs.filter((l) => l && l.minutes == null).length;
+  const anyEstimate = legs.some((l) => l && l.minutes != null && !l.edited);
 
   return (
     <section className="min-w-0">
@@ -119,8 +134,11 @@ export function DayBlock({
                 <TravelLeg
                   key={`leg-${item.id}`}
                   leg={leg}
+                  date={day.date}
                   compact={compact}
-                  note={i === 0 ? `from ${leg.from.title}` : undefined}
+                  label={
+                    i === 0 && offset ? `from ${leg.from.title}` : undefined
+                  }
                 />
               ),
               <TicketCard key={item.id} item={item} compact={compact} />,
@@ -130,23 +148,25 @@ export function DayBlock({
             <TravelLeg
               key="leg-home"
               leg={legHome}
+              date={day.date}
               compact={compact}
-              note={`back to ${legHome.to.title}`}
+              label={`back to ${legHome.to.title}`}
             />
           )}
         </AnimatePresence>
-        {list.length > 0 && (travelMinutes > 0 || unpinned > 0) && !compact && (
+        {list.length > 0 && (travelMinutes > 0 || untimed > 0) && !compact && (
           <p className="text-sm text-ink-soft">
             {travelMinutes > 0 && (
               <>
                 <span className="font-bold text-ink">
-                  ~{formatMinutes(travelMinutes)}
+                  {anyEstimate && "~"}
+                  {formatMinutes(travelMinutes)}
                 </span>{" "}
-                getting around today (estimate).{" "}
+                getting around today{anyEstimate && " (some estimated)"}.{" "}
               </>
             )}
-            {unpinned > 0 &&
-              `${unpinned} stop${unpinned === 1 ? " has" : "s have"} no map pin, so ${unpinned === 1 ? "its" : "their"} travel isn't counted.`}
+            {untimed > 0 &&
+              `${untimed} leg${untimed === 1 ? " has" : "s have"} no time yet (no map pin). Tap ＋ to add one.`}
           </p>
         )}
         {list.length === 0 && (

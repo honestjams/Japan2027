@@ -1,31 +1,59 @@
 /**
- * Rough door-to-door travel estimates between pins, with no network calls so
- * they work offline in Japan. Each leg also links to Google Maps for the
- * exact route and live times.
+ * Travel between the stops of a day. Each leg starts as a rough estimate
+ * from the map pins (computed on the phone, so it works offline) and can be
+ * overridden with our own mode, minutes and note. Every leg links to Google
+ * Maps for the exact route and live times.
  */
 
-export type TravelMode = "walk" | "train" | "drive";
+export type TravelMode = "walk" | "train" | "bus" | "taxi" | "drive" | "ferry";
 
 export interface Stop {
+  /** Plan item id, or "stay-<id>" for a stay. */
   id: string;
   title: string;
   lat: number | null;
   lng: number | null;
+  city?: string | null;
+}
+
+/** Our own details for a leg, keyed by the stop we're travelling to. */
+export interface TravelOverride {
+  date: string;
+  /** A plan item's id, or "home" for the last leg back to tonight's stay. */
+  to_key: string;
+  mode: TravelMode | null;
+  minutes: number | null;
+  note: string | null;
 }
 
 export interface Leg {
   from: Stop;
   to: Stop;
-  mode: TravelMode;
-  km: number;
-  minutes: number;
+  /** Key the leg is saved under (see TravelOverride.to_key). */
+  toKey: string;
+  /** Null when there's no estimate and nothing set yet. */
+  mode: TravelMode | null;
+  minutes: number | null;
+  /** Straight-line distance, when both stops are pinned. */
+  km: number | null;
+  note: string | null;
+  /** True when mode/minutes come from us rather than the estimate. */
+  edited: boolean;
 }
 
-export const MODE = {
+export const MODE: Record<
+  TravelMode,
+  { kanji: string; label: string; gmaps: string }
+> = {
   walk: { kanji: "歩", label: "walk", gmaps: "walking" },
   train: { kanji: "電", label: "by train", gmaps: "transit" },
+  bus: { kanji: "バ", label: "by bus", gmaps: "transit" },
+  taxi: { kanji: "タ", label: "by taxi", gmaps: "driving" },
   drive: { kanji: "車", label: "drive", gmaps: "driving" },
-} as const;
+  ferry: { kanji: "船", label: "by ferry", gmaps: "transit" },
+};
+
+export const MODE_KEYS = Object.keys(MODE) as TravelMode[];
 
 /** Straight-line distance in km. */
 export function haversineKm(
@@ -73,24 +101,44 @@ export function estimate(
   return { mode: "train", minutes: round5(minutes) };
 }
 
-/** Legs between consecutive stops that both have a pin. */
-export function legsFor(stops: Stop[], drive: boolean): (Leg | null)[] {
+const pinned = (s: Stop) => s.lat != null && s.lng != null;
+
+/**
+ * One leg per pair of consecutive stops; `toKeys[k]` is the key for the leg
+ * arriving at stops[k + 1]. Our overrides win field by field, so setting
+ * only a note (or only the mode) keeps the estimated minutes.
+ */
+export function legsFor(
+  stops: Stop[],
+  toKeys: string[],
+  drive: boolean,
+  overrides: TravelOverride[] = [],
+  date?: string,
+): (Leg | null)[] {
   return stops.slice(1).map((to, i) => {
     const from = stops[i];
-    if (
-      from.lat == null ||
-      from.lng == null ||
-      to.lat == null ||
-      to.lng == null
-    )
-      return null;
-    const km = haversineKm(
-      { lat: from.lat, lng: from.lng },
-      { lat: to.lat, lng: to.lng },
-    );
-    // Same place (e.g. two things in one building): no travel to show.
-    if (km < 0.05) return null;
-    return { from, to, km, ...estimate(km, drive) };
+    const toKey = toKeys[i];
+    const o = overrides.find((x) => x.date === date && x.to_key === toKey);
+    const km =
+      pinned(from) && pinned(to)
+        ? haversineKm(
+            { lat: from.lat!, lng: from.lng! },
+            { lat: to.lat!, lng: to.lng! },
+          )
+        : null;
+    // Same place (two things in one building) and nothing set: no leg.
+    if (km != null && km < 0.05 && !o) return null;
+    const est = km != null ? estimate(km, drive) : null;
+    return {
+      from,
+      to,
+      toKey,
+      mode: o?.mode ?? est?.mode ?? null,
+      minutes: o?.minutes ?? est?.minutes ?? null,
+      km,
+      note: o?.note ?? null,
+      edited: !!o && (o.mode != null || o.minutes != null),
+    };
   });
 }
 
@@ -106,6 +154,11 @@ export const formatKm = (km: number) =>
     ? `${Math.round(km * 1000)} m`
     : `${km < 10 ? km.toFixed(1) : Math.round(km)} km`;
 
+const place = (s: Stop) =>
+  pinned(s)
+    ? `${s.lat},${s.lng}`
+    : encodeURIComponent([s.title, s.city, "Japan"].filter(Boolean).join(", "));
+
 /** Google Maps directions for the leg, in the matching travel mode. */
 export const directionsLink = (leg: Leg) =>
-  `https://www.google.com/maps/dir/?api=1&origin=${leg.from.lat},${leg.from.lng}&destination=${leg.to.lat},${leg.to.lng}&travelmode=${MODE[leg.mode].gmaps}`;
+  `https://www.google.com/maps/dir/?api=1&origin=${place(leg.from)}&destination=${place(leg.to)}&travelmode=${MODE[leg.mode ?? "train"].gmaps}`;
