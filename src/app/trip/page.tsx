@@ -42,7 +42,7 @@ export default function TripPage() {
 
   const scheduled = items.filter((i) => i.date);
   const count = (s: string) => items.filter((i) => i.status === s).length;
-  const budget = summarise(budgetLines(items, stays)).total;
+  const budget = summarise(budgetLines(items, stays, rate.jpyPerAud)).total;
   const gaps = unbookedNights(stays);
   const mapPoints = [...stayPoints(stays), ...toPoints(scheduled)];
   const today = todayInJapan();

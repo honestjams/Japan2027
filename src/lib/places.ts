@@ -13,7 +13,7 @@ export function mapsLink(p: Place | Suggestion) {
 export { geocode } from "./geocode";
 
 export const yen = (n: number | null) =>
-  n == null ? null : `¥${n.toLocaleString("en-GB")}`;
+  n == null ? null : `¥${Math.round(n).toLocaleString("en-GB")}`;
 
 /** Stable small tilt per item so the cards look hand-placed, not random on every render. */
 export function tilt(id: string, max = 0.8) {

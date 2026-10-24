@@ -41,6 +41,7 @@ export interface PlanItem {
   wish_of: Who;
   added_by: Traveller | null;
   cost_jpy: number | null;
+  cost_aud: number | null;
   url: string | null;
   lat: number | null;
   lng: number | null;
@@ -186,6 +187,7 @@ export interface Stay {
   booking_ref: string | null;
   url: string | null;
   cost_jpy: number | null;
+  cost_aud: number | null;
   lat: number | null;
   lng: number | null;
   notes: string | null;

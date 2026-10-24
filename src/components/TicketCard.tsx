@@ -11,7 +11,9 @@ import {
   type PlanItem,
 } from "@/lib/types";
 import { formatTime } from "@/lib/dates";
-import { tilt, yen } from "@/lib/places";
+import { tilt } from "@/lib/places";
+import { hasPrice, priceLabel } from "@/lib/money";
+import { useAudRate } from "@/lib/useAudRate";
 
 const NEXT_STATUS = {
   idea: "planned",
@@ -29,6 +31,7 @@ export function TicketCard({
   compact?: boolean;
 }) {
   const { openItem, updateItem } = useTrip();
+  const rate = useAudRate().jpyPerAud;
   const cat = CATEGORIES[item.category];
   const slot = SLOTS.find((s) => s.key === item.slot);
   const time = formatTime(item.start_time) ?? slot?.vhs ?? "ANY";
@@ -79,7 +82,7 @@ export function TicketCard({
           {!compact && (
             <p className="mt-0.5 truncate text-sm text-ink-soft">
               {[item.area, item.city].filter(Boolean).join(" · ") || cat.label}
-              {item.cost_jpy != null && ` · ${yen(item.cost_jpy)}`}
+              {hasPrice(item) && ` · ${priceLabel(item, rate)}`}
             </p>
           )}
           {!compact && (

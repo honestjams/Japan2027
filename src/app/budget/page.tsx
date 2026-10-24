@@ -8,7 +8,13 @@ import { Chip, SectionLabel, spring } from "@/components/ui";
 import { TRAVELLERS, type Traveller } from "@/lib/types";
 import { dayNumber, shortDate, weekday } from "@/lib/dates";
 import { yen } from "@/lib/places";
-import { aud, budgetLines, summarise, type BudgetLine } from "@/lib/money";
+import {
+  aud,
+  budgetLines,
+  hasPrice,
+  summarise,
+  type BudgetLine,
+} from "@/lib/money";
 import { useAudRate } from "@/lib/useAudRate";
 
 type Filter = "all" | "unpaid" | "paid";
@@ -28,14 +34,14 @@ export default function BudgetPage() {
   const [filter, setFilter] = useState<Filter>("all");
   if (loading) return <Loading />;
 
-  const lines = budgetLines(items, stays);
+  const lines = budgetLines(items, stays, rate.jpyPerAud);
   const sum = summarise(lines);
   const r = rate.jpyPerAud;
   const shown = lines.filter((l) =>
     filter === "all" ? true : filter === "paid" ? l.paid : !l.paid,
   );
-  const unpriced = items.filter((i) => i.date && i.cost_jpy == null);
-  const unpricedStays = stays.filter((s) => s.cost_jpy == null);
+  const unpriced = items.filter((i) => i.date && !hasPrice(i));
+  const unpricedStays = stays.filter((s) => !hasPrice(s));
   const pct = sum.total ? Math.round((sum.paid / sum.total) * 100) : 0;
 
   const setPaid = (l: BudgetLine, paid: boolean, by?: Traveller | null) => {
@@ -293,8 +299,13 @@ function BudgetRow({
         </p>
       </button>
       <div className="shrink-0 text-right">
-        <p className="font-bold">{aud(line.cost, r)}</p>
-        <p className="text-xs text-ink-soft">{yen(line.cost)}</p>
+        {/* The currency it was entered in is exact; the other is ≈. */}
+        <p className="font-bold">
+          {line.currency === "AUD" ? aud(line.cost, r) : yen(line.cost)}
+        </p>
+        <p className="text-xs text-ink-soft">
+          ≈{line.currency === "AUD" ? yen(line.cost) : aud(line.cost, r)}
+        </p>
         {line.paid && (
           <button
             onClick={() => onPayer(line.paidBy === "josh" ? "sam" : "josh")}

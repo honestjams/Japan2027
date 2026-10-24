@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTrip } from "./TripProvider";
 import { PinField } from "./PinField";
+import { PriceField } from "./PriceField";
 import { Sheet } from "./Sheet";
 import { Button, Chip, Field, inputClass } from "./ui";
 import type { StayDraft } from "@/lib/types";
@@ -202,27 +203,23 @@ function StayForm({ initial }: { initial: StayDraft }) {
         </div>
       </Field>
 
-      <div className="grid grid-cols-2 gap-3">
-        <Field label="Booking ref">
-          <input
-            className={inputClass}
-            value={draft.booking_ref ?? ""}
-            onChange={(e) => set("booking_ref", e.target.value || null)}
-          />
-        </Field>
-        <Field label="Total ¥">
-          <input
-            inputMode="numeric"
-            className={inputClass}
-            placeholder="60000"
-            value={draft.cost_jpy ?? ""}
-            onChange={(e) => {
-              const n = parseInt(e.target.value.replace(/\D/g, ""), 10);
-              set("cost_jpy", Number.isNaN(n) ? null : n);
-            }}
-          />
-        </Field>
-      </div>
+      <PriceField
+        label="Total for the stay"
+        placeholderJpy="60000"
+        value={{
+          cost_jpy: draft.cost_jpy ?? null,
+          cost_aud: draft.cost_aud ?? null,
+        }}
+        onChange={(p) => setDraft((d) => ({ ...d, ...p }))}
+      />
+
+      <Field label="Booking ref">
+        <input
+          className={inputClass}
+          value={draft.booking_ref ?? ""}
+          onChange={(e) => set("booking_ref", e.target.value || null)}
+        />
+      </Field>
 
       <Field label="Link">
         <input

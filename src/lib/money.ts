@@ -1,5 +1,35 @@
 import type { PlanItem, Stay, Traveller } from "./types";
 
+export type Currency = "JPY" | "AUD";
+
+/** Anything with a price: entered in yen or in Australian dollars, never both. */
+export interface Priced {
+  cost_jpy: number | null;
+  cost_aud: number | null;
+}
+
+export const hasPrice = (p: Priced) => p.cost_jpy != null || p.cost_aud != null;
+
+export const currencyOf = (p: Priced): Currency =>
+  p.cost_aud != null ? "AUD" : "JPY";
+
+/** The price in yen; A$ prices convert at today's rate (unrounded). */
+export const toJpy = (p: Priced, jpyPerAud: number) =>
+  p.cost_jpy != null
+    ? Number(p.cost_jpy)
+    : p.cost_aud != null
+      ? Number(p.cost_aud) * jpyPerAud
+      : 0;
+
+/** "A$450 · ≈¥49,973" or "¥1,000 · ≈A$9.01": entered currency first, exact. */
+export function priceLabel(p: Priced, jpyPerAud: number) {
+  if (!hasPrice(p)) return null;
+  const jpy = toJpy(p, jpyPerAud);
+  return currencyOf(p) === "AUD"
+    ? `${audAmount(Number(p.cost_aud))} · ≈${yenAmount(jpy)}`
+    : `${yenAmount(jpy)} · ≈${aud(jpy, jpyPerAud)}`;
+}
+
 /** One priced thing in the budget: a scheduled ticket or a stay. */
 export interface BudgetLine {
   kind: "item" | "stay";
@@ -7,32 +37,38 @@ export interface BudgetLine {
   title: string;
   /** Ticket date, or the stay's check-in. */
   date: string;
+  /** In yen (converted at today's rate for A$ prices); totals add these. */
   cost: number;
+  currency: Currency;
   paid: boolean;
   paidBy: Traveller | null;
 }
 
-export function budgetLines(items: PlanItem[], stays: Stay[]): BudgetLine[] {
+export function budgetLines(
+  items: PlanItem[],
+  stays: Stay[],
+  jpyPerAud: number,
+): BudgetLine[] {
   const lines: BudgetLine[] = [
-    ...stays
-      .filter((s) => s.cost_jpy != null)
-      .map((s) => ({
-        kind: "stay" as const,
-        id: s.id,
-        title: s.name,
-        date: s.check_in,
-        cost: s.cost_jpy!,
-        paid: s.paid,
-        paidBy: s.paid_by,
-      })),
+    ...stays.filter(hasPrice).map((s) => ({
+      kind: "stay" as const,
+      id: s.id,
+      title: s.name,
+      date: s.check_in,
+      cost: toJpy(s, jpyPerAud),
+      currency: currencyOf(s),
+      paid: s.paid,
+      paidBy: s.paid_by,
+    })),
     ...items
-      .filter((i) => i.date && i.cost_jpy != null)
+      .filter((i) => i.date && hasPrice(i))
       .map((i) => ({
         kind: "item" as const,
         id: i.id,
         title: i.title,
         date: i.date!,
-        cost: i.cost_jpy!,
+        cost: toJpy(i, jpyPerAud),
+        currency: currencyOf(i),
         paid: i.paid,
         paidBy: i.paid_by,
       })),
@@ -85,10 +121,15 @@ export function summarise(lines: BudgetLine[]): BudgetSummary {
 /** Yen per Australian dollar if the live rate can't be fetched. */
 export const FALLBACK_JPY_PER_AUD = 110;
 
-export const aud = (jpy: number, jpyPerAud: number) => {
-  const v = jpy / jpyPerAud;
-  return `A$${v.toLocaleString("en-AU", {
+export const audAmount = (v: number) =>
+  `A$${v.toLocaleString("en-AU", {
     minimumFractionDigits: v < 100 ? 2 : 0,
     maximumFractionDigits: v < 100 ? 2 : 0,
   })}`;
-};
+
+export const yenAmount = (v: number) =>
+  `¥${Math.round(v).toLocaleString("en-GB")}`;
+
+/** Yen shown as Australian dollars at the given rate. */
+export const aud = (jpy: number, jpyPerAud: number) =>
+  audAmount(jpy / jpyPerAud);

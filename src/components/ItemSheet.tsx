@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTrip } from "./TripProvider";
 import { PinField } from "./PinField";
+import { PriceField } from "./PriceField";
 import { parseCoords } from "@/lib/geocode";
 import { Sheet } from "./Sheet";
 import { Button, Chip, Field, Hanko, inputClass } from "./ui";
@@ -193,29 +194,24 @@ function ItemForm({ initial }: { initial: PlanItemDraft }) {
         </div>
       </Field>
 
-      <div className="grid grid-cols-2 gap-3">
-        <Field label="Cost ¥ (approx)">
-          <input
-            inputMode="numeric"
-            className={inputClass}
-            placeholder="3000"
-            value={draft.cost_jpy ?? ""}
-            onChange={(e) => {
-              const n = parseInt(e.target.value.replace(/\D/g, ""), 10);
-              set("cost_jpy", Number.isNaN(n) ? null : n);
-            }}
-          />
-        </Field>
-        <Field label="Link">
-          <input
-            type="url"
-            className={inputClass}
-            placeholder="https://"
-            value={draft.url ?? ""}
-            onChange={(e) => set("url", e.target.value || null)}
-          />
-        </Field>
-      </div>
+      <PriceField
+        label="Cost (approx)"
+        value={{
+          cost_jpy: draft.cost_jpy ?? null,
+          cost_aud: draft.cost_aud ?? null,
+        }}
+        onChange={(p) => setDraft((d) => ({ ...d, ...p }))}
+      />
+
+      <Field label="Link">
+        <input
+          type="url"
+          className={inputClass}
+          placeholder="https://"
+          value={draft.url ?? ""}
+          onChange={(e) => set("url", e.target.value || null)}
+        />
+      </Field>
 
       <PinField
         lat={draft.lat}
