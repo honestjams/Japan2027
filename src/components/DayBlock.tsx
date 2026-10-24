@@ -5,10 +5,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { itemsForDay, useTrip } from "./TripProvider";
 import { TicketCard } from "./TicketCard";
 import { StayCard } from "./StayCard";
+import { TravelLeg } from "./TravelLeg";
+import { formatMinutes, legsFor, type Stop } from "@/lib/travel";
 import { Tape } from "./ui";
 import type { TripDay } from "@/lib/types";
 import {
   TRIP_END,
+  TRIP_START,
   addDays,
   dayNumber,
   formatTime,
@@ -34,6 +37,36 @@ export function DayBlock({
   const leaving = checkOutOn(stays, day.date);
   const showCheckOut = leaving && leaving.id !== tonight?.id;
   const isToday = todayInJapan() === day.date;
+
+  // The day's route: wake up at last night's stay, visit each ticket in
+  // order, end at tonight's stay. Legs only appear between pinned stops.
+  const wokeAt =
+    day.date !== TRIP_START
+      ? stayForNight(stays, addDays(day.date, -1))
+      : undefined;
+  const asStop = (s: {
+    id: string;
+    name: string;
+    lat: number | null;
+    lng: number | null;
+  }): Stop => ({
+    id: `stay-${s.id}`,
+    title: s.name,
+    lat: s.lat,
+    lng: s.lng,
+  });
+  const stops: Stop[] = [
+    ...(wokeAt && list.length ? [asStop(wokeAt)] : []),
+    ...list,
+    ...(tonight && list.length ? [asStop(tonight)] : []),
+  ];
+  const legs = legsFor(stops, day.is_drive_day);
+  const offset = wokeAt && list.length ? 1 : 0;
+  // legs[k - 1] arrives at stops[k].
+  const legInto = (i: number) => legs[i + offset - 1] ?? null;
+  const legHome = tonight && list.length ? legs[legs.length - 1] : null;
+  const travelMinutes = legs.reduce((n, l) => n + (l?.minutes ?? 0), 0);
+  const unpinned = list.filter((i) => i.lat == null || i.lng == null).length;
 
   return (
     <section className="min-w-0">
@@ -79,10 +112,43 @@ export function DayBlock({
 
       <div className={compact ? "space-y-3" : "space-y-4"}>
         <AnimatePresence initial={false}>
-          {list.map((item) => (
-            <TicketCard key={item.id} item={item} compact={compact} />
-          ))}
+          {list.flatMap((item, i) => {
+            const leg = legInto(i);
+            return [
+              leg && (
+                <TravelLeg
+                  key={`leg-${item.id}`}
+                  leg={leg}
+                  compact={compact}
+                  note={i === 0 ? `from ${leg.from.title}` : undefined}
+                />
+              ),
+              <TicketCard key={item.id} item={item} compact={compact} />,
+            ];
+          })}
+          {legHome && (
+            <TravelLeg
+              key="leg-home"
+              leg={legHome}
+              compact={compact}
+              note={`back to ${legHome.to.title}`}
+            />
+          )}
         </AnimatePresence>
+        {list.length > 0 && (travelMinutes > 0 || unpinned > 0) && !compact && (
+          <p className="text-sm text-ink-soft">
+            {travelMinutes > 0 && (
+              <>
+                <span className="font-bold text-ink">
+                  ~{formatMinutes(travelMinutes)}
+                </span>{" "}
+                getting around today (estimate).{" "}
+              </>
+            )}
+            {unpinned > 0 &&
+              `${unpinned} stop${unpinned === 1 ? " has" : "s have"} no map pin, so ${unpinned === 1 ? "its" : "their"} travel isn't counted.`}
+          </p>
+        )}
         {list.length === 0 && (
           <p className="py-2 text-sm italic text-ink-soft">
             Blank tape. Nothing planned yet.
