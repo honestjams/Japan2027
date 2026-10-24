@@ -50,6 +50,10 @@ export interface PlanItem {
   sort_order: number;
   paid: boolean;
   paid_by: Traveller | null;
+  /** Needs booking before the trip; done once status is booked/done. */
+  book_ahead: boolean;
+  /** Optional deadline: when tickets go on sale or sell out. */
+  book_by: string | null;
   created_at: string;
 }
 

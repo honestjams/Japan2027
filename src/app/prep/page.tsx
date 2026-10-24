@@ -23,6 +23,8 @@ import {
   type Who,
 } from "@/lib/types";
 import { TRIP_START, diffDays, shortDate, todayInJapan } from "@/lib/dates";
+import Link from "next/link";
+import { toBook, unbookedStays } from "@/lib/bookings";
 
 /** Open things first, soonest deadline first; ticked-off things sink. */
 const byUrgency = (a: ChecklistItem, b: ChecklistItem) =>
@@ -31,7 +33,7 @@ const byUrgency = (a: ChecklistItem, b: ChecklistItem) =>
   a.sort_order - b.sort_order;
 
 export default function PrepPage() {
-  const { checklist, loading } = useTrip();
+  const { checklist, items, stays, loading } = useTrip();
   const [who, setWho] = useState<Traveller | null>(null);
   const [hideDone, setHideDone] = useState(false);
   const [editing, setEditing] = useState<ChecklistDraft | null>(null);
@@ -58,6 +60,10 @@ export default function PrepPage() {
           + Add
         </Button>
       </div>
+
+      <BookAheadLink
+        count={toBook(items).length + unbookedStays(stays).length}
+      />
 
       <section className="paper-card relative mt-5 p-5">
         <div className="flex items-baseline justify-between">
@@ -388,5 +394,26 @@ function CheckForm({
         </Button>
       </div>
     </div>
+  );
+}
+
+function BookAheadLink({ count }: { count: number }) {
+  return (
+    <Link
+      href="/bookings"
+      className={`paper-card mt-5 flex items-center justify-between gap-3 p-4 transition-transform hover:-translate-y-0.5 ${count ? "border-l-4 border-tape-red" : ""}`}
+    >
+      <div>
+        <p className="font-display text-lg font-bold">予 Book ahead</p>
+        <p className="text-sm text-ink-soft">
+          {count
+            ? `${count} ticket${count === 1 ? "" : "s"} or stay${count === 1 ? "" : "s"} still to book`
+            : "Everything that needs booking is booked"}
+        </p>
+      </div>
+      <span className="vhs-text text-2xl" aria-hidden>
+        ▶
+      </span>
+    </Link>
   );
 }

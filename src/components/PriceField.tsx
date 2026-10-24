@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Field, inputClass, spring } from "./ui";
+import { Field, inputClass } from "./ui";
 import {
   aud,
   audAmount,
@@ -96,20 +95,9 @@ export function PriceField({
               aria-label={
                 c === "JPY" ? "Price in yen" : "Price in Australian dollars"
               }
-              className="relative h-10 w-11 text-base font-bold"
+              className={`h-10 w-11 rounded text-base font-bold transition-colors ${currency === c ? "bg-ink text-washi" : "text-ink-soft"}`}
             >
-              {currency === c && (
-                <motion.span
-                  layoutId={`cur-${label}`}
-                  transition={spring}
-                  className="absolute inset-0 rounded bg-ink"
-                />
-              )}
-              <span
-                className={`relative ${currency === c ? "text-washi" : "text-ink-soft"}`}
-              >
-                {c === "JPY" ? "¥" : "A$"}
-              </span>
+              {c === "JPY" ? "¥" : "A$"}
             </button>
           ))}
         </div>

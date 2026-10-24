@@ -7,6 +7,7 @@ import { DayBlock } from "@/components/DayBlock";
 import { Loading } from "@/components/Loading";
 import { MapView, stayPoints, toPoints } from "@/components/MapView";
 import { staysForDay } from "@/lib/stays";
+import { toBook, unbookedStays } from "@/lib/bookings";
 import { Petals } from "@/components/Petals";
 import { SectionLabel, spring } from "@/components/ui";
 import {
@@ -24,6 +25,9 @@ import {
 
 export default function TodayPage() {
   const { days, items, stays, checklist, loading } = useTrip();
+  const pendingBookings = toBook(items);
+  const bookCount = pendingBookings.length + unbookedStays(stays).length;
+  const nextBooking = pendingBookings.find((i) => i.book_by);
   if (loading) return <Loading />;
 
   const today = todayInJapan();
@@ -132,6 +136,22 @@ export default function TodayPage() {
             )}
           </Link>
         </>
+      )}
+
+      {before && bookCount > 0 && (
+        <Link
+          href="/bookings"
+          className="paper-card mt-3 block border-l-4 border-tape-red p-4 transition-transform hover:-translate-y-0.5"
+        >
+          <p className="font-display text-lg font-bold">
+            予 {bookCount} thing{bookCount === 1 ? "" : "s"} to book ahead →
+          </p>
+          {nextBooking?.book_by && (
+            <p className="text-sm text-ink-soft">
+              Next: {nextBooking.title}, by {shortDate(nextBooking.book_by)}
+            </p>
+          )}
+        </Link>
       )}
 
       {ideas > 0 && (

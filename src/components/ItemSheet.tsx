@@ -179,6 +179,51 @@ function ItemForm({ initial }: { initial: PlanItemDraft }) {
         </div>
       </Field>
 
+      <div className="paper-card p-4">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-display text-lg font-bold">予 Book ahead</p>
+            <p className="text-sm text-ink-soft">
+              Tickets or a reservation needed before we go
+            </p>
+          </div>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={!!draft.book_ahead}
+            aria-label="Book ahead"
+            onClick={() =>
+              setDraft((d) => ({
+                ...d,
+                book_ahead: !d.book_ahead,
+                book_by: d.book_ahead ? null : d.book_by,
+              }))
+            }
+            className={`relative h-8 w-14 shrink-0 rounded-full transition-colors ${draft.book_ahead ? "bg-tape-red" : "bg-paper-edge"}`}
+          >
+            <span
+              className={`absolute top-1 h-6 w-6 rounded-full bg-paper shadow transition-all ${draft.book_ahead ? "left-7" : "left-1"}`}
+            />
+          </button>
+        </div>
+        {draft.book_ahead && (
+          <div className="mt-4">
+            <Field label="Book by (optional)">
+              <input
+                type="date"
+                className={inputClass}
+                value={draft.book_by ?? ""}
+                onChange={(e) => set("book_by", e.target.value || null)}
+              />
+            </Field>
+            <p className="mt-1 text-sm text-ink-soft">
+              When tickets go on sale or sell out. Set Status to Booked once
+              it&apos;s done.
+            </p>
+          </div>
+        )}
+      </div>
+
       <Field label="Whose wish" group>
         <div className="flex flex-wrap gap-2">
           {(["josh", "sam", "both"] as Who[]).map((w) => (

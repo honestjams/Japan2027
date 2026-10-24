@@ -13,6 +13,7 @@ import {
 import { formatTime } from "@/lib/dates";
 import { tilt } from "@/lib/places";
 import { hasPrice, priceLabel } from "@/lib/money";
+import { isBooked } from "@/lib/bookings";
 import { useAudRate } from "@/lib/useAudRate";
 
 const NEXT_STATUS = {
@@ -99,6 +100,16 @@ export function TicketCard({
                 {STATUSES.find((s) => s.key === item.status)?.label}
               </motion.button>
               <WishStamp wish={item.wish_of} />
+              {item.book_ahead && !isBooked(item) && (
+                <span
+                  className="rounded-full border border-tape-red px-2 text-xs font-bold leading-5 text-tape-red"
+                  title={
+                    item.book_by ? `Book by ${item.book_by}` : "Needs booking"
+                  }
+                >
+                  予 Book ahead
+                </span>
+              )}
             </div>
           )}
         </div>

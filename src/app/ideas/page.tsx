@@ -17,6 +17,7 @@ import {
 } from "@/lib/types";
 import { dayNumber } from "@/lib/dates";
 import { mapsLink, tilt } from "@/lib/places";
+import { needsBooking } from "@/lib/bookings";
 
 type Tab = "suggested" | "ours";
 
@@ -292,6 +293,7 @@ function SuggestionCard({ s }: { s: Suggestion }) {
                 url: s.url,
                 notes: s.description,
                 suggestion_id: s.id,
+                book_ahead: needsBooking(s.tags),
                 wish_of: s.for_who === "both" ? (me ?? "both") : s.for_who,
                 status: "idea",
               })
